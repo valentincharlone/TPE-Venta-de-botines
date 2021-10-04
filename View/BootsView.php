@@ -14,6 +14,9 @@ class BootsView {
         $this->smarty->assign('boots', $boots);
         $this->smarty->display('templates/bootsList.tpl');
     }
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
+    }
 
 
 }

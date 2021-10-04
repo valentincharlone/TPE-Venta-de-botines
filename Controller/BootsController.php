@@ -2,9 +2,6 @@
 
     require_once "./Model/BootsModel.php";
     require_once "./View/BootsView.php";
-    
-    echo "hola";
-
     class BootsController {
 
         private $model;
