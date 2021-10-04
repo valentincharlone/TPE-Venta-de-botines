@@ -17,9 +17,9 @@
             $this->view->showBoots($boots);
         }
 
-        function viewBoots($id){
-            $boot = $this->model->getBoots($id);
-            $this->view->showBoots($boot);
+        function viewBoot($id){
+            $boot = $this->model->getBoot($id);
+            $this->view->showBoot($boot);
         }
 
         function createBoot(){
@@ -29,8 +29,17 @@
             //     $done = 1;
             // }
     
-            $this->model->insertBoot($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria']);
+            $this->model->insertBoot($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
             $this->view->showHomeLocation();
         }
+        function deleteBoot($id){
+            $this->model->deleteBootFromDB($id);
+            $this->view->showHomeLocation();
+        }
+
+        function updateBoot(){
+             $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
+             $this->view->showHomeLocation();
+         }
     
     }

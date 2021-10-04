@@ -1,5 +1,5 @@
 <?php
-require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
+require_once 'libs/smarty-3.1.39/libs/Smarty.class.php';
 
 class BootsView {
 
@@ -15,6 +15,11 @@ class BootsView {
         
         $this->smarty->display('templates/bootsList.tpl');
     }
+    function showBoot($boot){
+        $this->smarty->assign('titulo', 'Descripcion del botin:'); 
+        $this->smarty->assign('modelo', $boot);
+        $this->smarty->display('templates/bootDetail.tpl');
+     }
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }

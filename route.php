@@ -1,7 +1,5 @@
 <?php
-
     require_once "Controller/BootsController.php";
-    require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -20,11 +18,17 @@
         case 'home': 
             $bootsController->showHome(); 
             break;
-        case 'viewBoots':
-            $bootsController->viewBoots($params[1]);
+        case 'viewBoot':
+            $bootsController->viewBoot($params[1]);
             break;
         case 'createBoot': 
             $bootsController->createBoot(); 
+            break;
+        case 'deleteBoot': 
+            $bootsController->deleteBoot($params[1]); 
+            break;
+         case 'updateteBoot': 
+            $bootsController->updateBoot(); 
             break;
         
     }
