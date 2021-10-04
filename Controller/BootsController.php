@@ -24,4 +24,6 @@
             $boot = $this->model->getBoots($id);
             $this->view->showBoots($boot);
         }
+
+        
     }

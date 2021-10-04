@@ -13,7 +13,5 @@
             $sentencia->execute();
             $botines = $sentencia->fetch(PDO::FETCH_OBJ);
             return $botines;
-        }
-
-        
+        }   
     }
