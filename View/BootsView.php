@@ -12,6 +12,7 @@ class BootsView {
     function showBoots($boots){
         $this->smarty->assign('titulo', 'Nuestros botines');        
         $this->smarty->assign('boots', $boots);
+        
         $this->smarty->display('templates/bootsList.tpl');
     }
     function showHomeLocation(){

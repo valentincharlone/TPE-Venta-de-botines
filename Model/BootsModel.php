@@ -14,4 +14,10 @@
             $botines = $sentencia->fetch(PDO::FETCH_OBJ);
             return $botines;
         }   
+
+        function insertBoot($modelo, $talle, $precio, $descripcion, $categoria){
+            $sentencia = $this->db->prepare("INSERT INTO botin(modelo, talle, precio, descripcion, categoria) VALUES(?, ?, ?, ?, ?)");
+            $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria ));
+        }
+    
     }
