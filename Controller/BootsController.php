@@ -1,5 +1,4 @@
 <?php
-//aaaa
     require_once "./Model/BootsModel.php";
     require_once "./View/BootsView.php";
     class BootsController {
@@ -13,6 +12,10 @@
         }
 
         function showHome(){
+            $this->view->showHome();
+            
+        }
+        function allBoots(){
             $boots = $this->model->getBoots();
             $this->view->showBoots($boots);
         }
@@ -22,18 +25,23 @@
             $this->view->showBoot($boot);
         }
 
-        function createBoot(){    
+        function formBoot(){    
+            $this->view->viewformBoot();
+            
+        }
+        function insertBoot() {
             $this->model->insertBoot($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
-            $this->view->showHomeLocation();
+            $this->view->showBotinesLocation();
+
         }
         function deleteBoot($id){
             $this->model->deleteBootFromDB($id);
-            $this->view->showHomeLocation();
+            $this->view->showBotinesLocation();
         }
 
         function updateBoot(){
              $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
-             $this->view->showHomeLocation();
+             $this->view->showBotinesLocation();
          }
     
     }

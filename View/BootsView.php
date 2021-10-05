@@ -8,6 +8,13 @@ class BootsView {
     function __construct() {
         $this->smarty = new Smarty();
     }
+    function showHome() {
+        $this->smarty->display('templates/home.tpl');
+    }
+
+    function viewformBoot() {
+        $this->smarty->display('templates/createBoot.tpl');
+    }
 
     function showBoots($boots){
         $this->smarty->assign('titulo', 'Nuestros botines');        
@@ -23,6 +30,13 @@ class BootsView {
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
+    function showCreateBootLocation() {
+        header("Location: ".BASE_URL."createBoot");
+    }
+    function showBotinesLocation() {
+        header("Location: ".BASE_URL."botines");
+    }
+
 
 
 }

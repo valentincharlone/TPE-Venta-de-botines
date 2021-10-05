@@ -1,7 +1,8 @@
 
 
 <nav>
-    <a href = "showHome"> Home </a>
-    <a href = "showBoots"> Botines </a>
-    <a href = "showUser"> Usuario </a>
+    <a href = "home"> Home </a>
+    <a href = "botines"> Botines </a>
+    <a href = "createBoot"> Agregar botin </a>
+    <a href = "login"> Login </a>
 </nav>
