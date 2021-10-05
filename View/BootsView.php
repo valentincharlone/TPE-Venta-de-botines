@@ -16,7 +16,7 @@ class BootsView {
         $this->smarty->display('templates/bootsList.tpl');
     }
     function showBoot($boot){
-        $this->smarty->assign('titulo', 'Descripcion del botin:'); 
+        $this->smarty->assign('titulo', 'Descripcion:'); 
         $this->smarty->assign('boot', $boot);
         $this->smarty->display('templates/bootDetail.tpl');
      }
