@@ -3,7 +3,7 @@
 
 <div class="container">
     <h1 class="mb-4">{$titulo}</h1>
-    <h2>Cateogira: {$boot->categoria}</h2>
+    <h2>Categoria: {$boot->categoria}</h2>
     <h2>Talle: {$boot->talle}</h2>
     <h2>Precio: {$boot->precio}</h2>
     <h2>Descripcion: {$boot->descripcion}</h2>

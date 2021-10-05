@@ -17,7 +17,7 @@ class BootsView {
     }
     function showBoot($boot){
         $this->smarty->assign('titulo', 'Descripcion del botin:'); 
-        $this->smarty->assign('modelo', $boot);
+        $this->smarty->assign('boot', $boot);
         $this->smarty->display('templates/bootDetail.tpl');
      }
     function showHomeLocation(){

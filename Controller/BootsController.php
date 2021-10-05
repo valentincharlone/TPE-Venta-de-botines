@@ -22,13 +22,7 @@
             $this->view->showBoot($boot);
         }
 
-        function createBoot(){
-            // if(!isset($_POST['done'])){
-            //     $done = 0;
-            // }else{
-            //     $done = 1;
-            // }
-    
+        function createBoot(){    
             $this->model->insertBoot($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
             $this->view->showHomeLocation();
         }
