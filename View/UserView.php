@@ -13,5 +13,4 @@ class UserView {
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/user.tpl');
     }
-
 }

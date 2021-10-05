@@ -32,7 +32,6 @@
         function insertBoot() {
             $this->model->insertBoot($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
             $this->view->showBotinesLocation();
-
         }
         function deleteBoot($id){
             $this->model->deleteBootFromDB($id);
