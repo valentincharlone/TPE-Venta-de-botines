@@ -36,7 +36,7 @@
             $bootsController->deleteBoot($params[1]); 
             break;
          case 'updateteBoot': 
-            $bootsController->updateBoot(); 
+            $bootsController->updateBoot($params[1]); 
             break;
         case 'login':
            $userController->login();

@@ -2,11 +2,7 @@
 {include file='templates/nav.tpl'}
 
 
-
-
-
-
-
+{include file='templates/slider.tpl'}
 
 
 
