@@ -1,5 +1,5 @@
-{include file='templates/header.tpl'}
-{include file='templates/nav.tpl'}
+{include file='templates/usoComun/header.tpl'}
+{include file='templates/usoComun/nav.tpl'}
 
 <div class="container">
     <div class="row mt-4">
@@ -23,4 +23,4 @@
 
 
 
-{include file='templates/footer.tpl'}
+{include file='templates/usoComun/footer.tpl'}

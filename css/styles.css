@@ -1,8 +1,13 @@
+
 .contenedor {
     display: flex;
     background-color: rgb(5, 5, 5);
     position: sticky;
     top: 0;
+}
+body {
+    background-color:rgb(241, 240, 240);
+    font-family:  Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
 }
 .logo {
     padding-left: 10%;
@@ -33,6 +38,92 @@ header h1 {
     text-align: center;
         
 }
+.tituloYfiltro {
+    padding-top:30px;
+    text-align: center;
+    padding-right: 3%;
+}
+.tituloYfiltro h1 {
+    font-weight:bold;
+    font-size: 3.5rem;
+}
+.borrar {
+    background-color: rgb(221, 57, 57);
+    border: black;
+}
+.borrar:hover {
+    background-color:rgb(245, 0, 0)
+}
+.editar {
+    border: black;
+    background-color: rgb(43, 184, 43);
+}
+.editar:hover {
+    background-color: rgb(2, 163, 2);
+
+}
+
+.inputFiltro {
+    width: 25%;
+    height:40px;
+    border-radius: 10%;
+}
+.btn-filtroB, .btn-filtroV {
+    border: none;
+    font-size: 1.3rem;
+    border-radius:100%;
+    background-color:white;
+    transition:all 0.7s ease;
+}
+.btn-filtroB:active, .btn-filtroV:active {
+    color:rgb(240, 10, 10);
+    cursor:progress;
+}
+.btn-filtroB:hover, .btn-filtroV:hover {
+    background-color:red;
+    color: white;
+}
+.btn-filtroB {
+    margin-left: -80px;
+
+}
+.tituloYfiltro label {
+    font-weight:bold;
+}
+.contenedorDetalles{
+    display: inline-block;
+    border: solid 1px grey;
+    background-color:white;
+    border-radius: 4%;
+    width:30%;
+    min-height: 40%;
+    margin-top:50px;
+    margin-left:2%;
+    padding-bottom: 1%;
+    transition:all 0.5s ease;
+}
+.contenedorDetalles:hover {
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:scale(1.1);
+    
+
+}
+.modelo, .talle, .precio, .botonesByE {
+    text-align: center;
+}
+.modelo {
+    font-size:1.4rem;
+}
+.talle {
+font-size: 1.3rem;
+}
+.precio {
+    color: rgb(231, 73, 73);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
 .formAgregarBotin {
     display: inline-block;
     margin-left: 28%;
@@ -73,6 +164,41 @@ option {
     background-color:rgb(119, 118, 118);
     transform: translateY(10px);
 }
+.marcas {
+    text-align: center;
+    margin-top:-200px;
+}
+.marcasHome {
+    display: flex;
+    background-color:white;
+    border-radius: 1%;
+    width:94%;
+    transition:all 0.5s ease;
+    margin-left:3.3%;
+    
+}
+
+.adidasLogo, .nikeLogo, .lottoLogo {
+    width: 100%;
+    height: 100%;
+    transition:all 0.5s ease;
+    padding:10px;
+    background-color:rgb(241, 240, 240);
+    
+}
+.adidasLogo:hover, .nikeLogo:hover, .lottoLogo:hover {
+    transform:scale(1.05);
+}
+.pumaLogo {
+    padding-top:10px;
+    width: 100%;
+    height: 96%;
+    background-color:rgb(241, 240, 240);
+    transition:all 0.5s ease;
+}
+.pumaLogo:hover{
+    transform:scale(1.05);
+}
 /* SLIDER FOTOS HOME */
 
 .slider {
@@ -83,8 +209,7 @@ option {
     display: flex;
     padding: 0;
     width: 400%;
-
-    animation: cambio 27s infinite alternate;
+    animation: cambio 20s infinite alternate;
 }
 .slider ul li {
     width: 100%;
@@ -110,5 +235,9 @@ option {
 }
 .img1, .img2, .img3, .img4 {
     width: 100%;
-    height:87%;
+    height:70%;
+}
+.boton {
+    width: 40px;
+    height: 50px;
 }

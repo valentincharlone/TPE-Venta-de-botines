@@ -30,16 +30,19 @@
             
         }
         function insertBoot() {
-            $this->model->insertBoot($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
+            $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
             $this->view->showBotinesLocation();
         }
         function deleteBoot($id){
             $this->model->deleteBootFromDB($id);
             $this->view->showBotinesLocation();
         }
+        function formUpBoot($id){  
+            $this->view->viewformUpBoot($id);
+        }
 
         function updateBoot(){
-             $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
+             $this->model->updateBootsFromD($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
              $this->view->showBotinesLocation();
          }
     

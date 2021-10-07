@@ -35,8 +35,11 @@
         case 'deleteBoot': 
             $bootsController->deleteBoot($params[1]); 
             break;
-         case 'updateteBoot': 
-            $bootsController->updateBoot($params[1]); 
+         case 'showForm': 
+            $bootsController->formUpBoot($params[1]); 
+            break;
+        case 'insertUpdateBoot': 
+            $bootsController->updateBoot(); 
             break;
         case 'login':
            $userController->login();

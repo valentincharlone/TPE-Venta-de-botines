@@ -1,5 +1,5 @@
-{include file='templates/header.tpl'}
-{include file='templates/nav.tpl'}
+{include file='templates/usoComun/header.tpl'}
+{include file='templates/usoComun/nav.tpl'}
 
 <div class="col-md-4 formAgregarBotin">
             <h2 class="agregarBotin">AGREGAR BOTIN:</h2>
@@ -45,4 +45,4 @@
 </div>
 
 
-{include file='templates/footer.tpl'}
+{include file='templates/usoComun/footer.tpl'}

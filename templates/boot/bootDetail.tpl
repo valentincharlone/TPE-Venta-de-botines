@@ -1,5 +1,5 @@
-{include file='templates/header.tpl'}
-{include file='templates/nav.tpl'}
+{include file='templates/usoComun/header.tpl'}
+{include file='templates/usoComun/nav.tpl'}
 
 <div class="container">
     <h1 class="mb-4">{$titulo}</h1>
@@ -10,4 +10,4 @@
 </div>
     <a href="home" > Volver </a>
 
-{include file='templates/footer.tpl'}
+{include file='templates/usoComun/footer.tpl'}

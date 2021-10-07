@@ -13,19 +13,23 @@ class BootsView {
     }
 
     function viewformBoot() {
-        $this->smarty->display('templates/createBoot.tpl');
+        $this->smarty->display('templates/form/createBoot.tpl');
+    }
+    function viewformUpBoot($id){
+        $this->smarty->assign('id_botin', $id); 
+        $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
     function showBoots($boots){
         $this->smarty->assign('titulo', 'Nuestros botines');        
         $this->smarty->assign('boots', $boots);
         
-        $this->smarty->display('templates/bootsList.tpl');
+        $this->smarty->display('templates/boot/bootsList.tpl');
     }
     function showBoot($boot){
         $this->smarty->assign('titulo', 'Descripcion:'); 
         $this->smarty->assign('boot', $boot);
-        $this->smarty->display('templates/bootDetail.tpl');
+        $this->smarty->display('templates/boot/bootDetail.tpl');
      }
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
