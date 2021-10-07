@@ -1,4 +1,12 @@
-
+<div class="arribaNav">
+    <h1><img src="https://adl-foundation.adidas.com/flags/1-0-0/ar.svg" alt="ar flag" title="ar flag" aria-label="ar flag" class="argentina">
+    AR$ <span>|</span> Futbol
+    </h1>
+    <div>
+        <a href = "login" class="nav-link login"> Login </a>
+    </div>
+ 
+</div>
 <div class="contenedor">
     <div class="logo">
         <header>
@@ -16,9 +24,6 @@
                 </li>
                 <li class="nav-item">
                     <a href = "createBoot" class="nav-link"> Agregar botin </a>
-                </li>
-                <li class="nav-item">
-                    <a href = "login" class="nav-link"> Login </a>
                 </li>
             </ul>
         </nav>
