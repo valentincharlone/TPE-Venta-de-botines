@@ -3,7 +3,10 @@
     AR$ <span>|</span> Futbol
     </h1>
     <div>
-        <a href = "login" class="nav-link login"> Login </a>
+        <a href = "login" class="nav-link login"> Iniciar sesión </a>
+    </div>
+     <div>
+        <a href = "login" class="nav-link register"> Registrarme </a>
     </div>
  
 </div>

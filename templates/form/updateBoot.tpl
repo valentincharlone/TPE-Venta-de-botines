@@ -1,8 +1,8 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
 
-<div class="col-md-4 formAgregarBotin">
             <h2 class="agregarBotin">MODIFICAR BOTIN:</h2>
+<div class="col-md-4 formAgregarBotin">
             <form class="form-alta" action="insertUpdateBoot" method="POST"> 
         <div class="formMitad">
             <div class="formPrimeros">

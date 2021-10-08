@@ -51,7 +51,7 @@ header h1 {
     font-size:0.8rem;
 }
 .agregarBotin {
-    margin-top:-20px;
+    margin-top:30px;
     margin-bottom:17px;
     font-weight: bold;
     text-align: center;
@@ -124,8 +124,6 @@ header h1 {
 .contenedorDetalles:hover {
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transform:scale(1.1);
-    
-
 }
 .modelo, .talle, .precio, .botonesByE {
     text-align: center;
@@ -144,35 +142,39 @@ font-size: 1.3rem;
 
 
 .formAgregarBotin {
-    display: inline-block;
-    margin-left: 28%;
-    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 500px;
+    height: 100%;
+    margin-top: 40px;
 }
 label {
-    font-size:1.3rem;
+    font-size:1.8rem;
 }
 ::placeholder {
     font-size: 1.1em;
   }
 .form-select {
-   font-size:1.1rem;
+   font-size:1.3rem;
 }
 .formMitad {
     display: flex;
 }
 option {
-    width:130px;
+    width:140px;
 }
 .formPrimeros{
-    padding-right: 20px;
+    
 }
 .formSegundos {
-    padding-left: 12%;
+    padding-left: 100px;
 }
 .btn-form {
     font-size: 1.2rem;
     margin-top:40px;
     margin-left:-50px;
+    margin-bottom: 15px;
     background-color: black;
 }
 .btn-form:hover {
@@ -209,7 +211,6 @@ option {
     width:90%;
     transition:all 0.5s ease;
     margin-left:3.3%;
-    
 }
 .hrIzq {
     width: 25%;
@@ -224,12 +225,17 @@ option {
 
 
 .logo1, .logo2, .logo3, .logo4 {
+    display: inline-block;
     width: 100%;
+    height: 100%;
     padding:10px;
     transition:all 0.5s ease;
     background-color:rgb#fff;
+    padding-bottom: 1%;
+    transition:all 0.5s ease;
 }
 .logo1:hover, .logo2:hover, .logo3:hover, .logo4:hover {
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transform:scale(1.1);
 }
 .logoAdidas, .logoNike, .logoPuma, .logoLotto {
@@ -352,7 +358,7 @@ color: rgb(169, 226, 245);
  }
  .login {
      font-weight: bold;
-     margin-left: 800px;
+     margin-left: 700px;
  }
 .argentinaSpan {
     color: white;
@@ -380,4 +386,37 @@ color: rgb(169, 226, 245);
 }
 footer div {
     background-color: grey;
+}
+
+.containerUser {
+    display: flex;
+    margin-top: -20px;
+}
+form input {
+    width:500px;
+    height:60px;
+    border: 1px solid black;
+    
+}
+.h2iniciarSesion {
+    margin-left: 10%;
+    margin-top: 4%;
+}
+ .sumbit {
+    width: 300px;
+    margin-top: 80px;
+    background-color: rgb(31, 29, 29);
+    box-shadow: 1px 2px rgb(49, 49, 49);
+    border: solid 1px black;
+}
+.sumbit:hover {
+   background-color: black;
+   border: solid 1px black;
+   transition: X(3px);
+}
+.sumbit:active {
+    transform: translateY(10px);
+}
+#email, #password {
+    margin-top: 60px;
 }
