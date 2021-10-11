@@ -15,9 +15,9 @@
     }
     function access() {
       session_start();
-      if (session_start() == true) {
+      
         $this->view->showHome( $_SESSION['username']);
-      }
+     
 
   //Si esta loggeado lo saludo, sino muestro el form de loggeo
     if (isset($_SESSION['logueado']) && $_SESSION['logueado']== true) {
@@ -38,6 +38,11 @@
       $this->view->showHomeLocation();
     }
     }
+  }
+  function logOut(){
+    session_start();
+      unset($_SESSION['username']);
+      $this->view->showHomeLocation();
   }
     function register() {
       $this->view->formRegister();

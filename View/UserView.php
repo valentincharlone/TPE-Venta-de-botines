@@ -21,6 +21,7 @@ class UserView {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/home.tpl');
         
+        
     }
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");

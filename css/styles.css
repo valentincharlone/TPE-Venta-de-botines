@@ -54,6 +54,12 @@ header h1 {
 .arribaNav div a {
     font-size:0.8rem;
 }
+.usuario-logOut {
+    display:flex;
+}
+.logOut {
+    display:flex;
+}
 .agregarBotin {
     margin-top:30px;
     margin-bottom:17px;

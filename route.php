@@ -52,6 +52,8 @@
         case 'login':
            $userController->login();
            break;
+        case 'logOut':
+            $userController->logOut();
         case 'access':
            $userController->access();
            break;

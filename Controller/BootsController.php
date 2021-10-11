@@ -13,7 +13,8 @@
 
         function showHome(){
             session_start();
-                $this->view->showHome($_SESSION['username']);
+                $this->view->showHome( $_SESSION['username']);
+             
         }
         function allBoots(){
             session_start();
