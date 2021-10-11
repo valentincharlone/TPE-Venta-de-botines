@@ -19,6 +19,7 @@
     {/if}
  
 </div>
+ {if !empty($userEmail) }
 <div class="contenedor">
     <div class="logo">
         <header>
@@ -39,5 +40,24 @@
                 </li>
             </ul>
         </nav>
+        {else}
+<div class="contenedor">
+    <div class="logo">
+        <header>
+            <h1><a class="aLogo" href="home">BOOTS</a></h1>
+        </header>
+     </div>  
+    <div>  
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a href = "home" class="nav-link"> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a href = "botines" class="nav-link"> Botines </a>
+                </li>
+            </ul>
+        </nav>
+        {/if}
     </div>
 </div>

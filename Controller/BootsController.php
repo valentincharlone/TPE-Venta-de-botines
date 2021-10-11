@@ -31,8 +31,6 @@
         function formBoot(){    
             session_start();
             $this->view->viewformBoot( $_SESSION['username']);
-            var_dump( $_SESSION['username']);
-            die();
             
         }
         function insertBoot() {
