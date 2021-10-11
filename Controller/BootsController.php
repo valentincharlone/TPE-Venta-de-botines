@@ -31,6 +31,7 @@
         function formBoot(){    
             session_start();
             $this->view->viewformBoot( $_SESSION['username']);
+           
             
         }
         function insertBoot() {

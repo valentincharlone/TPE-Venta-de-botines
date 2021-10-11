@@ -26,4 +26,8 @@ class UserView {
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
+    function showLoginLocation(){
+        header("Location: ".BASE_URL."login");
+    }
+    
 }

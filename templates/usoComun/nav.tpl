@@ -11,6 +11,7 @@
         <a href="logOut" class="nav-link logOut"> Cerrar sesión</a>
     </div>
     {else}
+    <div>
         <a href = "login" class="nav-link login"> Iniciar sesión </a>
     </div>
      <div>

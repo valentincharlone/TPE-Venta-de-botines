@@ -10,8 +10,8 @@
 <div class="container">
      {if !empty($userEmail) }
                     {foreach from=$boots item=$boot}
-        <div class="col-md-8 contenedorDetalles">
                         <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">             
+        <div class="col-md-8 contenedorDetalles">
             <div class="modelo">
                 {$boot->modelo}
             </div>
@@ -21,22 +21,21 @@
                                 <a class="btn btn-primary btn-sm borrar" href="deleteBoot/{$boot->id_botin}">Borrar</a>
                                 <a class="btn btn-secondary btn-sm editar" href="showForm/{$boot->id_botin}">Editar</a>
                             </div>
-                  </a>       
             </div>
+                  </a>       
              {/foreach}
             {else}
              {foreach from=$boots item=$boot}
-              <div class="col-md-8 contenedorDetalles">
                         <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">             
+              <div class="col-md-8 contenedorDetalles">
             <div class="modelo">
                 {$boot->modelo}
             </div>
             <div class="talle"><p>Talle:  {$boot->talle} </p></div>
             <div class="precio"><p class="fas fa-dollar-sign"></p></i> {$boot->precio} </div>
-                  </a>       
             </div>
-
                     {/foreach}
+                  </a>       
          {/if}
                 
     </div>

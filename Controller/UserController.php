@@ -14,34 +14,35 @@
         $this->view->formLogin();
     }
     function access() {
-      session_start();
-      
-        $this->view->showHome( $_SESSION['username']);
-     
+      session_start();  
 
   //Si esta loggeado lo saludo, sino muestro el form de loggeo
-    if (isset($_SESSION['logueado']) && $_SESSION['logueado']== true) {
-        $this->view->showHome( $_SESSION['username']);
-    }
-      if(!empty($_POST['email']) && !empty($_POST['password'])) {
-        $userEmail = $_POST['email'];
-        $userPassword = $_POST['password'];
-        $user = $this ->model -> checkUserFromDB($userEmail);
-        //SI el usuario existe y las contraseñas coinciden:
+  if(!empty($_POST['email']) && !empty($_POST['password'])) {
+    $userEmail = $_POST['email'];
+    $userPassword = $_POST['password'];
+    $user = $this ->model -> checkUserFromDB($userEmail);
+    
+    //SI el usuario existe y las contraseñas coinciden:
     //con password_verify verificamos si el pass = a el hashing
     if($user && password_verify($userPassword, $user->password)){
       $_SESSION['logueado']=true;
       //dejamos guardado el mail con el que logro entrar
       $_SESSION['username']=$userEmail;
+      $_SESSION['userName']=$user->nombre_usuario;
+
+    }
+    if (isset($_SESSION['logueado']) && $_SESSION['logueado']== true) {
+        $this->view->showHome($_SESSION['userName']);
     }
     else {
-      $this->view->showHomeLocation();
+      $this->view->showLoginLocation();
     }
     }
   }
   function logOut(){
     session_start();
       unset($_SESSION['username']);
+      session_destroy();
       $this->view->showHomeLocation();
   }
     function register() {
