@@ -8,9 +8,21 @@ class UserView {
         $this->smarty = new Smarty();
     }
 
-    function showLogin($error = ""){
-        $this->smarty->assign('titulo', 'Log In');
+    function formLogin($error = ""){
+        $this->smarty->assign('titulo', 'Iniciar sesión');
         $this->smarty->assign('error', $error);
-        $this->smarty->display('templates/user.tpl');
+        $this->smarty->display('templates/acount/user.tpl');
+    }
+    function formRegister() {
+        $this->smarty->assign('titulo', 'Registrarme');
+        $this->smarty->display('templates/acount/register.tpl');
+    }
+    function showHome($userEmail) {
+        $this ->smarty->assign('userEmail', $userEmail);
+        $this->smarty->display('templates/home.tpl');
+        
+    }
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
     }
 }

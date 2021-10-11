@@ -12,21 +12,26 @@
         }
 
         function showHome(){
-            $this->view->showHome();
-            
+            session_start();
+                $this->view->showHome($_SESSION['username']);
         }
         function allBoots(){
+            session_start();
             $boots = $this->model->getBoots();
-            $this->view->showBoots($boots);
+            $this->view->showBoots($boots,  $_SESSION['username']);
         }
 
         function viewBoot($id){
+            session_start();
             $boot = $this->model->getBoot($id);
-            $this->view->showBoot($boot);
+            $this->view->showBoot($boot,  $_SESSION['username']);
         }
 
         function formBoot(){    
-            $this->view->viewformBoot();
+            session_start();
+            $this->view->viewformBoot( $_SESSION['username']);
+            var_dump( $_SESSION['username']);
+            die();
             
         }
         function insertBoot() {
@@ -38,12 +43,18 @@
             $this->view->showBotinesLocation();
         }
         function formUpBoot($id){  
-            $this->view->viewformUpBoot($id);
+            session_start();
+            $this->view->viewformUpBoot($id,  $_SESSION['username']);
         }
 
         function updateBoot(){
-             $this->model->updateBootsFromD($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
+             $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
              $this->view->showBotinesLocation();
          }
-    
+
+        //  function filterBoot($dato) {
+        //     $botines = $this->model->filterFromDB($dato);
+        //      $this->view->showFilter($botines);
+        // }
+            
     }

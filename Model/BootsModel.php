@@ -29,8 +29,14 @@
             $sentencia = $this->db->prepare("DELETE FROM botin WHERE id_botin=?");
             $sentencia->execute(array($id));
         }
-        function updateBootsFromD($modelo, $talle, $precio, $descripcion, $categoria, $marca, $id){
+        function updateBootsFromDB($modelo, $talle, $precio, $descripcion, $categoria, $marca, $id){
             $sentencia = $this->db->prepare("UPDATE botin SET modelo=?, talle=?, precio=?, descripcion=?, categoria=?, id_marca_fk=? WHERE id_botin=?");
             $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria, $marca, $id));
         }
+        // function filterFromDB($dato) {
+        //     $sentencia= $this->db->prepare("SELECT * FROM botin WHERE talle=?");
+        //     $sentencia -> execute(array($dato));
+        //     $botines = $sentencia ->fetchAll(PDO::FETCH_OBJ);
+        //     return $botines;
+        // }
     }

@@ -21,8 +21,15 @@
             $bootsController->showHome(); 
             break;
         case 'botines': 
-            $bootsController->allBoots(); 
+            if (empty ($paramas[1])) {
+                 $bootsController->allBoots(); 
             break;
+            }
+            // else {
+            //     $bootsController->filterBoot($paramas[1]);
+            // }
+            // break;
+           
         case 'viewBoot':
             $bootsController->viewBoot($params[1]);
             break;
@@ -41,7 +48,19 @@
         case 'insertUpdateBoot': 
             $bootsController->updateBoot(); 
             break;
+     //USUARIO
         case 'login':
            $userController->login();
+           break;
+        case 'access':
+           $userController->access();
+           break;
+        case 'register': 
+           $userController->register(); 
+            break;
+        case 'insertRegister': 
+            $userController->insertRegister(); 
+            break;
+        
         
     }

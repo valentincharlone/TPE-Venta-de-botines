@@ -1,13 +1,19 @@
 <div class="arribaNav">
     <h1><img src="https://adl-foundation.adidas.com/flags/1-0-0/ar.svg" alt="ar flag" title="ar flag" aria-label="ar flag" class="argentina">
-    AR$ <span>|</span> Futbol
+    AR$ <span>|</span>  <a href = "botines" class="futbolNav"> Futbol</a>
     </h1>
+        {if !empty($userEmail) }
     <div>
+        <a class="nav-link login"> {$userEmail}</a>
+        <a href = "login" class="nav-link login"> Cerrar sesión </a>
+     </div>
+    {else}
         <a href = "login" class="nav-link login"> Iniciar sesión </a>
     </div>
      <div>
-        <a href = "login" class="nav-link register"> Registrarme </a>
+        <a href = "register" class="nav-link register"> Registrarme </a>
     </div>
+    {/if}
  
 </div>
 <div class="contenedor">
