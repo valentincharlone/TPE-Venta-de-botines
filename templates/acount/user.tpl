@@ -2,7 +2,7 @@
 {include file='templates/usoComun/nav.tpl'}
 
             <h2 class="h2iniciarSesion">{$titulo}</h2>
-<div>
+<div class="contenedorIngresar">
     <div class="row mt-4 containerUser">
         <div class="col-md-4 ">
             <form class="form-alta" action="access" method="POST">
@@ -14,6 +14,9 @@
         </div>
     </div>
     <h4 class="alert-danger">{$error}</h4>
+    <div>
+    <img src="img/diego.jpg" class="img-diego">
+    </div>
 </div>
 
 

@@ -328,7 +328,7 @@ FOTOS HOME
 
 } */
 .img1, .img2, .img3, .img4 {
-    width: 100%;
+    width: 50%;
     height:70%;
 }
 .boton {
@@ -430,6 +430,7 @@ form input {
    transition: X(3px);
 }
 .sumbit:active {
+    background-color: black;
     transform: translateY(10px);
 }
 .noCuenta {
@@ -437,6 +438,20 @@ form input {
 }
 #email, #password {
     margin-top: 60px;
+}
+.contenedorIngresar {
+display: flex;
+}
+.img-diego {
+width: 65%;
+height: 85%;
+border-radius:5%;
+}
+.img-messi {
+width: 100%;
+margin-left: -300px;
+height:100%;
+border-radius:5%;
 }
 
 
