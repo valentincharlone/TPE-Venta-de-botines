@@ -43,4 +43,5 @@
     <p>Si estás buscando botines ,boots tiene los mejores botines de las mejores marcas. Tenemos todo lo que necesitas para arrasar en el juego. Disponemos de botas de las mejores marcas como son Adidas, Nike, Puma y Lotto.</p>
 </div>
 
+
 {include file='templates/usoComun/footer.tpl'}

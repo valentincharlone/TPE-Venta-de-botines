@@ -183,6 +183,15 @@ option {
 .formSegundos {
     padding-left: 100px;
 }
+.errorPermiso {
+    margin-top: 2%;
+    color: red;
+    text-align: center;
+}
+.img-error {
+    width:100%;
+    height:80%;
+}
 .btn-form {
     font-size: 1.2rem;
     margin-top:40px;

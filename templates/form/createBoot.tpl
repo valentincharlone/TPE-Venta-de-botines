@@ -1,6 +1,6 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
-
+ {if !empty($userEmail) }
             <h2 class="agregarBotin">AGREGAR BOTIN:</h2>
 <div class="col-md-4 formAgregarBotin">
             <form class="form-alta" action="insertBoot" method="POST"> 
@@ -43,6 +43,10 @@
               </div>
             </form>
 </div>
+{else}
+<h1 class="errorPermiso"> NO TENES PERMISO PARA ACCEDER A ESTA SECCIÓN!</h1>
+<img src="img/error.jpg" class="img-error">
+{/if}
 
 
 {include file='templates/usoComun/footer.tpl'}

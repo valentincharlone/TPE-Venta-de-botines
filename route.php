@@ -21,15 +21,8 @@
             $bootsController->showHome(); 
             break;
         case 'botines': 
-            if (empty ($paramas[1])) {
                  $bootsController->allBoots(); 
-            break;
-            }
-            // else {
-            //     $bootsController->filterBoot($paramas[1]);
-            // }
-            // break;
-           
+            break;           
         case 'viewBoot':
             $bootsController->viewBoot($params[1]);
             break;

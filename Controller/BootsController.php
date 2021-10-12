@@ -13,24 +13,24 @@
 
         function showHome(){
             session_start();
-                $this->view->showHome( $_SESSION['username']);
+                $this->view->showHome($_SESSION['userName']);
              
         }
         function allBoots(){
             session_start();
             $boots = $this->model->getBoots();
-            $this->view->showBoots($boots,  $_SESSION['username']);
+            $this->view->showBoots($boots,  $_SESSION['userName']);
         }
 
         function viewBoot($id){
             session_start();
             $boot = $this->model->getBoot($id);
-            $this->view->showBoot($boot,  $_SESSION['username']);
+            $this->view->showBoot($boot,  $_SESSION['userName']);
         }
 
         function formBoot(){    
             session_start();
-            $this->view->viewformBoot( $_SESSION['username']);
+            $this->view->viewformBoot( $_SESSION['userName']);
            
             
         }
@@ -44,7 +44,7 @@
         }
         function formUpBoot($id){  
             session_start();
-            $this->view->viewformUpBoot($id,  $_SESSION['username']);
+            $this->view->viewformUpBoot($id,  $_SESSION['userName']);
         }
 
         function updateBoot(){
