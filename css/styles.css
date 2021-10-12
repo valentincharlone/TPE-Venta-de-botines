@@ -200,7 +200,7 @@ option {
 }
 .marcas {
     text-align: center;
-    margin-top:-230px;
+    margin-top:25px;
     color: black;
     font-weight: bold;
     text-transform: uppercase;
@@ -291,9 +291,10 @@ grid-area: futsal;
     transform:scale(1.1);
     
 }
-/* SLIDER FOTOS HOME */
+/* SLIDER CON CSS: 
+FOTOS HOME 
 
-.slider {
+ .slider {
     width: 100%;
     overflow: hidden;
 }
@@ -325,7 +326,7 @@ grid-area: futsal;
     75% {margin-left: -300%;}
     100% {margin-left: -300%;}
 
-}
+} */
 .img1, .img2, .img3, .img4 {
     width: 100%;
     height:70%;
