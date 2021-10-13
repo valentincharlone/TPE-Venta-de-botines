@@ -25,7 +25,7 @@
             session_start();
             $boots = $this->model->getBoots();
             if (!empty($_SESSION['userName'])){
-                $this->view->showBoots($boots,  $_SESSION['userName']);
+                  $this->view->showBoots($boots,  $_SESSION['userName']);
             }
             else {
                 $this->view->showBoots($boots);

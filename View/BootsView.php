@@ -17,7 +17,7 @@ class BootsView {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
-    function viewformUpBoot($id, $userEmail,$boot){
+    function viewformUpBoot($id, $userEmail="",$boot){
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('boot', $boot);
         $this->smarty->assign('id_botin', $id); 

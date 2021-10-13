@@ -11,7 +11,7 @@
         $this->view = new UserView();
     }
     function login() {
-        $this->view->formLogin();
+      $this->view->formLogin();
     }
     function verifyLogin() {
       session_start();  
@@ -41,8 +41,8 @@
   }
   function logOut(){
     session_start();
-      unset($_SESSION['username']);
-      session_destroy();
+    // unset($_SESSION['username']);
+    session_destroy();
       $this->view->showHomeLocation();
   }
     function register() {
