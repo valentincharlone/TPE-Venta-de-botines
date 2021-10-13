@@ -8,7 +8,7 @@ class BootsView {
     function __construct() {
         $this->smarty = new Smarty();
     }
-    function showHome($userEmail) {
+    function showHome($userEmail = "") {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/home.tpl');
     }
@@ -24,14 +24,14 @@ class BootsView {
         $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
-    function showBoots($boots, $userEmail){
+    function showBoots($boots, $userEmail= ""){
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('titulo', 'Nuestros botines');        
         $this->smarty->assign('boots', $boots);
         
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
-    function showBoot($boot, $userEmail){
+    function showBoot($boot, $userEmail = ""){
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('titulo', 'Descripcion:'); 
         $this->smarty->assign('boot', $boot);

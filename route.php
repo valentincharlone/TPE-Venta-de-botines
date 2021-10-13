@@ -47,8 +47,8 @@
            break;
         case 'logOut':
             $userController->logOut();
-        case 'access':
-           $userController->access();
+        case 'verify':
+           $userController->verifyLogin();
            break;
         case 'register': 
            $userController->register(); 

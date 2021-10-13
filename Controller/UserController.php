@@ -13,7 +13,7 @@
     function login() {
         $this->view->formLogin();
     }
-    function access() {
+    function verifyLogin() {
       session_start();  
 
   //Si esta loggeado lo saludo, sino muestro el form de loggeo
@@ -35,7 +35,7 @@
        
     }
     else {
-      $this->view->showLoginLocation();
+      $this->view->formLogin("usuario o contraseña incorrectos");
     }
     }
   }

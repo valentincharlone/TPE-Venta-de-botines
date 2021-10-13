@@ -13,19 +13,34 @@
 
         function showHome(){
             session_start();
+            if (!empty($_SESSION['userName'])){
                 $this->view->showHome($_SESSION['userName']);
+            }
+            else {
+                $this->view->showHome();
+            }
              
         }
         function allBoots(){
             session_start();
             $boots = $this->model->getBoots();
-            $this->view->showBoots($boots,  $_SESSION['userName']);
+            if (!empty($_SESSION['userName'])){
+                $this->view->showBoots($boots,  $_SESSION['userName']);
+            }
+            else {
+                $this->view->showBoots($boots);
+            }
         }
 
         function viewBoot($id){
             session_start();
             $boot = $this->model->getBoot($id);
+            if (!empty($_SESSION['userName'])){
             $this->view->showBoot($boot,  $_SESSION['userName']);
+            } 
+            else {
+                $this->view->showBoot($boot);
+            }
         }
 
         function formBoot(){    
