@@ -4,22 +4,26 @@
     </h1>
     
         {if !empty($userEmail) }
-    <div class="usuario-logOut">
-        <a class="nav-link login"> {$userEmail}</a>
-     </div>
-      <div class="usuario-logOut">
-        <a href="logOut" class="nav-link logOut"> Cerrar sesión</a>
-    </div>
-    {else}
-    <div>
-        <a href = "login" class="nav-link login"> Iniciar sesión </a>
-    </div>
-     <div>
-        <a href = "register" class="nav-link register"> Registrarme </a>
-    </div>
+    <div class="perfilYcerrar">
+            <div class="usuario-logOut">
+                <a class="nav-link login"> {$userEmail}</a>
+            </div>
+            <div class="usuario-logOut">
+                <a href="logOut" class="nav-link logOut"> Cerrar sesión</a>
+            </div>
+</div>
+</div>
+            {else}
+            <div class="inicioYregistro">
+                <a href = "login" class="nav-link login"> Iniciar sesión </a>
+            </div>
+            <div>
+                <a href = "register" class="nav-link register"> Registrarme </a>
+            </div>
+            </div>
+</div>
     {/if}
  
-</div>
  {if !empty($userEmail) }
 <div class="contenedor">
     <div class="logo">

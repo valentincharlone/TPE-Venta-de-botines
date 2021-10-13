@@ -54,12 +54,19 @@ header h1 {
 .arribaNav div a {
     font-size:0.8rem;
 }
+.perfilYcerrar {
+    display:flex;
+    margin-left: 50%;
+}
 .usuario-logOut {
     display:flex;
+    width: 120px;
 }
-.logOut {
-    display:flex;
+.inicioYregistro {
+    margin-left: 50%;
 }
+
+
 .agregarBotin {
     margin-top:30px;
     margin-bottom:17px;
@@ -377,9 +384,9 @@ hr {
     display: inline-block;
     
 }
-.home1{
+.vovler{
     width: 0%;
-    margin-top: 50px;
+    margin-top: 8%;
     margin-left: 50%;
     text-decoration: none;
     font-style: oblique;
@@ -390,7 +397,7 @@ hr {
     justify-content: center;
     
 }
-.home1:hover {
+.vovler:hover {
         color: rgb(67, 180, 255);
         transition: 0.4s;
     }
@@ -430,10 +437,11 @@ color: rgb(169, 226, 245);
      width:7%;
      margin-right: 5px;
  }
- .login {
-     font-weight: bold;
-     margin-left: 1000px;
+ .login, .logOut{
+    font-weight: bold;
+    width:100%;
  }
+  
 .argentinaSpan {
     color: white;
     font-size: 1.1rem;
