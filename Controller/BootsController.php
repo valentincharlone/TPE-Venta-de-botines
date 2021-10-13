@@ -45,9 +45,12 @@
 
         function formBoot(){    
             session_start();
+            if (!empty($_SESSION['userName'])){
             $this->view->viewformBoot( $_SESSION['userName']);
-           
-            
+            } 
+            else {
+                $this->view->viewformBoot();
+            }
         }
         function insertBoot() {
             $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
@@ -59,13 +62,20 @@
         }
         function formUpBoot($id){  
             session_start();
+            if (!empty($_SESSION['userName'])) {
             $boot = $this->model->getBoot($id);
             $this->view->viewformUpBoot($id, $_SESSION['userName'],$boot );
+            }
+            else {
+                $this->view->showHomeLocation();
+            }
         }
 
         function updateBoot(){
-             $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
-             $this->view->showBotinesLocation();
+        
+                $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
+                $this->view->showBotinesLocation();
+        
          }
 
         //  function filterBoot($dato) {

@@ -13,7 +13,7 @@ class BootsView {
         $this->smarty->display('templates/home.tpl');
     }
 
-    function viewformBoot($userEmail) {
+    function viewformBoot($userEmail="") {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
