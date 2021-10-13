@@ -44,7 +44,8 @@
         }
         function formUpBoot($id){  
             session_start();
-            $this->view->viewformUpBoot($id,  $_SESSION['userName']);
+            $boot = $this->model->getBoot($id);
+            $this->view->viewformUpBoot($id, $_SESSION['userName'],$boot );
         }
 
         function updateBoot(){

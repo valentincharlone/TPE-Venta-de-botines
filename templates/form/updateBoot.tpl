@@ -8,42 +8,43 @@
         <div class="formMitad">
             <div class="formPrimeros">
               <label>Marca:</label> <select name="marca" id="marca" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
-                      <option value="1">Adidas </option>
-                      <option value="2">Nike </option>
-                      <option value="3">Puma </option>
-                      <option value="4">Lotto </option>
+                      <option value="1" {if $boot->id_marca_fk ==1}selected {/if}>Adidas </option>
+                      <option value="2" {if $boot->id_marca_fk ==2}selected {/if}>Nike </option>
+                      <option value="3" {if $boot->id_marca_fk ==3}selected {/if}>Puma </option>
+                      <option value="4" {if $boot->id_marca_fk ==4}selected {/if}>Lotto </option>
                     </select>  
-               <label>Modelo:</label> <input class="form-control"type="text" name="modelo" id="modelo">
+               <label>Modelo:</label> <input class="form-control"type="text" name="modelo" id="modelo" value="{$boot->modelo}"  >
                  <label>Categoria:</label><select name="categoria" id="categoria" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
-                    <option value="Pasto sintetico">Pasto sintetico </option>
-                    <option value="Terreno blando">Terreno blando</option>
-                    <option value="Terreno firme">Terreno firme</option>
-                    <option value="Futsal">Futsal </option>
+                    <option value="Pasto sintetico" {if $boot->categoria =="Pasto sintetico"}selected {/if}>Pasto sintetico </option>
+                    <option value="Terreno blando" {if $boot->categoria =="Terreno blando"}selected {/if}>Terreno blando</option>
+                    <option value="Terreno firme" {if $boot->categoria =="Terreno firme"}selected {/if}>Terreno firme</option>
+                    <option value="Futsal" {if $boot->categoria =="Futsal"}selected {/if}>Futsal </option>
                   </select> 
               </div>
             <div class="formSegundos"> 
                   <label>Talle:</label> <select name="talle" id="talle" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
-                      <option value="37">37 </option>
-                      <option value="37.5">37.5 </option>
-                      <option value="38">38 </option>
-                      <option value="38.5">38.5 </option>
-                      <option value="39">39 </option>
-                      <option value="39.5">39.5 </option>
-                      <option value="40">40 </option>
-                      <option value="40.5">40.5 </option>
-                      <option value="41">41 </option>
-                      <option value="41.5">41.5 </option>
-                      <option value="42">42 </option>
-                      <option value="42.5">42.5 </option>
-                      <option value="43">43 </option>
+                      <option value="37" {if $boot->talle ==37}selected {/if}>37 </option>
+                      <option value="37.5" {if $boot->talle ==37.5}selected {/if}>37.5 </option>
+                      <option value="38" {if $boot->talle ==38}selected {/if}>38 </option>
+                      <option value="38.5" {if $boot->talle ==38.5}selected {/if}>38.5 </option>
+                      <option value="39" {if $boot->talle ==39}selected {/if}>39 </option>
+                      <option value="39.5" {if $boot->talle ==39.5}selected {/if}>39.5 </option>
+                      <option value="40" {if $boot->talle ==40}selected {/if}>40 </option>
+                      <option value="40.5 {if $boot->talle ==40.5}selected {/if}">40.5 </option>
+                      <option value="41" {if $boot->talle ==41}selected {/if}>41 </option>
+                      <option value="41.5" {if $boot->talle ==41.5}selected {/if}>41.5 </option>
+                      <option value="42" {if $boot->talle ==42}selected {/if}>42 </option>
+                      <option value="42.5" {if $boot->talle ==42.5}selected {/if}>42.5 </option>
+                      <option value="43" {if $boot->talle ==43}selected {/if}>43 </option>
                     </select> 
-                  <label>Descripcion:</label><textarea class="form-control" rows="2" cols="50" type="text" name="descripcion" id="descripcion"></textarea>
-                  <label class="input-group mb-3">Precio:</label> <input class="form-control" placeholder="$" type="number" name="precio" id="precio" required>
+                  <label>Descripcion:</label><textarea class="form-control" rows="2" cols="50" type="text" name="descripcion" id="descripcion"> {$boot->descripcion} </textarea>
+                  <label class="input-group mb-3">Precio:</label> <input class="form-control" placeholder="$" type="number" name="precio" id="precio" value="{$boot->precio}" required>
                   <input type="submit" class="btn btn-primary btn-form" value="Guardar">
                   <input type="text" name="id_botin" value="{$id_botin}" hidden>
               </div>
               </div>
             </form>
+
 </div>
 {else}
 <h1 class="errorPermiso"> NO TENES PERMISO PARA ACCEDER A ESTA SECCIÓN!</h1>
