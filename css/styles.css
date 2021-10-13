@@ -345,16 +345,65 @@ FOTOS HOME
     height: 50px;
 }
 
-
+/* BOOT DETAILS */
+.container-details {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+hr {
+    width: 100%;
+    color: green;
+}
+.tituloDetail {
+    color: rgb(44, 48, 59);
+    margin-top: 60px;
+    position: absolute;
+    align-items: center;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container-talle, .container-precio, .container-descripcion, .container-categoria {
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+.container-detail {
+    color: rgb(38, 61, 138);
+    width: 80%;
+    margin-top: 8%;
+    padding-left: 10%;
+    display: inline-block;
+    
+}
+.home1{
+    width: 0%;
+    margin-top: 50px;
+    margin-left: 50%;
+    text-decoration: none;
+    font-style: oblique;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: flex;
+    color: rgb(9, 9, 201);
+    justify-content: center;
+    
+}
+.home1:hover {
+        color: rgb(67, 180, 255);
+        transition: 0.4s;
+    }
 
 /* FOOTER */
 footer {
-    background-color:black;
+    background-color:black; 
 
     margin-top: 40px;
-    
+
 }
 .redes {
+    
     text-align: center;
     font-size: 1.5rem;
     background-color:rgb(10, 10, 10);
@@ -383,7 +432,7 @@ color: rgb(169, 226, 245);
  }
  .login {
      font-weight: bold;
-     margin-left: 700px;
+     margin-left: 1000px;
  }
 .argentinaSpan {
     color: white;
