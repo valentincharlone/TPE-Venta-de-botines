@@ -33,7 +33,7 @@ class BootsView {
     }
     function showBoot($boot, $userEmail = ""){
         $this ->smarty->assign('userEmail', $userEmail);
-        $this->smarty->assign('titulo', 'Descripcion:'); 
+        $this->smarty->assign('titulo', 'Descripcion'); 
         $this->smarty->assign('boot', $boot);
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
