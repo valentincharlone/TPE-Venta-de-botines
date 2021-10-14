@@ -20,6 +20,7 @@
         case 'home': 
             $bootsController->showHome(); 
             break;
+            //BOTINES
         case 'botines': 
                  $bootsController->allBoots(); 
             break;           
@@ -28,7 +29,7 @@
             break;
         case 'filtrar':
             $bootsController->filtrar(); 
-            break;   
+            break;  
         case 'createBoot': 
             $bootsController->formBoot(); 
             break;
@@ -44,6 +45,23 @@
         case 'insertUpdateBoot': 
             $bootsController->updateBoot(); 
             break;
+            //MARCAS
+        case 'marcas': 
+            $bootsController->allMarks(); 
+            break;  
+        case 'showFormMark': 
+            $bootsController->formUpMark($params[1]); 
+            break; 
+        case 'insertUpdateMark': 
+            $bootsController->updateMark(); 
+            break;
+        case 'deleteMark': 
+            $bootsController->deleteMark($params[1]); 
+            break;
+        case 'insertMark': 
+            $bootsController->insertMark(); 
+            break;
+
      //USUARIO
         case 'login':
            $userController->login();

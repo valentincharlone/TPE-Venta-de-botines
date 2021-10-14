@@ -81,15 +81,43 @@
         }
 
         function updateBoot(){
-        
                 $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
                 $this->view->showBotinesLocation();
-        
          }
 
-        //  function filterBoot($dato) {
-        //     $botines = $this->model->filterFromDB($dato);
-        //      $this->view->showFilter($botines);
-        // }
-            
+       // MARCAS
+       function allMarks() {
+        session_start();
+        $marcas =$this->model->getMarks();
+        if (!empty($_SESSION['userName'])) {
+           $this->view->showMarks($marcas, $_SESSION['userName']);
+       }
+       else {
+        $this->view->showMarks($marcas);
+       }
     }
+    function formUpMark($id) {
+        session_start();
+        $marcas =$this->model->getMarks();
+        $marca = $this->model->getMark($id);
+                if (!empty($_SESSION['userName'])) {
+                $this->view->viewformUpMark($id, $marca, $_SESSION['userName'], $marcas );
+                }
+                else {
+                    $this->view->showHomeLocation();
+                }
+            }
+    function updateMark() {
+        $this->model->updateMarkFromDB($_POST['renameMark'], $_POST['id_marca']);
+        $this->view->showMarcasLocation();
+    }
+    function deleteMark($id){
+        $this->model->deleteMarkFromDB($id);
+        $this->view->showMarcasLocation();
+    }
+    function insertMark() {
+        $this->model->insertMarkFromDB($_POST['newMark']);
+        $this->view->showMarcasLocation();
+    }
+
+}

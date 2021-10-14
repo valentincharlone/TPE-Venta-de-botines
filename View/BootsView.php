@@ -42,6 +42,21 @@ class BootsView {
          $this->smarty->assign('marcaFiltro', $marcaFiltro);
          $this->smarty->display('templates/filtro.tpl');
      }
+     // MARCAS
+function showMarks($marcas, $userEmail = "") {
+    $this ->smarty->assign('userEmail', $userEmail);
+    $this->smarty->assign('marcas', $marcas);
+    $this->smarty->display('templates/marcas.tpl');
+}
+function viewformUpMark($id,$marca, $userEmail = "", $marcas) {
+    $this ->smarty->assign('userEmail', $userEmail);
+    $this->smarty->assign('marca', $marca);
+    $this->smarty->assign('marcas', $marcas);
+    $this->smarty->assign('id_marca', $id); 
+    $this->smarty->display('templates/form/updateMark.tpl');
+}
+
+     //
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
@@ -50,6 +65,9 @@ class BootsView {
     }
     function showBotinesLocation() {
         header("Location: ".BASE_URL."botines");
+    }
+    function showMarcasLocation() {
+        header("Location: ".BASE_URL."marcas");
     }
     // function showFilter($botines) {
     //     $this->smarty->assign('botines', $botines);

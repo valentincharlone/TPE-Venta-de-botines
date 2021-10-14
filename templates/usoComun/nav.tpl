@@ -43,6 +43,9 @@
                 <li class="nav-item">
                     <a href = "createBoot" class="nav-link"> Agregar botin </a>
                 </li>
+                 <li class="nav-item">
+                    <a href = "marcas" class="nav-link"> Marcas </a>
+                </li>
             </ul>
         </nav>
         {else}

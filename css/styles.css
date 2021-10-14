@@ -497,7 +497,7 @@ hr {
 }
 .img-diego {
     width: 65%;
-    height: 85%;
+    height: 80%;
     border-radius:5%;
 }
 .img-messi {
@@ -586,6 +586,61 @@ label {
 }
 option {
     width:140px;
+}
+/*MARCAS */
+.nuevaMarca {
+    width: 2    0%;
+    height:40px;
+}
+.btn-nuevaMarca {
+    width:5%;
+    height:40px;
+}
+.contenedorFormNewMark {
+    text-align: center;
+    margin-bottom: 5%;
+}
+.allMarks {
+    color:#0d6efd;
+    text-transform: uppercase;
+}
+.contenedorMarcasYbtn {
+    display: flex;
+    align-items: flex-start;
+}
+.borrar2 {
+    background-color: rgb(221, 57, 57);
+    border: black;
+    margin-top: 10px;
+    margin-left: 40px;
+    height:40px;
+    padding-top: 8px;
+    
+}
+.borrar2:hover {
+    background-color:rgb(245, 0, 0);
+}
+.editar2 {
+    border: black;
+    background-color: rgb(43, 184, 43);
+    margin-top: 10px;
+    margin-left: 40px;
+    height:40px;
+    padding-top: 8px;
+    
+}
+.editar2:hover {
+    background-color: rgb(2, 163, 2);
+}
+.containerForecahMarcas {
+margin-left:25%;
+}
+.botonesByE2 {
+    margin-left: 5%;
+    align-items: flex-end;
+    text-transform: uppercase;
+    width:100%;
+  
 }
 
 

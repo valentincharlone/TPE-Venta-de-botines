@@ -28,5 +28,6 @@
                     </a> 
                     {/foreach}
 {/if}
+<a class="vovler" href="botines"> Volver </a>
 </div>
 {include file='templates/usoComun/footer.tpl'}
