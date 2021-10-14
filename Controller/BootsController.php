@@ -33,11 +33,12 @@
         function allBoots(){
             session_start();
             $boots = $this->model->getBoots();
+            $marcas= $this->model->getMarks();
             if (!empty($_SESSION['userName'])){
-                  $this->view->showBoots($boots,  $_SESSION['userName']);
+                  $this->view->showBoots($boots,$marcas, $_SESSION['userName']);
             }
             else {
-                $this->view->showBoots($boots);
+                $this->view->showBoots($boots, $marcas);
             }
         }
 

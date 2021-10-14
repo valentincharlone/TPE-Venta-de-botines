@@ -19,7 +19,7 @@
                 {$boot->modelo}
             </div>
             <div class="talle"><p>Talle:  {$boot->talle} </p></div>
-            <div class="precio"><p class="fas fa-dollar-sign"></p></i> {$boot->precio} </div>
+            <div class="precio"><p class="fas fa-dollar-sign"></p> {$boot->precio} </div>
                         <div class="botonesByE">
                                 <a class="btn btn-primary btn-sm borrar" href="deleteBoot/{$boot->id_botin}">Borrar</a>
                                 <a class="btn btn-secondary btn-sm editar" href="showForm/{$boot->id_botin}">Editar</a>
