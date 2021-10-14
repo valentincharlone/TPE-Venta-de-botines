@@ -8,11 +8,11 @@
         <div class="formMitad">
             <div class="formPrimeros">
               <label>Marca:</label> <select name="marca" id="marca" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
-                      <option value="1" {if $boot->id_marca_fk ==1}selected {/if}>Adidas </option>
-                      <option value="2" {if $boot->id_marca_fk ==2}selected {/if}>Nike </option>
-                      <option value="3" {if $boot->id_marca_fk ==3}selected {/if}>Puma </option>
-                      <option value="4" {if $boot->id_marca_fk ==4}selected {/if}>Lotto </option>
+            {foreach from=$marcas item=$marca}
+                      <option value="{$marca->id_marca}" {if $boot->id_marca_fk == $marca->id_marca}      selected    {/if}>{$marca->nombre} </option>
+            {/foreach}
                     </select>  
+              
                <label>Modelo:</label> <input class="form-control"type="text" name="modelo" id="modelo" value="{$boot->modelo}"  >
                  <label>Categoria:</label><select name="categoria" id="categoria" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
                     <option value="Pasto sintetico" {if $boot->categoria =="Pasto sintetico"}selected {/if}>Pasto sintetico </option>

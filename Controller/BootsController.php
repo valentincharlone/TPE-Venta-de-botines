@@ -73,8 +73,9 @@
         function formUpBoot($id){  
             session_start();
             if (!empty($_SESSION['userName'])) {
+            $marcas= $this->model->getMarks();
             $boot = $this->model->getBoot($id);
-            $this->view->viewformUpBoot($id, $_SESSION['userName'],$boot );
+            $this->view->viewformUpBoot($id, $_SESSION['userName'],$boot, $marcas );
             }
             else {
                 $this->view->showHomeLocation();

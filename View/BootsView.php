@@ -17,10 +17,11 @@ class BootsView {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
-    function viewformUpBoot($id, $userEmail="",$boot){
+    function viewformUpBoot($id, $userEmail="",$boot, $marcas){
         $this->smarty->assign('id_botin', $id); 
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('boot', $boot);
+        $this->smarty->assign('marcas', $marcas);
         $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
