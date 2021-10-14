@@ -21,7 +21,7 @@
             return $botines;
         }   
         function getBoot($id){
-            $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca AND botin.id_marca_fk = ?");
+            $sentencia = $this->db->prepare( "select * from botin WHERE id_botin=?");
             $sentencia->execute(array($id));
             $botin = $sentencia->fetch(PDO::FETCH_OBJ);
             return $botin;
