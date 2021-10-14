@@ -9,7 +9,7 @@
                 <input placeholder="Correo electronico" type="text" name="email" id="email" required>
                 <input placeholder="Contraseña" type="password" name="password" id="password" required>
                 <h5 class="alert-danger">{$error}</h5>
-                <input type="submit" class="btn btn-primary submit" value="Login">
+                <input type="submit" class="submitUser btn-primary " value="Login">
             </form>
            
             <p class="noCuenta">No tienes cuenta ? click <span><a href="register">AQUÍ</a></span> para registrarte</p>
