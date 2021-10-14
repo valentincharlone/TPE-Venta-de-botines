@@ -37,6 +37,11 @@ class BootsView {
         $this->smarty->assign('boot', $boot);
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
+     function showFilterBoots($marcaFiltro, $userEmail = "") {
+        $this ->smarty->assign('userEmail', $userEmail);
+         $this->smarty->assign('marcaFiltro', $marcaFiltro);
+         $this->smarty->display('templates/filtro.tpl');
+     }
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }

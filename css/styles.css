@@ -83,6 +83,12 @@ header h1 {
     font-weight:bold;
     font-size: 3.5rem;
 }
+.selectFiltro {
+    width:30%;
+}
+.form-alta {
+    justify-content: center;
+}
 .borrar {
     background-color: rgb(221, 57, 57);
     border: black;
@@ -106,18 +112,20 @@ header h1 {
 }
 .btn-filtroB, .btn-filtroV {
     border: none;
-    font-size: 1.3rem;
-    border-radius:100%;
+    margin-top: 3px;
+    height:40px;
+    font-size: 1.4rem;
+    border-radius:40%;
     background-color:white;
     transition:all 0.7s ease;
 }
 .btn-filtroB:active, .btn-filtroV:active {
-    color:rgb(240, 10, 10);
+    color:rgb(182, 60, 60);
     cursor:progress;
 }
 .btn-filtroB:hover, .btn-filtroV:hover {
-    background-color:red;
-    color: white;
+    background-color:rgb(86, 175, 204);
+    color: rgb(210, 234, 235);
 }
 .btn-filtroB {
     margin-left: -80px;
@@ -144,15 +152,23 @@ header h1 {
 .hrefBotines {
     text-decoration:none;
 }
-.modelo, .talle, .precio, .botonesByE {
+.modelo, .talle, .precio, .botonesByE, .marca {
     text-align: center;
+    text-transform: uppercase;
+}
+.marca {
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-top:15px;
+    margin-bottom: 15px;
 }
 .modelo {
-    font-size:1.4rem;
+    font-size:1.3rem;
 }
 .talle {
-font-size: 1.3rem;
+font-size: 1.1rem;
 color: black;
+margin-top: 10px;
 }
 .precio {
     color: rgb(231, 73, 73);
@@ -183,9 +199,6 @@ label {
 }
 option {
     width:140px;
-}
-.formPrimeros{
-    
 }
 .formSegundos {
     padding-left: 100px;
@@ -343,6 +356,12 @@ FOTOS HOME
     100% {margin-left: -300%;}
 
 } */
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 562px;
+    overflow: hidden;
+}
 .img1, .img2, .img3, .img4 {
     width: 100%;
     height:70% !important;

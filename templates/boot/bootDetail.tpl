@@ -4,6 +4,8 @@
 <div class="container-details">
     <h1 class="mb-4 tituloDetail">{$titulo}</h1>
             <div class="container-detail">
+                <h2 class="container-categoria">Marca: {$boot->nombre}</h2>
+            <hr>
                 <h2 class="container-categoria">Categoria: {$boot->categoria}</h2>
             <hr>
                 <h2 class="container-talle">Talle: {$boot->talle}</h2>

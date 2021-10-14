@@ -7,15 +7,21 @@
         function __construct(){
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_botines;charset=utf8', 'root', '');
         }
+        function filtro($marca) {
+                $sentencia = $this->db->prepare("SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca AND botin.id_marca_fk = ?");
+                $sentencia->execute(array($marca));
+                $marcaFiltro = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                return $marcaFiltro;
+        }
 
         function getBoots(){
-            $sentencia = $this->db->prepare( "select * from botin");
+            $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca");
             $sentencia->execute();
             $botines = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $botines;
         }   
         function getBoot($id){
-            $sentencia = $this->db->prepare( "select * from botin WHERE id_botin=?");
+            $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca AND botin.id_marca_fk = ?");
             $sentencia->execute(array($id));
             $botin = $sentencia->fetch(PDO::FETCH_OBJ);
             return $botin;

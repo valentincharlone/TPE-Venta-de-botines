@@ -26,6 +26,9 @@
         case 'viewBoot':
             $bootsController->viewBoot($params[1]);
             break;
+        case 'filtrar':
+            $bootsController->filtrar(); 
+            break;   
         case 'createBoot': 
             $bootsController->formBoot(); 
             break;

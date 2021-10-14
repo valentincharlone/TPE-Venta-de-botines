@@ -12,6 +12,9 @@
                     {foreach from=$boots item=$boot}
                         <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">             
         <div class="col-md-8 contenedorDetalles">
+        <div class="marca">
+                {$boot->nombre}
+            </div>
             <div class="modelo">
                 {$boot->modelo}
             </div>
@@ -26,8 +29,11 @@
              {/foreach}
             {else}
              {foreach from=$boots item=$boot}
-                        <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">             
+                        <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">    
               <div class="col-md-8 contenedorDetalles">
+            <div class="marca">
+                {$boot->nombre}
+            </div>         
             <div class="modelo">
                 {$boot->modelo}
             </div>

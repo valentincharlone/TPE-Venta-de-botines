@@ -19,8 +19,17 @@
             else {
                 $this->view->showHome();
             }
-             
         }
+        function filtrar() {
+            session_start();
+            $marcaFiltro = $this->model->filtro($_POST['marca']);
+            if (!empty($_SESSION['userName'])){
+           $this->view->showFilterBoots($marcaFiltro, $_SESSION['userName']);
+        }
+        else {
+            $this->view->showFilterBoots($marcaFiltro);
+        }
+    }
         function allBoots(){
             session_start();
             $boots = $this->model->getBoots();
