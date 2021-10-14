@@ -1,5 +1,6 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
+{if !empty($userEmail) }
 <div class="contenedorFormNewMark">
     <form class="form-alta" action="insertMark" method="POST"> 
                 <label>Nueva marca:</label> 
@@ -20,6 +21,10 @@
     </div>
 {/foreach}
 </div>
+{else}
+<h1 class="errorPermiso"> NO TENES PERMISO PARA ACCEDER A ESTA SECCIÓN!</h1>
+<img src="img/error.jpg" class="img-error">
+{/if}
 
 
 
