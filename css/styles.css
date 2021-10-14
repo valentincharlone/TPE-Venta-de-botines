@@ -359,12 +359,23 @@ hr {
 
 /* FILTRO */
 
+.contenedorFiltro {
+    display: flex;
+    
+}
+
 .selectFiltro {
-    width:30%;
+    margin-top: 10px;
+    margin-left: 42%;
+    padding-right: 20px;
+    text-align: center;
+    width:15%;
 }
 .btn-filtroB, .btn-filtroV {
+    position: absolute;
+    margin-left: 41%;
+    margin-top: 15px;
     border: none;
-    margin-top: 3px;
     height:40px;
     font-size: 1.4rem;
     border-radius:40%;
@@ -378,9 +389,6 @@ hr {
 .btn-filtroB:hover, .btn-filtroV:hover {
     background-color:rgb(86, 175, 204);
     color: rgb(210, 234, 235);
-}
-.btn-filtroB {
-    margin-left: -80px;
 }
 
 /* CREATE BOOT Y UPDATE BOOT*/
@@ -574,7 +582,7 @@ form input {
     position: relative;
 }
 .inputFiltro {
-    width: 25%;
+    width: 20%;
     height:40px;
     border-radius: 10%;
 }
@@ -587,7 +595,9 @@ label {
 option {
     width:140px;
 }
+
 /*MARCAS */
+
 .nuevaMarca {
     width: 2    0%;
     height:40px;

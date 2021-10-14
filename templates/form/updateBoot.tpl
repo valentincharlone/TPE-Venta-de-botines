@@ -30,7 +30,7 @@
                       <option value="39" {if $boot->talle ==39}selected {/if}>39 </option>
                       <option value="39.5" {if $boot->talle ==39.5}selected {/if}>39.5 </option>
                       <option value="40" {if $boot->talle ==40}selected {/if}>40 </option>
-                      <option value="40.5 {if $boot->talle ==40.5}selected {/if}">40.5 </option>
+                      <option value="40.5" {if $boot->talle ==40.5}selected {/if}>40.5 </option>
                       <option value="41" {if $boot->talle ==41}selected {/if}>41 </option>
                       <option value="41.5" {if $boot->talle ==41.5}selected {/if}>41.5 </option>
                       <option value="42" {if $boot->talle ==42}selected {/if}>42 </option>

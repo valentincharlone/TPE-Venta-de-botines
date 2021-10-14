@@ -10,7 +10,7 @@
             <hr>
                 <h2 class="container-talle">Talle: {$boot->talle}</h2>
             <hr>              
-                <h2 class="container-precio">Precio: ${$boot->precio}</h2>
+                <h2 class="container-precio">Precio: {$boot->precio}</h2>
             <hr>        
                 <h2 class="container-descripcion">Descripcion: {$boot->descripcion}</h2>
             <hr>
