@@ -8,8 +8,9 @@ class BootsView {
     function __construct() {
         $this->smarty = new Smarty();
     }
-    function showHome($userEmail = "") {
+    function showHome($logueado="" , $userEmail = "") {
         $this ->smarty->assign('userEmail', $userEmail);
+        $this->smarty->assign('logueado', $logueado);
         $this->smarty->display('templates/home.tpl');
     }
 

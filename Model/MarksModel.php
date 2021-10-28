@@ -7,7 +7,7 @@
         function __construct(){
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_botines;charset=utf8', 'root', '');
         }
-        // MARCAS
+        
         function getMarks() {
             $sentencia = $this->db->prepare("SELECT * FROM marca");
             $sentencia->execute();

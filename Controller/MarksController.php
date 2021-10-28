@@ -14,7 +14,6 @@
             $this->authHelper = new AuthHelper();
         }
         function allMarks() {
-        
             $marcas =$this->model->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
              if($logueado == true){
