@@ -39,29 +39,29 @@
             $sentencia = $this->db->prepare("UPDATE botin SET modelo=?, talle=?, precio=?, descripcion=?, categoria=?, id_marca_fk=? WHERE id_botin=?");
             $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria, $marca, $id));
         }
-        // MARCAS
-        function getMarks() {
-            $sentencia = $this->db->prepare("SELECT * FROM marca");
-            $sentencia->execute();
-            $marcas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-            return $marcas;
-        }
-        function getMark($id) {
-            $sentencia = $this->db->prepare("SELECT * FROM marca WHERE id_marca = ?");
-            $sentencia->execute(array($id));
-            $marca = $sentencia->fetch(PDO::FETCH_OBJ);
-            return $marca;
-        }
-        function updateMarkFromDB($renameMark, $id) {
-            $sentencia = $this->db->prepare("UPDATE marca SET nombre=? WHERE id_marca = ?");
-            $sentencia->execute(array($renameMark, $id));
-        }
-        function deleteMarkFromDB($id){
-            $sentencia = $this->db->prepare("DELETE FROM marca WHERE id_marca=?");
-            $sentencia->execute(array($id));
-        }
-        function insertMarkFromDB($newMark) {
-            $sentencia = $this->db->prepare("INSERT INTO marca(nombre) VALUE (?)");
-            $sentencia->execute(array($newMark));
-        }
+        // // MARCAS
+        // function getMarks() {
+        //     $sentencia = $this->db->prepare("SELECT * FROM marca");
+        //     $sentencia->execute();
+        //     $marcas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        //     return $marcas;
+        // }
+        // function getMark($id) {
+        //     $sentencia = $this->db->prepare("SELECT * FROM marca WHERE id_marca = ?");
+        //     $sentencia->execute(array($id));
+        //     $marca = $sentencia->fetch(PDO::FETCH_OBJ);
+        //     return $marca;
+        // }
+        // function updateMarkFromDB($renameMark, $id) {
+        //     $sentencia = $this->db->prepare("UPDATE marca SET nombre=? WHERE id_marca = ?");
+        //     $sentencia->execute(array($renameMark, $id));
+        // }
+        // function deleteMarkFromDB($id){
+        //     $sentencia = $this->db->prepare("DELETE FROM marca WHERE id_marca=?");
+        //     $sentencia->execute(array($id));
+        // }
+        // function insertMarkFromDB($newMark) {
+        //     $sentencia = $this->db->prepare("INSERT INTO marca(nombre) VALUE (?)");
+        //     $sentencia->execute(array($newMark));
+        // }
     }

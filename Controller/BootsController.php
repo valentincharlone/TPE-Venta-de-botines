@@ -1,125 +1,175 @@
 <?php
     require_once "./Model/BootsModel.php";
+    require_once "./Model/MarksModel.php";
     require_once "./View/BootsView.php";
+    require_once "./Helpers/AuthHelper.php";
     class BootsController {
 
         private $model;
         private $view;
+        private $authHelper;
+        private $marksModel;
 
         function __construct() {
+
+            $this->marksModel = new MarksModel();
             $this->model = new BootsModel();
             $this->view = new BootsView();
+            $this->authHelper = new AuthHelper();
         }
 
         function showHome(){
-            session_start();
-            if (!empty($_SESSION['userName'])){
-                $this->view->showHome($_SESSION['userName']);
-            }
-            else {
-                $this->view->showHome();
+            $logueado = $this->authHelper->checkLoggedIn();
+            
+
+            if($logueado == true ){
+                if (!empty($_SESSION['userName'])){
+    
+                    $this->view->showHome($logueado, $_SESSION['userName']);
+                }
+                else {
+                    $this->view->showHome($logueado);
+                }
+                
             }
         }
         function filtrar() {
-            session_start();
+            
             $marcaFiltro = $this->model->filtro($_POST['marca']);
-            if (!empty($_SESSION['userName'])){
-           $this->view->showFilterBoots($marcaFiltro, $_SESSION['userName']);
-        }
-        else {
-            $this->view->showFilterBoots($marcaFiltro);
-        }
-    }
-        function allBoots(){
-            session_start();
-            $boots = $this->model->getBoots();
-            $marcas= $this->model->getMarks();
-            if (!empty($_SESSION['userName'])){
-                  $this->view->showBoots($boots,$marcas, $_SESSION['userName']);
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado == true){
+                if (!empty($_SESSION['userName'])){
+                $this->view->showFilterBoots($logueado, $marcaFiltro, $_SESSION['userName']);
             }
             else {
-                $this->view->showBoots($boots, $marcas);
+                $this->view->showFilterBoots($logueado, $marcaFiltro);
             }
+        }
+        
+    }
+        function allBoots(){
+            
+            $boots = $this->model->getBoots();
+            $marcas= $this->marksModel->getMarks();
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado == true){
+                if (!empty($_SESSION['userName'])){
+                      $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName']);
+                }
+                else {
+                    $this->view->showBoots($logueado, $boots, $marcas);
+                }
+            }
+            
+
         }
 
         function viewBoot($id){
-            session_start();
+            
             $boot = $this->model->getBoot($id);
-            if (!empty($_SESSION['userName'])){
-            $this->view->showBoot($boot,  $_SESSION['userName']);
-            } 
-            else {
-                $this->view->showBoot($boot);
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado == true){
+                if (!empty($_SESSION['userName'])){
+                $this->view->showBoot($logueado, $boot,  $_SESSION['userName']);
+                } 
+                else {
+                    $this->view->showBoot($logueado, $boot);
+                }
+
             }
         }
 
         function formBoot(){    
-            session_start();
-            if (!empty($_SESSION['userName'])){
-            $this->view->viewformBoot( $_SESSION['userName']);
-            } 
-            else {
-                $this->view->viewformBoot();
+            
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado == true){
+                if (!empty($_SESSION['userName'])){
+                $this->view->viewformBoot($logueado, $_SESSION['userName']);
+                } 
+                else {
+                    $this->view->viewformBoot($logueado);
+                }
+
             }
         }
         function insertBoot() {
-            $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
-            $this->view->showBotinesLocation();
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado){
+
+                $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
+                $this->view->showBotinesLocation();
+            }else{
+                $this->view->showBotinesLocation();
+            }
         }
         function deleteBoot($id){
-            $this->model->deleteBootFromDB($id);
-            $this->view->showBotinesLocation();
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado){
+                $this->model->deleteBootFromDB($id);
+                $this->view->showBotinesLocation();
+            }else{
+                $this->view->showBotinesLocation();
+            }
         }
         function formUpBoot($id){  
-            session_start();
-            if (!empty($_SESSION['userName'])) {
-            $marcas= $this->model->getMarks();
-            $boot = $this->model->getBoot($id);
-            $this->view->viewformUpBoot($id, $_SESSION['userName'],$boot, $marcas );
-            }
-            else {
-                $this->view->showHomeLocation();
-            }
-        }
-
-        function updateBoot(){
-                $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
-                $this->view->showBotinesLocation();
-         }
-
-       // MARCAS
-       function allMarks() {
-        session_start();
-        $marcas =$this->model->getMarks();
-        if (!empty($_SESSION['userName'])) {
-           $this->view->showMarks($marcas, $_SESSION['userName']);
-       }
-       else {
-        $this->view->showMarks($marcas);
-       }
-    }
-    function formUpMark($id) {
-        session_start();
-        $marcas =$this->model->getMarks();
-        $marca = $this->model->getMark($id);
+            
+            $logueado = $this->authHelper->checkLoggedIn();
+            if($logueado == true){
                 if (!empty($_SESSION['userName'])) {
-                $this->view->viewformUpMark($id, $marca, $_SESSION['userName'], $marcas );
+                    $marcas= $this->marksModel->getMarks();
+                    $boot = $this->model->getBoot($id);
+                    $this->view->viewformUpBoot($logueado, $id, $_SESSION['userName'],$boot, $marcas );
                 }
                 else {
                     $this->view->showHomeLocation();
                 }
             }
-    function updateMark() {
-        $this->model->updateMarkFromDB($_POST['renameMark'], $_POST['id_marca']);
-        $this->view->showMarcasLocation();
-    }
-    function deleteMark($id){
-        $this->model->deleteMarkFromDB($id);
-        $this->view->showMarcasLocation();
-    }
-    function insertMark() {
-        $this->model->insertMarkFromDB($_POST['newMark']);
-        $this->view->showMarcasLocation();
-    }
+        }
+
+        function updateBoot(){
+            $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
+            $this->view->showBotinesLocation();
+        }
+
+    //    // MARCAS
+    //    function allMarks() {
+        
+    //        $marcas =$this->model->getMarks();
+    //        $logueado = $this->authHelper->checkLoggedIn();
+    //         if($logueado == true){
+    //         if (!empty($_SESSION['userName'])) {
+    //            $this->view->showMarks($logueado, $marcas, $_SESSION['userName']);
+    //         }
+    //         else {
+    //             $this->view->showMarks($logueado, $marcas);
+    //         }
+    //     }
+    // }
+    // function formUpMark($id) {
+        
+    //     $marcas =$this->model->getMarks();
+    //     $marca = $this->model->getMark($id);
+    //     $logueado = $this->authHelper->checkLoggedIn();
+    //     if($logueado == true){
+    //         if (!empty($_SESSION['userName'])) {
+    //         $this->view->viewformUpMark($logueado, $id, $marca, $_SESSION['userName'], $marcas );
+    //         }
+    //         else {
+    //             $this->view->showHomeLocation();
+    //         }
+    //     }
+    // }
+    // function updateMark() {
+    //     $this->model->updateMarkFromDB($_POST['renameMark'], $_POST['id_marca']);
+    //     $this->view->showMarcasLocation();
+    // }
+    // function deleteMark($id){
+    //     $this->model->deleteMarkFromDB($id);
+    //     $this->view->showMarcasLocation();
+    // }
+    // function insertMark() {
+    //     $this->model->insertMarkFromDB($_POST['newMark']);
+    //     $this->view->showMarcasLocation();
+    // }
 
 }

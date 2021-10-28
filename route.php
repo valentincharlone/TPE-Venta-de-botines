@@ -1,6 +1,7 @@
 <?php
     require_once "Controller/BootsController.php";
     require_once "Controller/UserController.php";
+    require_once "Controller/MarksController.php";
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -13,6 +14,7 @@
     $params = explode('/', $action);
 
     $bootsController = new BootsController(); 
+    $marksController = new MarksController(); 
     $userController = new UserController();
 
     // determina que camino seguir según la acción
@@ -47,19 +49,19 @@
             break;
             //MARCAS
         case 'marcas': 
-            $bootsController->allMarks(); 
+            $marksController->allMarks(); 
             break;  
         case 'showFormMark': 
-            $bootsController->formUpMark($params[1]); 
+            $marksController->formUpMark($params[1]); 
             break; 
         case 'insertUpdateMark': 
-            $bootsController->updateMark(); 
+            $marksController->updateMark(); 
             break;
         case 'deleteMark': 
-            $bootsController->deleteMark($params[1]); 
+            $marksController->deleteMark($params[1]); 
             break;
         case 'insertMark': 
-            $bootsController->insertMark(); 
+            $marksController->insertMark(); 
             break;
 
      //USUARIO

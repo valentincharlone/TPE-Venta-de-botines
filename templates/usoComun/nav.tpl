@@ -2,8 +2,8 @@
     <h1><img src="https://adl-foundation.adidas.com/flags/1-0-0/ar.svg" alt="ar flag" title="ar flag" aria-label="ar flag" class="argentina">
     AR$ <span>|</span>  <a href = "botines" class="futbolNav"> Futbol</a>
     </h1>
-    
-        {if !empty($userEmail) }
+        
+        {if (!empty($userEmail) && ($logueado == true)) }
     <div class="perfilYcerrar">
             <div class="usuario-logOut">
                 <a class="nav-link login"> {$userEmail}</a>
@@ -11,7 +11,7 @@
             <div class="usuario-logOut">
                 <a href="logOut" class="nav-link logOut"> Cerrar sesión</a>
             </div>
-</div>
+    </div>
 </div>
             {else}
             <div class="inicioYregistro">
@@ -24,7 +24,7 @@
 </div>
     {/if}
  
- {if !empty($userEmail) }
+ {if (!empty($userEmail) && ($logueado == true)) }
 <div class="contenedor">
     <div class="logo">
         <header>

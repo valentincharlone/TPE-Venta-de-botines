@@ -8,7 +8,7 @@
   
   </div>      
 <div class="container">
-     {if !empty($userEmail) }
+     {if !empty($userEmail) && ($logueado == true)}
                     {foreach from=$boots item=$boot}
                         <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">             
         <div class="col-md-8 contenedorDetalles">
