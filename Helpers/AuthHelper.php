@@ -7,7 +7,7 @@ class AuthHelper{
 
     function checkLoggedIn(){
         session_start();
-        if(isset($_SESSION["email"])){
+        if(isset($_SESSION['username'])){
             return true;
         }
         else{

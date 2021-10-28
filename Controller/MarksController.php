@@ -1,6 +1,6 @@
 <?php
     require_once "./Model/MarksModel.php";
-    require_once "./View/BootsView.php";
+    require_once "./View/MarksView.php";
     require_once "./Helpers/AuthHelper.php";
     
     class MarksController {
@@ -10,7 +10,7 @@
 
         function __construct() {
             $this->model = new MarksModel();
-            $this->view = new BootsView();
+            $this->view = new MarksView();
             $this->authHelper = new AuthHelper();
         }
         function allMarks() {

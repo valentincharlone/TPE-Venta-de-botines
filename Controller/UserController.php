@@ -14,8 +14,6 @@
       $this->view->formLogin();
     }
     function verifyLogin() {
-      session_start();  
-
   //Si esta loggeado lo saludo, sino muestro el form de loggeo
   if(!empty($_POST['email']) && !empty($_POST['password'])) {
     $userEmail = $_POST['email'];
@@ -25,6 +23,7 @@
     //SI el usuario existe y las contraseñas coinciden:
     //con password_verify verificamos si el pass = a el hashing
     if($user && password_verify($userPassword, $user->password)){
+      session_start();
       $_SESSION['logueado']=true;
       //dejamos guardado el mail con el que logro entrar
       $_SESSION['username']=$userEmail;

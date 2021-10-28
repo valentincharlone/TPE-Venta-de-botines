@@ -1,7 +1,7 @@
 <?php
 require_once 'libs/smarty-3.1.39/libs/Smarty.class.php';
 
-class BootsView {
+class MarksView {
 
     private $smarty;
 
@@ -9,13 +9,13 @@ class BootsView {
         $this->smarty = new Smarty();
     }
     // MARCAS
-    function showMarks($logueado, $marcas, $userEmail = "") {
+    function showMarks($logueado="", $marcas, $userEmail = "") {
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('marcas', $marcas);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/marcas.tpl');
     }
-    function viewformUpMark($logueado, $id,$marca, $userEmail = "", $marcas) {
+    function viewformUpMark($logueado="", $id,$marca, $userEmail = "", $marcas) {
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('id_marca', $id); 
         $this->smarty->assign('marca', $marca);

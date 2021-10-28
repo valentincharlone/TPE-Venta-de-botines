@@ -8,18 +8,17 @@ class BootsView {
     function __construct() {
         $this->smarty = new Smarty();
     }
-    function showHome($logueado , $userEmail = "") {
-        $this->smarty->assign('logueado', $logueado);
+    function showHome($userEmail = "") {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/home.tpl');
     }
 
-    function viewformBoot($logueado , $userEmail="") {
+    function viewformBoot($logueado="" , $userEmail="") {
         $this->smarty->assign('logueado', $logueado);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
-    function viewformUpBoot($logueado , $id, $userEmail="",$boot, $marcas){
+    function viewformUpBoot($logueado="" , $id, $userEmail="",$boot, $marcas){
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('id_botin', $id); 
         $this ->smarty->assign('userEmail', $userEmail);
@@ -28,7 +27,7 @@ class BootsView {
         $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
-    function showBoots($logueado , $boots,$marcas, $userEmail= ""){
+    function showBoots($logueado="" , $boots,$marcas, $userEmail= ""){
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boots', $boots);
         $this->smarty->assign('marcas', $marcas);
@@ -37,17 +36,16 @@ class BootsView {
         
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
-    function showBoot($logueado , $boot, $userEmail = ""){
+    function showBoot($logueado="" , $boot, $userEmail = ""){
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boot', $boot);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('titulo', 'Descripcion'); 
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
-     function showFilterBoots($logueado ,$marcaFiltro ,$userEmail = "") {
-         $this->smarty->assign('logueado', $logueado);
+     function showFilterBoots($marcaFiltro ,$userEmail = "") {
          $this->smarty->assign('marcaFiltro', $marcaFiltro);
-        $this ->smarty->assign('userEmail', $userEmail);
+         $this ->smarty->assign('userEmail', $userEmail);
          $this->smarty->display('templates/filtro.tpl');
      }
 //      // MARCAS

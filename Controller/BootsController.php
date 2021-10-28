@@ -6,29 +6,26 @@
     class BootsController {
 
         private $model;
+        private $marksModel;
         private $view;
         private $authHelper;
-        private $marksModel;
 
         function __construct() {
 
-            $this->marksModel = new MarksModel();
             $this->model = new BootsModel();
+            $this->marksModel = new MarksModel();
             $this->view = new BootsView();
             $this->authHelper = new AuthHelper();
         }
 
         function showHome(){
             $logueado = $this->authHelper->checkLoggedIn();
-            
-
             if($logueado == true ){
                 if (!empty($_SESSION['userName'])){
-    
-                    $this->view->showHome($logueado, $_SESSION['userName']);
+                    $this->view->showHome($_SESSION['userName']);
                 }
                 else {
-                    $this->view->showHome($logueado);
+                    $this->view->showHome();
                 }
                 
             }
