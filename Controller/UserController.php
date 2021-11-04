@@ -13,6 +13,7 @@
     function login() {
       $this->view->formLogin();
     }
+
     function verifyLogin() {
   //Si esta loggeado lo saludo, sino muestro el form de loggeo
   if(!empty($_POST['email']) && !empty($_POST['password'])) {
@@ -31,14 +32,13 @@
     }
     if (isset($_SESSION['logueado']) && $_SESSION['logueado']== true) {
         $this->view-> showHomeLocation();
-       
     }
     else {
       $this->view->formLogin("usuario o contraseña incorrectos");
     }
     }
   }
-  function logOut(){
+  function logOut(){  
     session_start();
     // unset($_SESSION['username']);
     session_destroy();

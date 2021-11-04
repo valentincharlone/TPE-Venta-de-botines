@@ -44,28 +44,14 @@ class BootsView {
         $this->smarty->assign('titulo', 'Descripcion'); 
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
-     function showFilterBoots($marcaFiltro ,$userEmail = "") {
+     function showFilterBoots($logueado="", $marcaFiltro ,$userEmail = "") {
+        $this->smarty->assign('logueado', $logueado);
          $this->smarty->assign('marcaFiltro', $marcaFiltro);
          $this ->smarty->assign('userEmail', $userEmail);
          $this->smarty->display('templates/filtro.tpl');
      }
-//      // MARCAS
-// function showMarks($logueado = "", $marcas, $userEmail = "") {
-//     $this->smarty->assign('logueado', $logueado);
-//     $this->smarty->assign('marcas', $marcas);
-//     $this ->smarty->assign('userEmail', $userEmail);
-//     $this->smarty->display('templates/marcas.tpl');
-// }
-// function viewformUpMark($logueado = "", $id,$marca, $userEmail = "", $marcas) {
-//     $this->smarty->assign('logueado', $logueado);
-//     $this->smarty->assign('id_marca', $id); 
-//     $this->smarty->assign('marca', $marca);
-//     $this ->smarty->assign('userEmail', $userEmail);
-//     $this->smarty->assign('marcas', $marcas);
-//     $this->smarty->display('templates/form/updateMark.tpl');
-// }
 
-     //
+     
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
@@ -78,10 +64,5 @@ class BootsView {
     function showMarcasLocation() {
         header("Location: ".BASE_URL."marcas");
     }
-    // function showFilter($botines) {
-    //     $this->smarty->assign('botines', $botines);
-    //     $this->smarty->display('templates/boot/bootsList.tpl');
-    // }
-
-
+ 
 }

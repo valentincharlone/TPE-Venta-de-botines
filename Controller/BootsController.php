@@ -27,8 +27,7 @@
                     $this->view->showHome();            
             }
         }
-        function filtrar() {
-            
+        function filtrar() {            
             $marcaFiltro = $this->model->filtro($_POST['marca']);
             $logueado = $this->authHelper->checkLoggedIn();
             if($logueado == true){
@@ -39,8 +38,7 @@
         }
         
     }
-        function allBoots(){
-            
+        function allBoots(){            
             $boots = $this->model->getBoots();
             $marcas= $this->marksModel->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
