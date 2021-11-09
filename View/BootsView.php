@@ -8,46 +8,51 @@ class BootsView {
     function __construct() {
         $this->smarty = new Smarty();
     }
-    function showHome($logueado="" , $userEmail = "") {
-        $this ->smarty->assign('userEmail', $userEmail);
+    function showHome($logueado="" , $userEmail = "", $admin="") {
         $this->smarty->assign('logueado', $logueado);
+        $this ->smarty->assign('userEmail', $userEmail);
+        $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/home.tpl');
     }
 
-    function viewformBoot($logueado="" , $userEmail="") {
+    function viewformBoot($logueado="" , $userEmail="", $admin="") {
         $this->smarty->assign('logueado', $logueado);
         $this ->smarty->assign('userEmail', $userEmail);
+        $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
-    function viewformUpBoot($logueado="" , $id, $userEmail="",$boot, $marcas){
+    function viewformUpBoot($logueado="" , $id, $userEmail="",$boot, $marcas, $admin=""){
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('id_botin', $id); 
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('boot', $boot);
         $this->smarty->assign('marcas', $marcas);
+        $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
-    function showBoots($logueado="" , $boots,$marcas, $userEmail= ""){
+    function showBoots($logueado="" , $boots,$marcas, $userEmail= "", $admin=""){
+        $this->smarty->assign('titulo', 'Nuestros botines');        
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boots', $boots);
         $this->smarty->assign('marcas', $marcas);
         $this ->smarty->assign('userEmail', $userEmail);
-        $this->smarty->assign('titulo', 'Nuestros botines');        
-        
+        $this ->smarty->assign('admin', $admin);
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
-    function showBoot($logueado="" , $boot, $userEmail = ""){
+    function showBoot($logueado="" , $boot, $userEmail = "", $admin=""){
+        $this->smarty->assign('titulo', 'Descripcion'); 
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boot', $boot);
         $this ->smarty->assign('userEmail', $userEmail);
-        $this->smarty->assign('titulo', 'Descripcion'); 
+        $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
-     function showFilterBoots($logueado="", $marcaFiltro ,$userEmail = "") {
+     function showFilterBoots($logueado="", $marcaFiltro ,$userEmail = "", $admin="") {
         $this->smarty->assign('logueado', $logueado);
          $this->smarty->assign('marcaFiltro', $marcaFiltro);
          $this ->smarty->assign('userEmail', $userEmail);
+         $this->smarty->assign('admin', $admin);
          $this->smarty->display('templates/filtro.tpl');
      }
 

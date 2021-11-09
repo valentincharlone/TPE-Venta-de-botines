@@ -232,7 +232,26 @@ footer div {
     font-size: 1.3rem;
     color: black;
 }
+/* ---------------------------------------------------------------------------------------------- */
+/* USUARIOS */
+.tituloUsuarios {
+    font-size: 3em;
+    margin-top:3%;
+    margin-left: 40%;
+}
+.contenedorUsuarios {
+    margin-top:2%;
+    text-align:center;
+}
 
+.liUsuarios li {
+    font-weight: bold;
+    font-size: 1.8em;
+    list-style: none;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
 /* BOOOOOT LIST */
 
 .tituloYfiltro {

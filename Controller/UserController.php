@@ -29,6 +29,7 @@
       //dejamos guardado el mail con el que logro entrar
       $_SESSION['username']=$userEmail;
       $_SESSION['userName']=$user->nombre_usuario;
+      $_SESSION['administrador']=$user->administrador;
     }
     if (isset($_SESSION['logueado']) && $_SESSION['logueado']== true) {
         $this->view-> showHomeLocation();

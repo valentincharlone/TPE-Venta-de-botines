@@ -9,10 +9,11 @@ class MarksView {
         $this->smarty = new Smarty();
     }
     // MARCAS
-    function showMarks($logueado="", $marcas, $userEmail = "") {
+    function showMarks($logueado="", $marcas, $userEmail = "", $admin="") {
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('marcas', $marcas);
         $this ->smarty->assign('userEmail', $userEmail);
+        $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/marcas.tpl');
     }
     function viewformUpMark($logueado="", $id,$marca, $userEmail = "", $marcas) {
@@ -35,5 +36,8 @@ class MarksView {
     }
     function showMarcasLocation() {
         header("Location: ".BASE_URL."marcas");
+    }
+    function showLoginLocation() {
+        header("Location: ".BASE_URL."login");
     }
 }

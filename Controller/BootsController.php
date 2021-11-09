@@ -11,7 +11,6 @@
         private $authHelper;
 
         function __construct() {
-
             $this->model = new BootsModel();
             $this->marksModel = new MarksModel();
             $this->view = new BootsView();
@@ -20,8 +19,9 @@
 
         function showHome(){
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado == true ){
-                    $this->view->showHome($logueado, $_SESSION['userName']);
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado == true){
+                    $this->view->showHome($logueado, $_SESSION['userName'], $admin);
                 }
                 else {
                     $this->view->showHome();            
@@ -30,8 +30,9 @@
         function filtrar() {            
             $marcaFiltro = $this->model->filtro($_POST['marca']);
             $logueado = $this->authHelper->checkLoggedIn();
+            $admin = $this->authHelper->checkAdimn();
             if($logueado == true){
-                $this->view->showFilterBoots($logueado, $marcaFiltro, $_SESSION['userName']);
+                $this->view->showFilterBoots($logueado, $marcaFiltro, $_SESSION['userName'], $admin);
             }
             else {
                 $this->view->showFilterBoots($logueado, $marcaFiltro);
@@ -42,8 +43,9 @@
             $boots = $this->model->getBoots();
             $marcas= $this->marksModel->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado == true){
-                      $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName']);
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado == true) {
+                      $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName'], $admin);
                 }
                 else {
                     $this->view->showBoots($logueado, $boots, $marcas);
@@ -53,8 +55,9 @@
         function viewBoot($id){
             $boot = $this->model->getBoot($id);
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado == true){
-                $this->view->showBoot($logueado, $boot,  $_SESSION['userName']);
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado && $admin==true){
+                $this->view->showBoot($logueado, $boot,  $_SESSION['userName'], $admin);
                 } 
                 else {
                     $this->view->showBoot($logueado, $boot);
@@ -62,10 +65,10 @@
         }
 
         function formBoot(){    
-            
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado == true){
-                $this->view->viewformBoot($logueado, $_SESSION['userName']);
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado && $admin==true){
+                $this->view->viewformBoot($logueado, $_SESSION['userName'], $admin);
                 } 
                 else {
                     $this->view->viewformBoot($logueado);
@@ -73,7 +76,8 @@
         }
         function insertBoot() {
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado){
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado && $admin == true) {
                 $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
                 $this->view->showBotinesLocation();
             }else{
@@ -82,7 +86,8 @@
         }
         function deleteBoot($id){
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado){
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado && $admin==true){
                 $this->model->deleteBootFromDB($id);
                 $this->view->showBotinesLocation();
             }else{
@@ -91,7 +96,8 @@
         }
         function formUpBoot($id){  
             $logueado = $this->authHelper->checkLoggedIn();
-            if($logueado == true){
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado && $admin == true){
                     $marcas= $this->marksModel->getMarks();
                     $boot = $this->model->getBoot($id);
                     $this->view->viewformUpBoot($logueado, $id, $_SESSION['userName'],$boot, $marcas );

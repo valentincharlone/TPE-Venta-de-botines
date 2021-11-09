@@ -16,27 +16,24 @@
         function allMarks() {
             $marcas =$this->model->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
-             if($logueado == true){
-             if (!empty($_SESSION['userName'])) {
-                $this->view->showMarks($logueado, $marcas, $_SESSION['userName']);
+            $admin = $this->authHelper->checkAdimn();
+             if($logueado == true && $admin == true){
+                $this->view->showMarks($logueado, $marcas, $_SESSION['userName'], $admin);
              }
              else {
-                 $this->view->showMarks($logueado, $marcas);
+                 $this->view->showLoginLocation();
              }
-         }
      }
-     function formUpMark($id) {
-         
+     function formUpMark($id) {         
          $marcas =$this->model->getMarks();
          $marca = $this->model->getMark($id);
          $logueado = $this->authHelper->checkLoggedIn();
-         if($logueado == true){
-             if (!empty($_SESSION['userName'])) {
-             $this->view->viewformUpMark($logueado, $id, $marca, $_SESSION['userName'], $marcas );
+         $admin = $this->authHelper->checkAdimn();
+         if($logueado == true && $admin == true){
+             $this->view->viewformUpMark($logueado, $id, $marca, $_SESSION['userName'], $marcas, $admin);
              }
              else {
                  $this->view->showHomeLocation();
-             }
          }
      }
      function updateMark() {

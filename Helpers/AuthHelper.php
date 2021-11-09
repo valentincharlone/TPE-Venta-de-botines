@@ -15,5 +15,13 @@ class AuthHelper{
         }   
         
         }
+        function checkAdimn() {
+            if($_SESSION['administrador']==1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 

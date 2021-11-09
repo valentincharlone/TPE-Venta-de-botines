@@ -2,6 +2,7 @@
     require_once "Controller/BootsController.php";
     require_once "Controller/UserController.php";
     require_once "Controller/MarksController.php";
+    require_once "Controller/AdminController.php";
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -16,15 +17,26 @@
     $bootsController = new BootsController(); 
     $marksController = new MarksController(); 
     $userController = new UserController();
+    $adminController = new AdminController();
 
     // determina que camino seguir según la acción
     switch ($params[0]) {
         case 'home': 
             $bootsController->showHome(); 
             break;
+        // ADMIN:
+        case 'usuarios': 
+            $adminController->allUsers(); 
+            break;
+        case 'deleteUser': 
+            $adminController->deleteUser($params[1]); 
+            break;
+        case 'doAdmin': 
+            $adminController->doAdmin($params[1]); 
+            break;
             //BOTINES
         case 'botines': 
-                 $bootsController->allBoots(); 
+            $bootsController->allBoots(); 
             break;           
         case 'viewBoot':
             $bootsController->viewBoot($params[1]);
