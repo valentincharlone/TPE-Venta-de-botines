@@ -3,9 +3,10 @@
  {if !empty($userEmail) &&  ($logueado == true) && ($admin == true)}
             <h2 class="agregarBotin">AGREGAR BOTIN:</h2>
 <div class="col-md-4 formAgregarBotin">
-            <form class="form-alta" action="insertBoot" method="POST"> 
+            <form class="form-alta" action="insertBoot" method="POST" enctype="multipart/form-data"> 
         <div class="formMitad">
             <div class="formPrimeros">
+               <input type="file" name="input_name" id="imageToUpload">
               <label>Marca:</label> <select name="marca" id="marca" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
                       <option value="1">Adidas </option>
                       <option value="2">Nike </option>

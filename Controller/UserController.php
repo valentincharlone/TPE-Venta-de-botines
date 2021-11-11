@@ -41,7 +41,6 @@
   }
   function logOut(){  
     session_start();
-    // unset($_SESSION['username']);
     session_destroy();
       $this->view->showHomeLocation();
   }

@@ -15,6 +15,13 @@
         <div class="marca">
                 {$boot->nombre}
             </div>
+            <div>
+            {if $boot->imagen == NULL}
+             <img class="errorBotines" src="img/error.jpg"/>
+            {else}
+               <img class="tamañoImagenBootList" src="{$boot->imagen}"/>
+            {/if}
+            </div>
             <div class="modelo">
                 {$boot->modelo}
             </div>

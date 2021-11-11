@@ -26,10 +26,21 @@
             return $botin;
         }
 
-        function insertBootFromDB($modelo, $talle, $precio, $descripcion, $categoria,$marca){
-            $sentencia = $this->db->prepare("INSERT INTO botin(modelo, talle, precio, descripcion, categoria, id_marca_fk) VALUES(?, ?, ?, ?, ?, ?)");
-            $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria, $marca));
+        function insertBootFromDB($modelo, $talle, $precio, $descripcion, $categoria,$marca, $imagen = null){
+            $pathImg = null;
+            if ($imagen){
+                $pathImg = $this->uploadImage($imagen);
+                $sentencia = $this->db->prepare("INSERT INTO botin(modelo, talle, precio, descripcion, categoria, id_marca_fk, imagen) VALUES(?, ?, ?, ?, ?, ?, ?)");
+                $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria, $marca, $pathImg));
+            }
         }
+        private function uploadImage($imagen) {
+            $target = 'img/botines/' . uniqid() . '.jpg';
+            move_uploaded_file($imagen, $target);
+            return $target;
+        }
+
+        
         function deleteBootFromDB($id){
             $sentencia = $this->db->prepare("DELETE FROM botin WHERE id_botin=?");
             $sentencia->execute(array($id));

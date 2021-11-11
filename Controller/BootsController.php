@@ -78,8 +78,10 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado && $admin == true) {
-                $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca']);
+                if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_FILES['input_name']['tmp_name']);
                 $this->view->showBotinesLocation();
+                }
             }else{
                 $this->view->showBotinesLocation();
             }
@@ -100,7 +102,7 @@
             if($logueado && $admin == true){
                     $marcas= $this->marksModel->getMarks();
                     $boot = $this->model->getBoot($id);
-                    $this->view->viewformUpBoot($logueado, $id, $_SESSION['userName'],$boot, $marcas );
+                    $this->view->viewformUpBoot($logueado, $id, $_SESSION['userName'], $admin,$boot, $marcas );
                 }
                 else {
                     $this->view->showHomeLocation();
@@ -108,7 +110,14 @@
         }
 
         function updateBoot(){
+            $logueado = $this->authHelper->checkLoggedIn();
+            $admin = $this->authHelper->checkAdimn();
+            if($logueado && $admin==true){
             $this->model->updateBootsFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin']);
             $this->view->showBotinesLocation();
+            }
+            else {
+                $this->view->showHomeLocation();
+            }
         }
 }

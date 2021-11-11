@@ -5,12 +5,13 @@
 
             <h2 class="agregarBotin">MODIFICAR BOTIN:</h2>
 <div class="col-md-4 formAgregarBotin">
-            <form class="form-alta" action="insertUpdateBoot" method="POST"> 
+            <form class="form-alta" action="insertUpdateBoot" method="POST" enctype="multipart/form-data"> 
         <div class="formMitad">
             <div class="formPrimeros">
+             <input type="file" name="input_name" id="imageToUpload" value="{$boot->imagen}">
               <label>Marca:</label> <select name="marca" id="marca" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
             {foreach from=$marcas item=$marca}
-                      <option value="{$marca->id_marca}" {if $boot->id_marca_fk == $marca->id_marca}      selected    {/if}>{$marca->nombre} </option>
+                      <option value="{$marca->id_marca}" {if $boot->id_marca_fk == $marca->id_marca} selected  {/if}>{$marca->nombre} </option>
             {/foreach}
                     </select>  
               

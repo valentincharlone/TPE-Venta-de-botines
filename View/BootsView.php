@@ -21,7 +21,7 @@ class BootsView {
         $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
-    function viewformUpBoot($logueado="" , $id, $userEmail="",$boot, $marcas, $admin=""){
+    function viewformUpBoot($logueado="" , $id, $userEmail="", $admin="",$boot, $marcas ){
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('id_botin', $id); 
         $this ->smarty->assign('userEmail', $userEmail);
@@ -68,6 +68,5 @@ class BootsView {
     }
     function showMarcasLocation() {
         header("Location: ".BASE_URL."marcas");
-    }
- 
+    } 
 }
