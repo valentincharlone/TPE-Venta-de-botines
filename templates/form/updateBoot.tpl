@@ -1,7 +1,7 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
 
-{if !empty($userEmail) && ($logueado == true) }
+{if !empty($userEmail) && ($admin) }
 
             <h2 class="agregarBotin">MODIFICAR BOTIN:</h2>
 <div class="col-md-4 formAgregarBotin">

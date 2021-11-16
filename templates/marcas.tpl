@@ -1,6 +1,6 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
-{if !empty($userEmail) && ($logueado == true)}
+{if !empty($userEmail) && ($logueado)}
 <div class="contenedorFormNewMark">
     <form class="form-alta" action="insertMark" method="POST"> 
                 <label>Nueva marca:</label> 

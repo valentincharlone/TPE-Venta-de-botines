@@ -3,6 +3,7 @@
     require_once "./Model/MarksModel.php";
     require_once "./View/BootsView.php";
     require_once "./Helpers/AuthHelper.php";
+    require_once "./Controller/ApiComentController.php";
     class BootsController {
 
         private $model;
@@ -15,12 +16,13 @@
             $this->marksModel = new MarksModel();
             $this->view = new BootsView();
             $this->authHelper = new AuthHelper();
+            $this->apiComentController = new ApicomentController();
         }
 
         function showHome(){
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado == true){
+            if($logueado){
                     $this->view->showHome($logueado, $_SESSION['userName'], $admin);
                 }
                 else {
@@ -31,7 +33,7 @@
             $marcaFiltro = $this->model->filtro($_POST['marca']);
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado == true){
+            if($logueado){
                 $this->view->showFilterBoots($logueado, $marcaFiltro, $_SESSION['userName'], $admin);
             }
             else {
@@ -44,7 +46,7 @@
             $marcas= $this->marksModel->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado == true) {
+            if($logueado) {
                       $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName'], $admin);
                 }
                 else {
@@ -56,28 +58,29 @@
             $boot = $this->model->getBoot($id);
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado && $admin==true){
+            // PREGUNTAR SI ESTA BIEN!!! $this->apiComentController->obtenerComentarios($id);
+            if($logueado){
                 $this->view->showBoot($logueado, $boot,  $_SESSION['userName'], $admin);
-                } 
-                else {
-                    $this->view->showBoot($logueado, $boot);
+            } 
+            else {
+                $this->view->showBoot($logueado, $boot);
             }
         }
 
         function formBoot(){    
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado && $admin==true){
+            if($logueado && $admin){
                 $this->view->viewformBoot($logueado, $_SESSION['userName'], $admin);
                 } 
                 else {
-                    $this->view->viewformBoot($logueado);
+                    $this->view->showHomeLocation();
                 }
         }
         function insertBoot() {
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado && $admin == true) {
+            if($logueado && $admin) {
                 if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
                 $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_FILES['input_name']['tmp_name']);
                 $this->view->showBotinesLocation();
@@ -89,7 +92,7 @@
         function deleteBoot($id){
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado && $admin==true){
+            if($logueado && $admin){
                 $this->model->deleteBootFromDB($id);
                 $this->view->showBotinesLocation();
             }else{
@@ -99,7 +102,7 @@
         function formUpBoot($id){  
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado && $admin == true){
+            if($logueado && $admin){
                     $marcas= $this->marksModel->getMarks();
                     $boot = $this->model->getBoot($id);
                     $this->view->viewformUpBoot($logueado, $id, $_SESSION['userName'], $admin,$boot, $marcas );

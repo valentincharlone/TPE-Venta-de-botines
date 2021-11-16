@@ -1,7 +1,7 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
 <div class="container">
- {if !empty($userEmail) && ($logueado == true)}
+ {if !empty($userEmail) && ($logueado)}
     {foreach from=$marcaFiltro item=$m}
     <a href="viewBoot/{$m->id_botin}" class="hrefBotines">             
             <div class="col-md-8 contenedorDetalles">

@@ -91,6 +91,10 @@
         case 'insertRegister': 
             $userController->insertRegister(); 
             break;
+            
+        default: 
+            echo('404 Page not found'); 
+            break;
         
         
     }

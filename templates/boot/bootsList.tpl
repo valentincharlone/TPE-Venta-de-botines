@@ -8,7 +8,7 @@
   
   </div>      
 <div class="container">
-     {if !empty($userEmail) && ($logueado == true) && ($admin==true)}
+     {if !empty($userEmail) && ($admin)}
                     {foreach from=$boots item=$boot}
                         <a href="viewBoot/{$boot->id_botin}" class="hrefBotines">             
         <div class="col-md-8 contenedorDetalles">
@@ -40,7 +40,14 @@
               <div class="col-md-8 contenedorDetalles">
             <div class="marca">
                 {$boot->nombre}
-            </div>         
+            </div>  
+             <div>
+            {if $boot->imagen == NULL}
+             <img class="errorBotines" src="img/error.jpg"/>
+            {else}
+               <img class="tamañoImagenBootList" src="{$boot->imagen}"/>
+            {/if}
+            </div>       
             <div class="modelo">
                 {$boot->modelo}
             </div>
