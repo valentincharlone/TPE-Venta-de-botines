@@ -9,12 +9,13 @@ class AdminView {
         $this->smarty = new Smarty();
     }
 
-    function showUsers($logueado="" , $userEmail = "", $usuarios, $admin) {
+    function showUsers($logueado="" , $userEmail = "", $usuarios, $admin, $fotoPerfil = "") {
         $this->smarty->assign('titulo', 'Lista de usuarios:');
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('usuarios', $usuarios);      
         $this->smarty->assign('admin', $admin);   
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/admin/users.tpl');
 }
     function showLoginLocation() {

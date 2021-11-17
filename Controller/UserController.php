@@ -27,9 +27,10 @@
       session_start();
       $_SESSION['logueado']=true;
       //dejamos guardado el mail con el que logro entrar
-      $_SESSION['username']=$userEmail;
       $_SESSION['userName']=$user->nombre_usuario;
       $_SESSION['administrador']=$user->administrador;
+      $_SESSION['username']=$userEmail;
+      $_SESSION['fotoPerfil']=$user->fotoPerfil;
     }
     if (isset($_SESSION['logueado']) && $_SESSION['logueado']== true) {
         $this->view-> showHomeLocation();
@@ -49,14 +50,17 @@
     }
     function insertRegister() {
       if(!empty($_POST['nombre']) && !empty ($_POST['apellido']) && !empty($_POST['nombre_usuario']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $nombre_usuario = $_POST['nombre_usuario'];
-        $userEmail = $_POST['email'];
-        $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $this->model->insertUserFromDB($nombre, $apellido, $nombre_usuario, $userEmail, $userPassword);
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+          $nombre = $_POST['nombre'];
+          $apellido = $_POST['apellido'];
+          $nombre_usuario = $_POST['nombre_usuario'];
+          $userEmail = $_POST['email'];
+          $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+          $fotoPerfil = $_FILES['input_name']['tmp_name'];
+          $this->model->insertUserFromDB($nombre, $apellido, $nombre_usuario, $userEmail, $userPassword, $fotoPerfil);
+        }
       }
-      $this->view->showHomeLocation();
+      $this->view->showLoginLocation();
   
   }
 

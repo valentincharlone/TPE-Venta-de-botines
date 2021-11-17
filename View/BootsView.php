@@ -8,51 +8,57 @@ class BootsView {
     function __construct() {
         $this->smarty = new Smarty();
     }
-    function showHome($logueado="" , $userEmail = "", $admin="") {
+    function showHome($logueado="" , $userEmail = "", $admin="", $fotoPerfil = "") {
         $this->smarty->assign('logueado', $logueado);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/home.tpl');
     }
 
-    function viewformBoot($logueado="" , $userEmail="", $admin="") {
+    function viewformBoot($logueado="" , $userEmail="", $admin="",  $fotoPerfil = "") {
         $this->smarty->assign('logueado', $logueado);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
-    function viewformUpBoot($logueado="" , $id, $userEmail="", $admin="",$boot, $marcas ){
+    function viewformUpBoot($logueado="" , $id, $userEmail="", $admin="",$boot, $marcas, $fotoPerfil = ""){
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('id_botin', $id); 
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('boot', $boot);
         $this->smarty->assign('marcas', $marcas);
         $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
-    function showBoots($logueado="" , $boots,$marcas, $userEmail= "", $admin=""){
+    function showBoots($logueado="" , $boots,$marcas, $userEmail= "", $admin="", $fotoPerfil = ""){
         $this->smarty->assign('titulo', 'Nuestros botines');        
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boots', $boots);
         $this->smarty->assign('marcas', $marcas);
         $this ->smarty->assign('userEmail', $userEmail);
         $this ->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
-    function showBoot($logueado="" , $boot, $userEmail = "", $admin=""){
+    function showBoot($logueado="" , $boot, $userEmail = "", $admin="", $fotoPerfil = ""){
         $this->smarty->assign('titulo', 'Descripcion'); 
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boot', $boot);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
-     function showFilterBoots($logueado="", $marcaFiltro ,$userEmail = "", $admin="") {
+     function showFilterBoots($logueado="", $marcaFiltro ,$userEmail = "", $admin="", $fotoPerfil = "") {
         $this->smarty->assign('logueado', $logueado);
          $this->smarty->assign('marcaFiltro', $marcaFiltro);
          $this ->smarty->assign('userEmail', $userEmail);
          $this->smarty->assign('admin', $admin);
+         $this->smarty->assign('fotoPerfil', $fotoPerfil);
          $this->smarty->display('templates/filtro.tpl');
      }
 

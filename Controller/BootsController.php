@@ -23,7 +23,7 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado){
-                    $this->view->showHome($logueado, $_SESSION['userName'], $admin);
+                    $this->view->showHome($logueado, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
                 }
                 else {
                     $this->view->showHome();            
@@ -34,7 +34,7 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado){
-                $this->view->showFilterBoots($logueado, $marcaFiltro, $_SESSION['userName'], $admin);
+                $this->view->showFilterBoots($logueado, $marcaFiltro, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
             }
             else {
                 $this->view->showFilterBoots($logueado, $marcaFiltro);
@@ -47,7 +47,7 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado) {
-                      $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName'], $admin);
+                      $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
                 }
                 else {
                     $this->view->showBoots($logueado, $boots, $marcas);
@@ -60,7 +60,7 @@
             $admin = $this->authHelper->checkAdimn();
             // PREGUNTAR SI ESTA BIEN!!! $this->apiComentController->obtenerComentarios($id);
             if($logueado){
-                $this->view->showBoot($logueado, $boot,  $_SESSION['userName'], $admin);
+                $this->view->showBoot($logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
             } 
             else {
                 $this->view->showBoot($logueado, $boot);
@@ -71,7 +71,7 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado && $admin){
-                $this->view->viewformBoot($logueado, $_SESSION['userName'], $admin);
+                $this->view->viewformBoot($logueado, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
                 } 
                 else {
                     $this->view->showHomeLocation();

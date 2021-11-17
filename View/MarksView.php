@@ -9,19 +9,22 @@ class MarksView {
         $this->smarty = new Smarty();
     }
     // MARCAS
-    function showMarks($logueado="", $marcas, $userEmail = "", $admin="") {
+    function showMarks($logueado="", $marcas, $userEmail = "", $admin="", $fotoPerfil = "") {
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('marcas', $marcas);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/marcas.tpl');
     }
-    function viewformUpMark($logueado="", $id,$marca, $userEmail = "", $marcas) {
+    function viewformUpMark($logueado="", $id,$marca, $userEmail = "", $marcas, $admin = "", $fotoPerfil = "") {
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('id_marca', $id); 
         $this->smarty->assign('marca', $marca);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('marcas', $marcas);
+        $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/form/updateMark.tpl');
     }
 

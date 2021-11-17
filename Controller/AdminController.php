@@ -17,7 +17,7 @@
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
         if($logueado && $admin == true){
-                $this->view->showUsers($logueado, $_SESSION['userName'], $usuarios, $admin);
+                $this->view->showUsers($logueado, $_SESSION['userName'], $usuarios, $admin, $_SESSION['fotoPerfil']);
             }
             else {
                 $this->view->showLoginLocation();

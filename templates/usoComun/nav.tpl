@@ -5,7 +5,11 @@
 {if !empty($userEmail) && ($logueado)}
     <div class="perfilYcerrar">
             <div class="usuario-logOut">
-                <a class="nav-link login"> {$userEmail}</a>
+            {if $fotoPerfil}
+                <img class="fotoPerfilNav" src="{$fotoPerfil} "/> <a class="nav-link login">{$userEmail}</a>
+            {else}
+            <img class="fotoPerfilNav" src="img/fotosPerfil/sinFotoPerfil.jpg"/> <a class="nav-link login">{$userEmail}</a>
+            {/if}
             </div>
             <div class="usuario-logOut">
                 <a href="logOut" class="nav-link logOut"> Cerrar sesión</a>

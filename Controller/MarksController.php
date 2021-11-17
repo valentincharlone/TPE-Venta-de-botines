@@ -17,8 +17,8 @@
             $marcas =$this->model->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-             if($logueado == true && $admin == true){
-                $this->view->showMarks($logueado, $marcas, $_SESSION['userName'], $admin);
+             if($logueado && $admin){
+                $this->view->showMarks($logueado, $marcas, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
              }
              else {
                  $this->view->showLoginLocation();
@@ -29,8 +29,8 @@
          $marca = $this->model->getMark($id);
          $logueado = $this->authHelper->checkLoggedIn();
          $admin = $this->authHelper->checkAdimn();
-         if($logueado == true && $admin == true){
-             $this->view->viewformUpMark($logueado, $id, $marca, $_SESSION['userName'], $marcas, $admin);
+         if($logueado && $admin){
+             $this->view->viewformUpMark($logueado, $id, $marca, $_SESSION['userName'], $marcas, $admin,  $_SESSION['fotoPerfil']);
              }
              else {
                  $this->view->showHomeLocation();

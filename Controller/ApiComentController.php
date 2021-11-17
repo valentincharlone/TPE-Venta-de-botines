@@ -14,8 +14,6 @@ class ApiComentController{
     }
     function obtenerComentariosBotin($params = null){
         $id= $params[":ID"];
-        var_dump($id);
-        die();
         $comentarios = $this->model->getComents($id);
         if ($comentarios) {
             return $this->view->response($comentarios, 200);
@@ -24,6 +22,8 @@ class ApiComentController{
             return $this->view->response(null, 404);
         }
     }
+    
+   
     
     
 

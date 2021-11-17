@@ -55,6 +55,12 @@ header h1 {
 .arribaNav div a {
     font-size:0.8rem;
 }
+.fotoPerfilNav {
+    width: 50%;
+    margin:2%;
+    margin-left: -10%;
+    border-radius: 90%;
+}
 .perfilYcerrar {
     display:flex;
     margin-left: 50%;
@@ -69,6 +75,12 @@ header h1 {
 .arribaNav .argentina {
     width:7%;
     margin-right: 5px;
+}
+.login {
+    margin-left:-5%;
+}
+.logOut {
+    margin-left: 4%;
 }
 .login, .logOut{
     font-weight: bold;
@@ -234,6 +246,10 @@ footer div {
 }
 /* ---------------------------------------------------------------------------------------------- */
 /* USUARIOS */
+.fotoListaUsuarios {
+    width: 10%;
+    border-radius: 100%;
+}
 .tituloUsuarios {
     font-size: 3em;
     margin-top:3%;
@@ -340,11 +356,16 @@ footer div {
     margin-left: 3%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     display: flex;
 }
 .img-details {
     border-radius: 7%;
+}
+.botinSinFoto {
+    border:solid 2px rgb(209, 208, 208);
+    width: 100%;
+    height: 100%;
 }
 hr {
     width: 100%;
@@ -371,7 +392,7 @@ hr {
 }
 .vovler{
     width: 0%;
-    margin-top: 8%;
+    margin-top: 14%;
     margin-left: 50%;
     text-decoration: none;
     font-style: oblique;
@@ -386,19 +407,19 @@ hr {
     color: rgb(67, 180, 255);
     transition: 0.4s;
 }
-.Contenedorcomentarios{
-    margin-top:5%;
+/* .Contenedorcomentarios{
+    margin-top:1%;
 }
 .Contenedorcomentarios div {
-    align-items: center;
-    margin-left: 10%;
+    
+    margin-left: 0%;
 }
 .text-area-comentario {
     margin-left:10%;
 }
 .label-puntaje {
 
-}
+} */
 
 /* FILTRO */
 
@@ -498,7 +519,6 @@ hr {
     display: flex;
 }
 .containerUser {
-    margin-top: 20px;
     margin-bottom: 4.5%;
     display: flex;
     margin-left: 70px;
@@ -542,7 +562,8 @@ hr {
     margin-top: 10px;
     text-align: unset;
 }
-#email, #password, #nombre, #apellido, #nombre_usuario {
+
+#email, #password, #nombre, #apellido, #nombre_usuario, #fotoPerfil {
     border-radius: 5px;
     margin-top: 20px;
 }
@@ -699,3 +720,61 @@ margin-left:25%;
 
 
 
+
+.fotoPerfilComentario {
+    width:7%;
+    height:100%;
+    border-radius:100px;
+    border: 1px solid rgb(76, 131, 148);
+}
+.nombreUsuarioYFoto {
+    display: flex;
+}
+.nombreUsuarioYFoto img {
+    margin-right: 1%;
+}
+.nombreUsuarioYFoto h3 {
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-comentario {
+    border: solid 1px grey;
+    padding: 10px;
+    margin-top: 3%;
+    margin-left: 100px;
+    margin-bottom: 3%;
+    width: 60%;
+
+  }
+  
+  .form-comentario p {
+    text-align: center;
+  }
+  
+  .form-comentario label {
+    font-size: 2.5rem;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: rgb(206, 200, 200);
+  }
+  
+  .clasificacion {
+      margin-left: -700px;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }

@@ -7,6 +7,7 @@
         {include file='templates/filter.tpl'}     
   
   </div>      
+  
 <div class="container">
      {if !empty($userEmail) && ($admin)}
                     {foreach from=$boots item=$boot}
@@ -17,7 +18,7 @@
             </div>
             <div>
             {if $boot->imagen == NULL}
-             <img class="errorBotines" src="img/error.jpg"/>
+             <img class="errorBotines" src="img/botines/botinSinFoto.png"/>
             {else}
                <img class="tamañoImagenBootList" src="{$boot->imagen}"/>
             {/if}
@@ -57,6 +58,8 @@
                     {/foreach}
                   </a>       
          {/if}
+
+         
                 
     </div>
   
