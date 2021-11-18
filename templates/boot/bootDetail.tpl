@@ -29,49 +29,46 @@
  
 
     
-    <div class="Contenedorcomentarios">
             {if ($logueado)}
+    <div class="Contenedorcomentarios">
                 <form class="form-comentario" action="insertComent" method="POST">
-                <div>
-                <h3>Realizar comentario:</h3>
                  {if $fotoPerfil}
                  <div class="nombreUsuarioYFoto">
-                    <img class="fotoPerfilComentario" src="{$fotoPerfil} "/> <h3>{$userEmail}</h3>
+                    <img class="fotoPerfilComentario" src="{$fotoPerfil}"/> <h3>{$userEmail}:</h3>
                 {else}
-                    <img class="fotoPerfil" src="img/fotosPerfil/sinFotoPerfil.jpg"/><h3>{$userEmail}</h3>
-                    </div>
+                 <div class="nombreUsuarioYFoto">
+                    <img class="fotoPerfilComentario" src="img/fotosPerfil/sinFotoPerfil.jpg"/><h3>{$userEmail}</h3>
                 {/if}
-                
-                <p class="clasificacion">
-                    <input id="radio1" type="radio" name="estrellas" value="5">
-                    <label for="radio1">★</label>
-                    <input id="radio2" type="radio" name="estrellas" value="4">
-                    <label for="radio2">★</label>
-                    <input id="radio3" type="radio" name="estrellas" value="3">
-                    <label for="radio3">★</label>
-                    <input id="radio4" type="radio" name="estrellas" value="2">
-                    <label for="radio4">★</label>
-                    <input id="radio5" type="radio" name="estrellas" value="1">
-                    <label for="radio5">★</label>
-                </p>
+                        <p class="clasificacion">
+                            <input id="radio1" type="radio" name="estrellas" value="5" class="puntaje">
+                            <label for="radio1">★</label>
+                            <input id="radio2" type="radio" name="estrellas" value="4" class="puntaje">
+                            <label for="radio2">★</label>
+                            <input id="radio3" type="radio" name="estrellas" value="3" class="puntaje">
+                            <label for="radio3">★</label>
+                            <input id="radio4" type="radio" name="estrellas" value="2" class="puntaje">
+                            <label for="radio4">★</label>
+                            <input id="radio5" type="radio" name="estrellas" value="1" class="puntaje">
+                            <label for="radio5">★</label>
+                        </p>
+                    </div>
+                    <div>
+                        <textarea class="text-area-comentario" rows="4" cols="100" type="text" name="comentario" id="comentario"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" id="agregarComentario" class="btn btn-outline-success btn-eliminar" value="comentar">
+                    </div>
+                     <div>
+                        <input id="id_botin" data-id={$id} value={$id} hidden/>
+                        <input class="foto-perfil" data-img={$fotoPerfil} value={$fotoPerfil} hidden/>
+                         <input class="nameUsuario "data-user={$userEmail} value={$userEmail} hidden />
 
-                      {* <label class="label-puntaje">Puntaje</label> <select name="puntaje" id="puntaje" <select  aria-label=".form-select-lg example">>
-                      <option value="1">⭐ </option>
-                      <option value="2">⭐⭐ </option>
-                      <option value="3">⭐⭐⭐ </option>
-                      <option value="4">⭐⭐⭐⭐ </option>
-                      <option value="5">⭐⭐⭐⭐⭐ </option>
-                    </select> *}
-                </div>
-                <div>
-                    <textarea class="text-area-comentario" rows="4" cols="100" type="text" name="comentario" id="comentario"></textarea>
-                </div>
-                <div>
-                    <input type="submit" class="btn btn-outline-success" value="comentar">
-                </div>
+                    </div>
+                    
                 </form>
-            {/if}
     </div>
+            {/if}
+
     <div>
         {include file='templates/vue/comentarios.tpl'}
     </div>

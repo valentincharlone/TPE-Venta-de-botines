@@ -44,8 +44,9 @@ class BootsView {
         $this->smarty->assign('fotoPerfil', $fotoPerfil);
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
-    function showBoot($logueado="" , $boot, $userEmail = "", $admin="", $fotoPerfil = ""){
+    function showBoot($id, $logueado="" , $boot, $userEmail = "", $admin="", $fotoPerfil = ""){
         $this->smarty->assign('titulo', 'Descripcion'); 
+        $this->smarty->assign('id', $id);
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boot', $boot);
         $this ->smarty->assign('userEmail', $userEmail);

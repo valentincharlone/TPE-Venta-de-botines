@@ -753,7 +753,7 @@ margin-left:25%;
   }
   
   .form-comentario label {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   input[type="radio"] {
@@ -765,7 +765,8 @@ margin-left:25%;
   }
   
   .clasificacion {
-      margin-left: -700px;
+    margin-top:-0.7%;
+    margin-left: 5%;
     direction: rtl;
     unicode-bidi: bidi-override;
   }

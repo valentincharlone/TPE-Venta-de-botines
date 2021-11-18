@@ -22,6 +22,31 @@ class ApiComentController{
             return $this->view->response(null, 404);
         }
     }
+
+    function insertarComentario($params = null) {
+        $body = $this->getBody();
+        var_dump($body);
+        die();
+        $ultimoId = $this->model->insertarComentarios($body->id_botin_fk, $body->usuario,$body->fotoPerfil, $body->comentario, $body->puntaje);
+        if ($ultimoId) {
+            $this->view->response("Comentario realizado con exito en el botin $body->id_botin_fk, tendra el id= $ultimoId", 200);
+        }
+        else {
+            $this->view->response("El comentario en el botin $body->id_botin_fk no se pudo insertar", 500);
+        }
+    }
+
+    function eliminarComentario($params = null) {
+        $idComentario = $params[':ID'];
+        $comentario = $this ->model->getComent($idComentario);
+        if ($comentario) {
+            $this->model->deleteComent($idComentario);
+            return $this->view->response("El comentario con el id=$idComentario fue borrada con exito", 200);
+        }
+        else {
+            return $this->view->response("El comentario con el id=$idComentario no existe", 404);
+        }
+    }
     
    
     

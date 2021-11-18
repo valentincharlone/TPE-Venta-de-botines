@@ -3,7 +3,6 @@
     require_once "./Model/MarksModel.php";
     require_once "./View/BootsView.php";
     require_once "./Helpers/AuthHelper.php";
-    require_once "./Controller/ApiComentController.php";
     class BootsController {
 
         private $model;
@@ -16,7 +15,6 @@
             $this->marksModel = new MarksModel();
             $this->view = new BootsView();
             $this->authHelper = new AuthHelper();
-            $this->apiComentController = new ApicomentController();
         }
 
         function showHome(){
@@ -58,12 +56,11 @@
             $boot = $this->model->getBoot($id);
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            // PREGUNTAR SI ESTA BIEN!!! $this->apiComentController->obtenerComentarios($id);
             if($logueado){
-                $this->view->showBoot($logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
+                $this->view->showBoot($id, $logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
             } 
             else {
-                $this->view->showBoot($logueado, $boot);
+                $this->view->showBoot($id, $logueado, $boot);
             }
         }
 
