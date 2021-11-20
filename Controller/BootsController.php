@@ -60,7 +60,7 @@
                 $this->view->showBoot($id, $logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
             } 
             else {
-                $this->view->showBoot($id, $logueado, $boot);
+                $this->view->showBoot($id, $logueado, $boot, $admin);
             }
         }
 

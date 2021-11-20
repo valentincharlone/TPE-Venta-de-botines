@@ -25,9 +25,7 @@ class ApiComentController{
 
     function insertarComentario($params = null) {
         $body = $this->getBody();
-        var_dump($body);
-        die();
-        $ultimoId = $this->model->insertarComentarios($body->id_botin_fk, $body->usuario,$body->fotoPerfil, $body->comentario, $body->puntaje);
+        $ultimoId = $this->model->insertarComentarios($body->id_botin_fk, $body->usuario,$body->comentario, $body->puntaje,$body->fotoPerfil);
         if ($ultimoId) {
             $this->view->response("Comentario realizado con exito en el botin $body->id_botin_fk, tendra el id= $ultimoId", 200);
         }

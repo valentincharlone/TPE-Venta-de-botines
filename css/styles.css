@@ -63,24 +63,28 @@ header h1 {
 }
 .perfilYcerrar {
     display:flex;
-    margin-left: 50%;
+    margin-left: 54%;
 }
 .usuario-logOut {
     display:flex;
-    width: 120px;
+    width: 140px;
+    
 }
 .inicioYregistro {
-    margin-left: 50%;
+display: flex;
+margin-left: 54%;
+
 }
 .arribaNav .argentina {
     width:7%;
     margin-right: 5px;
 }
 .login {
-    margin-left:-5%;
+    margin-left:-11%;
 }
 .logOut {
-    margin-left: 4%;
+    width:100px;
+    
 }
 .login, .logOut{
     font-weight: bold;
@@ -371,6 +375,9 @@ hr {
     width: 100%;
     color: green;
 }
+#agregarComentario {
+    margin-top: 2%;
+}
 .tituloDetail {
     color: rgb(44, 48, 59);
     display: flex;
@@ -390,6 +397,66 @@ hr {
     display: inline-block;
     
 }
+
+.promedioPuntaje {
+    border: solid 1px black;
+    background-color:rgb(247, 239, 239);
+    width: 20%;
+    margin-left: 75%;
+    margin-top: -5%;
+    margin-bottom: 1%;
+}
+.promedioPuntaje h2, .promedioPuntaje p, .promedioPuntaje h1 {
+    color:rgb(22, 105, 5);
+    text-align: center;
+}
+.promedioPuntaje p{
+    font-size: 2rem;
+}
+.fotoPerfilComentarios {
+    width: 60%;
+    height:90%;
+    border-radius: 10%;
+}
+.nombreUsuarioComentario{
+    font-size: 1.5rem;
+color: rgb(126, 46, 102);
+font-weight:bold;
+}
+.puntajeComentario{
+    font-size: 1.5rem;
+}
+.contenedorComentarios {
+    display: flex;
+}
+.usuarioUsuario {
+    display: inline-block;
+    display: inline;
+}
+.usuarioUsuario p {
+    font-size: 2.1rem;
+}
+/* GRID PARA COMENTARIOS */
+/* .contenedorComentarios{
+    display: grid;
+    grid-template-areas: 
+    "foto usuario"
+    "foto puntaje"
+    "foto comentario";
+}
+.fotoUsuario {
+grid-area: foto;
+}
+.usuarioUsuario {
+grid-area: usuario;
+}
+.puntajeUsuario {
+grid-area:puntaje;
+}
+.comentarioUsuario {
+grid-area: comentario;
+} */
+/* ----------------------------------------------------------------------------------------------- */
 .vovler{
     width: 0%;
     margin-top: 14%;
@@ -727,6 +794,10 @@ margin-left:25%;
     border-radius:100px;
     border: 1px solid rgb(76, 131, 148);
 }
+.estrellas {
+    margin-top: -6%;
+    margin-left: 50%;
+}
 .nombreUsuarioYFoto {
     display: flex;
 }
@@ -741,9 +812,9 @@ margin-left:25%;
 .form-comentario {
     border: solid 1px grey;
     padding: 10px;
-    margin-top: 3%;
+    margin-top: 7%;
     margin-left: 100px;
-    margin-bottom: 3%;
+    margin-bottom: 6%;
     width: 60%;
 
   }

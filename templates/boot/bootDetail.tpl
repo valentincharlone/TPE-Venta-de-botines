@@ -3,9 +3,6 @@
 
     <h1 class="mb-4 tituloDetail">{$titulo}</h1>
 <div class="container-details">
-            {*DA ERROR AL HACER EL INNER JOIN, NOS MEZCLA LAS TABLAS Y HAY VECES QUE NOS DEVUELVE CUALQUIER DATO, POR ESO USAMOS CONSULTA COMUN
-                <h2 class="container-categoria">Marca: {$boot->nombre}</h2>
-            <hr> *}
         {if ($boot->imagen)}
             <div>
                 <img class="img-details" src="{$boot->imagen}"/>
@@ -20,7 +17,7 @@
             <hr>
                 <h2 class="container-talle">Talle: {$boot->talle}</h2>
             <hr>              
-                <h2 class="container-precio">Precio: {$boot->precio}</h2>
+                <h2 class="container-precio">Precio: ${$boot->precio}</h2>
             <hr>        
                 <h2 class="container-descripcion">Descripcion: {$boot->descripcion}</h2>
             <hr>
@@ -31,14 +28,12 @@
     
             {if ($logueado)}
     <div class="Contenedorcomentarios">
-                <form class="form-comentario" action="insertComent" method="POST">
-                 {if $fotoPerfil}
+                <form class="form-comentario" method="POST">
+            
                  <div class="nombreUsuarioYFoto">
                     <img class="fotoPerfilComentario" src="{$fotoPerfil}"/> <h3>{$userEmail}:</h3>
-                {else}
-                 <div class="nombreUsuarioYFoto">
-                    <img class="fotoPerfilComentario" src="img/fotosPerfil/sinFotoPerfil.jpg"/><h3>{$userEmail}</h3>
-                {/if}
+                </div>
+                    <div class="estrellas">
                         <p class="clasificacion">
                             <input id="radio1" type="radio" name="estrellas" value="5" class="puntaje">
                             <label for="radio1">★</label>
@@ -56,18 +51,25 @@
                         <textarea class="text-area-comentario" rows="4" cols="100" type="text" name="comentario" id="comentario"></textarea>
                     </div>
                     <div>
-                        <input type="submit" id="agregarComentario" class="btn btn-outline-success btn-eliminar" value="comentar">
+                        <button type="button" id="agregarComentario" class="btn btn-outline-success btn-eliminar">comentar</button>
                     </div>
                      <div>
+                        <input class="foto-perfil" data-img={$fotoPerfil} value={$fotoPerfil} hidden >
+                         <input class="nameUsuario "data-user={$userEmail} value={$userEmail} hidden >
                         <input id="id_botin" data-id={$id} value={$id} hidden/>
-                        <input class="foto-perfil" data-img={$fotoPerfil} value={$fotoPerfil} hidden/>
-                         <input class="nameUsuario "data-user={$userEmail} value={$userEmail} hidden />
-
                     </div>
                     
                 </form>
     </div>
             {/if}
+            {* Si no esta logueado, paso el id del botin asi se pueden mostrar los comentarios *}
+            <input id="id_botin" data-id={$id} value={$id} hidden/>
+            {* al no estar logueado no se puede ejecutar la funcion en js, pq el boton no existe, entonces lo pongo
+            pero escondido, entonces js si me reconoce el id. y puede mostrarme los comentarios *}
+             <button type="button" id="agregarComentario" class="btn btn-outline-success btn-eliminar" hidden>comentar</button>
+             {* con el input de admin, lo obtengo con vueJS y me sirve para despues preguntar con v-if
+             y si admin es ==1 muestro el boton, sino no *}
+            <input id="esAdmin" value="{$admin}" hidden> 
 
     <div>
         {include file='templates/vue/comentarios.tpl'}

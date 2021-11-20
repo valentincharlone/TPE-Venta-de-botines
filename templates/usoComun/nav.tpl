@@ -17,12 +17,15 @@
     </div>
 </div>
 {else}
-            <div class="inicioYregistro">
+        <div class="inicioYregistro">
+             <div>
                 <a href = "login" class="nav-link login"> Iniciar sesión </a>
             </div>
             <div>
                 <a href = "register" class="nav-link register"> Registrarme </a>
             </div>
+         </div>
+        
 </div>
     {/if}
 
