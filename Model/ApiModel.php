@@ -12,6 +12,12 @@ function getComents($id) {
     $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     return $comentarios;
 }
+function getComentsOrder($idComentario, $orden){
+    $sentencia = $this->db->prepare( "SELECT * FROM comentario WHERE id_botin_fk=? ORDER BY puntaje $orden");
+        $sentencia->execute(array($idComentario));
+        $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentarios;
+} 
 function getComent($idComentario){
     $sentencia = $this->db->prepare( "select * from comentario WHERE id=?");
         $sentencia->execute(array($idComentario));

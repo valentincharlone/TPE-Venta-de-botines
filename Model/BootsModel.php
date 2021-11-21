@@ -12,18 +12,12 @@
                 $marcaFiltro = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 return $marcaFiltro;
         }
-    //     function ordenarPorPuntajeDesc($id) {
-    //         $sentencia = $this->db->prepare("SELECT * FROM botin JOIN comentario WHERE botin.id_botin = comentario.id_botin_fk AND botin.id_botin=? ORDER BY comentario.puntaje DESC");
-    //         $sentencia->execute(array($id));
-    //         $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    //         return $comentarios;
-    // }
-    function ordenarPorPuntaje($id, $orden) {
-        $sentencia = $this->db->prepare("SELECT * FROM botin JOIN comentario WHERE botin.id_botin = comentario.id_botin_fk AND botin.id_botin=? ORDER BY comentario.puntaje $orden");
-        $sentencia->execute(array($id));
-        $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $comentarios;
-}
+//     function ordenarPorPuntaje($id, $orden) {
+//         $sentencia = $this->db->prepare("SELECT * FROM botin JOIN comentario WHERE botin.id_botin = comentario.id_botin_fk AND botin.id_botin=? ORDER BY comentario.puntaje $orden");
+//         $sentencia->execute(array($id));
+//         $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+//         return $comentarios;
+// }
 
         function getBoots(){
             $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca");

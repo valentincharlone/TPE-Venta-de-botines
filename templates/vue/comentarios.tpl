@@ -2,9 +2,8 @@
 <div id="app">
 <h1>{{titulo}}</h1>
                                                 <div class="promedioPuntaje">
-                                                            <h1>Promedio puntaje</h1>
-                                                                <h2>⭐</h2>
                                                             <p>{{promedioPuntaje}}</p>
+                                                                <h2>⭐</h2>
                                                             
                                                     </div>
   <ul id="lista-comentarios" class="list-group">

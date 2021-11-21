@@ -50,9 +50,9 @@
         case 'filtrar':
             $bootsController->filtrar(); 
             break;
-        case 'puntaje':
-            $bootsController->puntaje(); 
-            break;  
+        // case 'puntaje':
+        //     $bootsController->puntaje(); 
+        //     break;  
         case 'createBoot': 
             $bootsController->formBoot(); 
             break;

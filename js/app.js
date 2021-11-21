@@ -2,7 +2,9 @@
 
 document.addEventListener("DOMContentLoaded",getComentarios);
 document.getElementById("agregarComentario").addEventListener("click",insertComment);
+document.getElementById("filtrarComentarios").addEventListener("click",getComentariosByOrder)
 let estrellas =0;
+let id_botin=0;
 
 const API_URL = "api/comentarios/botin/";
 const BorrarComentario= "api/comentarios/";
@@ -31,7 +33,7 @@ let app = new Vue({
             }
             getComentarios();
         }
-    },     
+    }, 
     
 });
 
@@ -94,5 +96,34 @@ async function getComentarios() {
          console.log(e);
      }     
      getComentarios();
+    }
+
+    async function getComentariosByOrder() {
+        let id_botin = document.getElementById("id_botin").value;
+        let orden= document.getElementById("order").value;
+        console.log(orden);
+        console.log(id_botin);
+
+  
+        try {
+            let response = await fetch(API_URL+id_botin+'/'+orden);
+            
+            if (response.ok) {
+                let comentarios = await response.json();
+
+                app.comentarios = comentarios;
+                console.log(comentarios);
+                app.promedioPuntaje=0;
+                for (const puntaje of comentarios) {
+                   app.promedioPuntaje += parseInt(puntaje.puntaje)/comentarios.length;
+                }
+                console.log(app.promedioPuntaje);
+
+
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
 

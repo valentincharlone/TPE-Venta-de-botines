@@ -38,18 +38,18 @@
                 $this->view->showFilterBoots($logueado, $marcaFiltro);
         } 
     }
-    function puntaje() {        
-        $logueado = $this->authHelper->checkLoggedIn();
-        $admin = $this->authHelper->checkAdimn();
-        $boot = $this->model->getBoot($_POST['id']);
-        $puntajes = $this->model->ordenarPorPuntaje($_POST['id'], $_POST['orden']);
-        if($logueado){
-            $this->view->showFilterPoints($logueado,$boot, $puntajes, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil'] );
-        }
-        else {
-            $this->view->showFilterPoints($logueado,$boot, $puntajes);
-    } 
-}
+//     function puntaje() {        
+//         $logueado = $this->authHelper->checkLoggedIn();
+//         $admin = $this->authHelper->checkAdimn();
+//         $boot = $this->model->getBoot($_POST['id']);
+//         $puntajes = $this->model->ordenarPorPuntaje($_POST['id'], $_POST['orden']);
+//         if($logueado){
+//             $this->view->showFilterPoints($logueado,$boot, $puntajes, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil'] );
+//         }
+//         else {
+//             $this->view->showFilterPoints($logueado,$boot, $puntajes);
+//     } 
+// }
         function allBoots(){            
             $boots = $this->model->getBoots();
             $marcas= $this->marksModel->getMarks();

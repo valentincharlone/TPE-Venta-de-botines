@@ -22,6 +22,17 @@ class ApiComentController{
             return $this->view->response(null, 404);
         }
     }
+    function obtenerComentariosBotinOrdenados($params = null){
+        $id= $params[":ID"];
+        $orden = $params[":ORDEN"];
+        $comentarios = $this->model->getComentsOrder($id, $orden);
+        if ($comentarios) {
+            return $this->view->response($comentarios, 200);
+        }
+        else {
+            return $this->view->response(null, 404);
+        }
+    }
 
     function insertarComentario($params = null) {
         $body = $this->getBody();
