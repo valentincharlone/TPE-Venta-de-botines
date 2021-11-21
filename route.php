@@ -25,8 +25,11 @@
             $bootsController->showHome(); 
             break;
         // ADMIN:
-        case 'usuarios': 
-            $adminController->allUsers(); 
+        case 'noadministradores': 
+            $adminController->allUsersNoAdmin(); 
+            break;
+        case 'administradores': 
+            $adminController->allUsersAdmin(); 
             break;
         case 'deleteUser': 
             $adminController->deleteUser($params[1]); 
@@ -34,15 +37,21 @@
         case 'doAdmin': 
             $adminController->doAdmin($params[1]); 
             break;
+        case 'doNormalUser': 
+            $adminController->doNormalUser($params[1]); 
+            break;
             //BOTINES
         case 'botines': 
             $bootsController->allBoots(); 
             break;           
-        case 'viewBoot':
+        case 'botin':
             $bootsController->viewBoot($params[1]);
             break;
         case 'filtrar':
             $bootsController->filtrar(); 
+            break;
+        case 'puntaje':
+            $bootsController->puntaje(); 
             break;  
         case 'createBoot': 
             $bootsController->formBoot(); 

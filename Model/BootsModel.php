@@ -12,6 +12,18 @@
                 $marcaFiltro = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 return $marcaFiltro;
         }
+    //     function ordenarPorPuntajeDesc($id) {
+    //         $sentencia = $this->db->prepare("SELECT * FROM botin JOIN comentario WHERE botin.id_botin = comentario.id_botin_fk AND botin.id_botin=? ORDER BY comentario.puntaje DESC");
+    //         $sentencia->execute(array($id));
+    //         $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    //         return $comentarios;
+    // }
+    function ordenarPorPuntaje($id, $orden) {
+        $sentencia = $this->db->prepare("SELECT * FROM botin JOIN comentario WHERE botin.id_botin = comentario.id_botin_fk AND botin.id_botin=? ORDER BY comentario.puntaje $orden");
+        $sentencia->execute(array($id));
+        $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentarios;
+}
 
         function getBoots(){
             $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca");
@@ -25,6 +37,10 @@
             $botin = $sentencia->fetch(PDO::FETCH_OBJ);
             return $botin;
         }
+        function deleteBootFromDB($id){
+            $sentencia = $this->db->prepare("DELETE FROM botin WHERE id_botin=?");
+            $sentencia->execute(array($id));
+        }
 
         function insertBootFromDB($modelo, $talle, $precio, $descripcion, $categoria,$marca, $imagen = null){
             $pathImg = null;
@@ -34,44 +50,18 @@
                 $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria, $marca, $pathImg));
             }
         }
+          
+        function updateBootsFromDB( $modelo, $talle, $precio, $descripcion, $marca, $categoria, $imagen = null, $id){
+            $pathImg = null;
+            if ($imagen){
+                $pathImg = $this->uploadImage($imagen);
+                $sentencia = $this->db->prepare("UPDATE botin SET modelo=?, talle=?, precio=?, descripcion=?, id_marca_fk=?, categoria=?, imagen=?  WHERE id_botin=?");
+                $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $marca, $categoria, $pathImg, $id));
+            }
+        }
         private function uploadImage($imagen) {
             $target = 'img/botines/' . uniqid() . '.jpg';
             move_uploaded_file($imagen, $target);
             return $target;
         }
-
-        
-        function deleteBootFromDB($id){
-            $sentencia = $this->db->prepare("DELETE FROM botin WHERE id_botin=?");
-            $sentencia->execute(array($id));
-        }
-        function updateBootsFromDB($modelo, $talle, $precio, $descripcion, $categoria, $marca, $id){
-            $sentencia = $this->db->prepare("UPDATE botin SET modelo=?, talle=?, precio=?, descripcion=?, categoria=?, id_marca_fk=? WHERE id_botin=?");
-            $sentencia->execute(array($modelo, $talle, $precio, $descripcion, $categoria, $marca, $id));
-        }
-        // // MARCAS
-        // function getMarks() {
-        //     $sentencia = $this->db->prepare("SELECT * FROM marca");
-        //     $sentencia->execute();
-        //     $marcas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        //     return $marcas;
-        // }
-        // function getMark($id) {
-        //     $sentencia = $this->db->prepare("SELECT * FROM marca WHERE id_marca = ?");
-        //     $sentencia->execute(array($id));
-        //     $marca = $sentencia->fetch(PDO::FETCH_OBJ);
-        //     return $marca;
-        // }
-        // function updateMarkFromDB($renameMark, $id) {
-        //     $sentencia = $this->db->prepare("UPDATE marca SET nombre=? WHERE id_marca = ?");
-        //     $sentencia->execute(array($renameMark, $id));
-        // }
-        // function deleteMarkFromDB($id){
-        //     $sentencia = $this->db->prepare("DELETE FROM marca WHERE id_marca=?");
-        //     $sentencia->execute(array($id));
-        // }
-        // function insertMarkFromDB($newMark) {
-        //     $sentencia = $this->db->prepare("INSERT INTO marca(nombre) VALUE (?)");
-        //     $sentencia->execute(array($newMark));
-        // }
     }

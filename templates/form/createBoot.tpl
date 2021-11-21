@@ -8,10 +8,9 @@
             <div class="formPrimeros">
                <input type="file" name="input_name" id="imageToUpload" required>
               <label>Marca:</label> <select name="marca" id="marca" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
-                      <option value="1">Adidas </option>
-                      <option value="2">Nike </option>
-                      <option value="3">Puma </option>
-                      <option value="4">Lotto </option>
+                      {foreach from=$marcas item=$marca}
+                      <option value="{$marca->id_marca}">{$marca->nombre} </option>
+                      {{/foreach}}
                     </select>  
                <label>Modelo:</label> <input class="form-control"type="text" name="modelo" id="modelo">
                  <label>Categoria:</label><select name="categoria" id="categoria" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>

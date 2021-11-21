@@ -4,6 +4,9 @@ body {
 }
 
 /* NAAAAAV */
+.nav {
+    margin-left: -5%;
+}
 
 .contenedor {
     display: flex;
@@ -21,9 +24,9 @@ body {
     color: white;
 }
 .arribaNav h1 span {
-    padding-left:25px;
+    padding-left:20px;
     padding-right: 25px;
-    font-size:1.5rem;
+    font-size:1.3rem;
 }
 .futbolNav {
     color: white;
@@ -90,6 +93,22 @@ margin-left: 54%;
     font-weight: bold;
     width:100%;
 }
+/* MENU DESPLEGABLE */
+
+li ul li a {
+    margin-top:5px;
+}
+    ul ul {
+    list-style: none;
+    display: none;
+    }   
+        li:hover ul {
+            display: block;  
+            position: relative;        
+            left: -15%;  
+        }
+
+/* -------------------------------------------------------- */
 
 /* FOOTER */
 
@@ -364,6 +383,7 @@ footer div {
     display: flex;
 }
 .img-details {
+    width: 100%;
     border-radius: 7%;
 }
 .botinSinFoto {

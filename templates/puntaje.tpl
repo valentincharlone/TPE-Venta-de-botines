@@ -1,17 +1,18 @@
 {include file='templates/usoComun/header.tpl'}
 {include file='templates/usoComun/nav.tpl'}
 
-    <h1 class="mb-4 tituloDetail">{$titulo}</h1>
 <div class="container-details">
+
+
         {if ($boot->imagen)}
-            <div>
-                <img class="img-details" src="{$boot->imagen}"/>
-            </div>
-        {else}
-            <div>
-                <img class="botinSinFoto" src="img/botines/botinSinFoto.png"/>
-            </div>
-        {/if}
+                    <div>
+                        <img class="img-details" src="{$boot->imagen}"/>
+                    </div>
+                {else}
+                    <div>
+                        <img class="botinSinFoto" src="img/botines/botinSinFoto.png"/>
+                    </div>
+                {/if}
              <div class="container-detail">
                 <h2 class="container-categoria">Categoria: {$boot->categoria}</h2>
             <hr>
@@ -22,11 +23,12 @@
                 <h2 class="container-descripcion">Descripcion: {$boot->descripcion}</h2>
             <hr>
             </div>
+
 </div>
  
 
     
-            {if ($logueado)}
+            {* {if ($logueado)}
     <div class="Contenedorcomentarios">
                 <form class="form-comentario" method="POST">
             
@@ -70,14 +72,40 @@
              {* con el input de admin, lo obtengo con vueJS y me sirve para despues preguntar con v-if
              y si admin es ==1 muestro el boton, sino no *}
             <input id="esAdmin" value="{$admin}" hidden> 
-
-      <div>
-        {include file='templates/filtroPuntaje.tpl'}
+ *}
+<div>
+        <h1>Comentarios</h1>
+                                                    <div class="promedioPuntaje">
+                                                                <h1>Promedio puntaje</h1>
+                                                                    <h2>⭐</h2>
+                                                                {* <p>{{promedioPuntaje}}</p> *}
+                                                                
+                                                        </div>
+    <ul id="lista-comentarios" class="list-group">
+        {foreach from=$puntajes item=$puntaje}
+            <li class="list-group-item">
+        <div class="contenedorComentarios">
+                <div class="fotoUsuario">
+                    <img class="fotoPerfilComentarios" src="{$puntaje->fotoPerfil}"/> 
+                </div>
+                <div class="usuarioUsuario">
+                        <div class="nombreUsuarioComentario">
+                        {$puntaje->usuario} 
+                        </div>
+                        <div class="puntajeComentario">
+                            Calificacion:{$puntaje->puntaje} 
+                        </div>
+                        <div>
+                            <p>{$puntaje->comentario}</p>
+                        </div>
+                </div>
+        </div>
+                {* <button v-if="admin==1" v-on:click="deleteComment(comentario.id)" class="btn btn-success btn-borrar">BORRAR</button> *}
+            </li>
+            {/foreach}
+        </ul>
     </div>
-
-    <div>
-        {include file='templates/vue/comentarios.tpl'}
-    </div>
+</div>
 
         <a class="vovler" href="botines"> Volver </a>
 <script src="js/app.js">

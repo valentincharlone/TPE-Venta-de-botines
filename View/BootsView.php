@@ -16,11 +16,12 @@ class BootsView {
         $this->smarty->display('templates/home.tpl');
     }
 
-    function viewformBoot($logueado="" , $userEmail="", $admin="",  $fotoPerfil = "") {
+    function viewformBoot($logueado="" , $userEmail="", $admin="",  $fotoPerfil = "", $marcas) {
         $this->smarty->assign('logueado', $logueado);
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('admin', $admin);
         $this->smarty->assign('fotoPerfil', $fotoPerfil);
+        $this->smarty->assign('marcas', $marcas);
         $this->smarty->display('templates/form/createBoot.tpl');
     }
     function viewformUpBoot($logueado="" , $id, $userEmail="", $admin="",$boot, $marcas, $fotoPerfil = ""){
@@ -61,6 +62,15 @@ class BootsView {
          $this->smarty->assign('admin', $admin);
          $this->smarty->assign('fotoPerfil', $fotoPerfil);
          $this->smarty->display('templates/filtro.tpl');
+     }
+     function showFilterPoints($logueado="", $boot, $puntajes ,$userEmail = "", $admin="", $fotoPerfil = "") {
+        $this->smarty->assign('logueado', $logueado);
+        $this->smarty->assign('boot', $boot);
+         $this->smarty->assign('puntajes', $puntajes);
+         $this ->smarty->assign('userEmail', $userEmail);
+         $this->smarty->assign('admin', $admin);
+         $this->smarty->assign('fotoPerfil', $fotoPerfil);
+         $this->smarty->display('templates/puntaje.tpl');
      }
 
      

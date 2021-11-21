@@ -52,7 +52,11 @@
                     <a href = "marcas" class="nav-link"> Marcas </a>
                 </li>
                 <li class="nav-item">
-                    <a href = "usuarios" class="nav-link"> Usuarios </a>
+                    <a class="nav-link"> Usuarios </a>
+                            <ul>
+                                <li> <a href = "administradores" class="nav-link"> Administradores </a></li>
+                                <li> <a href = "noadministradores" class="nav-link"> No administradores </a></li>
+                            </ul>
                 </li>
             </ul>
         </nav>
