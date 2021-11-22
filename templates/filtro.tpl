@@ -2,7 +2,7 @@
 {include file='templates/usoComun/nav.tpl'}
 <div class="container">
                    {foreach from=$marcaFiltro item=$m}
-                        <a href="viewBoot/{$m->id_botin}" class="hrefBotines">             
+                        <a href="botin/{$m->id_botin}" class="hrefBotines">             
         <div class="col-md-8 contenedorDetalles">
             <div class="marca">
                     {$m->nombre}

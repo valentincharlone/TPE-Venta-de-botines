@@ -377,6 +377,7 @@ footer div {
 .container-details {
     margin-top: 3%;
     margin-left: 3%;
+    margin-bottom: 15%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     justify-content: center;
     width: 90%;
@@ -387,6 +388,7 @@ footer div {
 }
 .img-details {
     width: 100%;
+    height:110%;
     border-radius: 7%;
 }
 .botinSinFoto {
@@ -397,6 +399,9 @@ footer div {
 hr {
     width: 100%;
     color: green;
+}
+.text-area-comentario {
+    background-color: rgb(252, 247, 247);
 }
 #agregarComentario {
     margin-top: 2%;
@@ -421,11 +426,18 @@ hr {
     
 }
 
+.error {
+    margin-left: 20%;
+    font-size: 2rem;
+    color: rgb(218, 14, 14);
+}
+
 .promedioPuntaje {
-    border: solid 1px black;
+    border: solid 1px rgb(153, 130, 130);
+    border-radius: 6%;
     background-color:rgb(223, 187, 27);
     width: 10%;
-    margin-left: 75%;
+    margin-left: 60%;
     margin-top: -5%;
     margin-bottom: 1%;
 }
@@ -444,9 +456,13 @@ hr {
     border-radius: 10%;
 }
 .nombreUsuarioComentario{
-    font-size: 1.5rem;
+    font-size: 2rem;
 color: rgb(126, 46, 102);
 font-weight:bold;
+margin-top: -10%;
+}
+#app h1 {
+    margin-left: 15%;
 }
 .puntajeComentario{
     font-size: 1.5rem;
@@ -454,12 +470,27 @@ font-weight:bold;
 .contenedorComentarios {
     display: flex;
 }
+
 .usuarioUsuario {
     display: inline-block;
     display: inline;
+    margin-top: 3%;
+    margin-left: -6%;
 }
 .usuarioUsuario p {
     font-size: 2.1rem;
+}
+.usuarioPuntajeEstrellas {
+    font-size: 2.5rem !important;
+    color: rgb(223, 223, 0);
+}
+
+#lista-comentarios {
+   width: 60%;
+   margin-left: 15%;
+}
+.fotoUsuario {
+    width: 40%;
 }
 /* GRID PARA COMENTARIOS */
 /* .contenedorComentarios{
@@ -484,7 +515,7 @@ grid-area: comentario;
 /* ----------------------------------------------------------------------------------------------- */
 .vovler{
     width: 0%;
-    margin-top: 14%;
+    margin-top: 8%;
     margin-left: 50%;
     text-decoration: none;
     font-style: oblique;
@@ -499,19 +530,7 @@ grid-area: comentario;
     color: rgb(67, 180, 255);
     transition: 0.4s;
 }
-/* .Contenedorcomentarios{
-    margin-top:1%;
-}
-.Contenedorcomentarios div {
-    
-    margin-left: 0%;
-}
-.text-area-comentario {
-    margin-left:10%;
-}
-.label-puntaje {
 
-} */
 
 /* FILTRO */
 
@@ -855,7 +874,9 @@ margin-left:25%;
 }
 
 .form-comentario {
-    border: solid 1px grey;
+    border: groove 8px rgb(236, 193, 193);
+    border-radius: 2%;
+    background-color:rgb(255, 246, 246);
     padding: 10px;
     margin-top: 7%;
     margin-left: 100px;

@@ -25,12 +25,27 @@ class ApiComentController{
     function obtenerComentariosBotinOrdenados($params = null){
         $id= $params[":ID"];
         $orden = $params[":ORDEN"];
-        $comentarios = $this->model->getComentsOrder($id, $orden);
+        if ($orden == "ASC" OR $orden=="DESC") {
+            $comentarios = $this->model->getComentsOrder($id, $orden);
+        }
         if ($comentarios) {
             return $this->view->response($comentarios, 200);
         }
         else {
-            return $this->view->response(null, 404);
+            return $this->view->response("el botin con id $id no tiene comentarios", 404);
+        }
+    }
+    function obtenerComentariosBotinPorEstrellas($params = null){
+        $id= $params[":ID"];
+        $puntaje = $params[":PUNTAJE"];
+        if(($puntaje>=1)&&($puntaje<=5)){
+            $comentarios = $this->model->getComentsStars($id, $puntaje);
+        }
+        if ($comentarios) {
+            return $this->view->response($comentarios, 200);
+        }
+        else {
+            return $this->view->response("el botin con id $id no tiene comentarios con $puntaje estrellas", 404);
         }
     }
 

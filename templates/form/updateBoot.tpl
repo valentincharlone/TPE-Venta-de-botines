@@ -8,7 +8,7 @@
             <form class="form-alta" action="insertUpdateBoot" method="POST" enctype="multipart/form-data"> 
         <div class="formMitad">
             <div class="formPrimeros">
-             <input type="file" name="input_name" id="imageToUpload" required>
+             <input type="file" name="input_name" id="imageToUpload">
               <label>Marca:</label> <select name="marca" id="marca" <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">>
             {foreach from=$marcas item=$marca}
                       <option value="{$marca->id_marca}" {if $boot->id_marca_fk == $marca->id_marca} selected  {/if}>{$marca->nombre} </option>

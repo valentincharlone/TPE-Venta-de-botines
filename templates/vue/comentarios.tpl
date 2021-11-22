@@ -6,6 +6,10 @@
                                                                 <h2>⭐</h2>
                                                             
                                                     </div>
+<div>
+        <p class="error">{{error}}</p>
+</div>
+
   <ul id="lista-comentarios" class="list-group">
         <li v-for="comentario in comentarios" class="list-group-item">
     <div class="contenedorComentarios">
@@ -13,11 +17,23 @@
                 <img class="fotoPerfilComentarios" :src="comentario.fotoPerfil"/> 
             </div>
             <div class="usuarioUsuario">
+                    <div class="puntajeComentario" v-if="comentario.puntaje ==1">
+                        <p class="usuarioPuntajeEstrellas">★✩✩✩✩</p>
+                    </div>
+                    <div class="puntajeComentario" v-if="comentario.puntaje ==2">
+                        <p class="usuarioPuntajeEstrellas">★★✩✩✩</p>
+                    </div>
+                    <div class="puntajeComentario" v-if="comentario.puntaje ==3">
+                        <p class="usuarioPuntajeEstrellas">★★★✩✩</p>
+                    </div>
+                    <div class="puntajeComentario" v-if="comentario.puntaje ==4">
+                        <p class="usuarioPuntajeEstrellas">★★★★✩</p>
+                    </div>
+                    <div class="puntajeComentario" v-if="comentario.puntaje ==5">
+                        <p class="usuarioPuntajeEstrellas">★★★★★</p>
+                    </div>
                     <div class="nombreUsuarioComentario">
                     {{comentario.usuario}} 
-                    </div>
-                    <div class="puntajeComentario">
-                        Calificacion:{{comentario.puntaje}} 
                     </div>
                     <div>
                         <p>{{comentario.comentario}}</p>

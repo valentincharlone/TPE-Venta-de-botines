@@ -63,17 +63,7 @@ class BootsView {
          $this->smarty->assign('fotoPerfil', $fotoPerfil);
          $this->smarty->display('templates/filtro.tpl');
      }
-     function showFilterPoints($logueado="", $boot, $puntajes ,$userEmail = "", $admin="", $fotoPerfil = "") {
-        $this->smarty->assign('logueado', $logueado);
-        $this->smarty->assign('boot', $boot);
-         $this->smarty->assign('puntajes', $puntajes);
-         $this ->smarty->assign('userEmail', $userEmail);
-         $this->smarty->assign('admin', $admin);
-         $this->smarty->assign('fotoPerfil', $fotoPerfil);
-         $this->smarty->display('templates/puntaje.tpl');
-     }
-
-     
+          
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }

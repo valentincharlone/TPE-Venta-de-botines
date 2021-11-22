@@ -38,18 +38,6 @@
                 $this->view->showFilterBoots($logueado, $marcaFiltro);
         } 
     }
-//     function puntaje() {        
-//         $logueado = $this->authHelper->checkLoggedIn();
-//         $admin = $this->authHelper->checkAdimn();
-//         $boot = $this->model->getBoot($_POST['id']);
-//         $puntajes = $this->model->ordenarPorPuntaje($_POST['id'], $_POST['orden']);
-//         if($logueado){
-//             $this->view->showFilterPoints($logueado,$boot, $puntajes, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil'] );
-//         }
-//         else {
-//             $this->view->showFilterPoints($logueado,$boot, $puntajes);
-//     } 
-// }
         function allBoots(){            
             $boots = $this->model->getBoots();
             $marcas= $this->marksModel->getMarks();
@@ -67,11 +55,16 @@
             $boot = $this->model->getBoot($id);
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            if($logueado){
-                $this->view->showBoot($id, $logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
-            } 
+            if ($boot) {
+                if($logueado){
+                    $this->view->showBoot($id, $logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
+                } 
+                else {
+                    $this->view->showBoot($id, $logueado, $boot, $admin);
+                }
+            }
             else {
-                $this->view->showBoot($id, $logueado, $boot, $admin);
+                $this->view->showBotinesLocation();
             }
         }
 
@@ -126,10 +119,12 @@
             $admin = $this->authHelper->checkAdimn();
             if($logueado && $admin){
                 if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
-                    // var_dump($_POST);
-                    // die();
             $this->model->updateBootsFromDB( $_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin'], $_POST['marca'], $_FILES['input_name']['tmp_name']);
             $this->view->showBotinesLocation();
+            }
+            else {
+                $this->model->updateBootsFromDB( $_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin'], $_POST['marca'], null);
+                $this->view->showBotinesLocation();
             }
         }
             else {

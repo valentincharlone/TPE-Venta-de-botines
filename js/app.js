@@ -1,8 +1,11 @@
 "use strict"
 
-document.addEventListener("DOMContentLoaded",getComentarios);
-document.getElementById("agregarComentario").addEventListener("click",insertComment);
-document.getElementById("filtrarComentarios").addEventListener("click",getComentariosByOrder)
+    document.addEventListener("DOMContentLoaded",getComentarios);
+if(document.getElementById("agregarComentario")){
+    document.getElementById("agregarComentario").addEventListener("click",insertComment);
+}
+    document.getElementById("filtrarComentarios").addEventListener("click",getComentariosByOrder);
+    document.getElementById("comentariosPorEstrellas").addEventListener("click",getComentariosByStars);
 let estrellas =0;
 let id_botin=0;
 
@@ -16,7 +19,8 @@ let app = new Vue({
         titulo: "Comentarios",
         comentarios: [],
         promedioPuntaje:0,
-        admin: document.getElementById("esAdmin").value 
+        admin: document.getElementById("esAdmin").value,
+        error:"",
     },
     methods: {
         deleteComment: async function(id) {
@@ -55,10 +59,13 @@ async function getComentarios() {
                    app.promedioPuntaje += parseInt(puntaje.puntaje)/comentarios.length;
                 }
                 console.log(app.promedioPuntaje);
-
-
+            }
+            else {
+                console.log("Todavia no hay comentarios en este botin");
+                app.error="Todavia no hay comentarios en este botin";
             }
         }
+
         catch (e) {
             console.log(e);
         }
@@ -101,27 +108,49 @@ async function getComentarios() {
     async function getComentariosByOrder() {
         let id_botin = document.getElementById("id_botin").value;
         let orden= document.getElementById("order").value;
-        console.log(orden);
-        console.log(id_botin);
+        console.log("ORDEN: "+orden);
+        console.log("ID BOTIN: "+id_botin);
 
-  
         try {
             let response = await fetch(API_URL+id_botin+'/'+orden);
             
             if (response.ok) {
                 let comentarios = await response.json();
-
                 app.comentarios = comentarios;
                 console.log(comentarios);
                 app.promedioPuntaje=0;
                 for (const puntaje of comentarios) {
                    app.promedioPuntaje += parseInt(puntaje.puntaje)/comentarios.length;
                 }
-                console.log(app.promedioPuntaje);
-
-
+                console.log("PROMEDIO PUNAJE: "+app.promedioPuntaje);
+            }
+            else {
+                console.log("No hay comentarios en este botin");
+                app.error="❌No hay comentarios en este botin para ordenar❌";
             }
         }
+        catch (e) {
+            console.log(e);
+        }
+    }
+    async function getComentariosByStars() {
+        let id_botin = document.getElementById("id_botin").value;
+        let puntaje= document.getElementById("puntaje").value;
+        console.log("PUNTAJE: "+puntaje);
+        console.log("ID BOTIN: "+ id_botin);
+
+        try {
+            let response = await fetch('api/coments/botin/'+id_botin+'/'+puntaje);
+            if (response.ok) {
+                let comentarios = await response.json();
+                    app.comentarios = comentarios;
+             
+                }
+                else {
+                    console.log("No hay comentarios con ese puntaje");
+                    app.error="❌No hay comentarios con ese puntaje❌";
+                }
+            }
         catch (e) {
             console.log(e);
         }

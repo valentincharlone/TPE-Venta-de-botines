@@ -64,12 +64,10 @@
             {/if}
             {* Si no esta logueado, paso el id del botin asi se pueden mostrar los comentarios *}
             <input id="id_botin" data-id={$id} value={$id} hidden/>
-            {* al no estar logueado no se puede ejecutar la funcion en js, pq el boton no existe, entonces lo pongo
-            pero escondido, entonces js si me reconoce el id. y puede mostrarme los comentarios *}
-             <button type="button" id="agregarComentario" class="btn btn-outline-success btn-eliminar" hidden>comentar</button>
              {* con el input de admin, lo obtengo con vueJS y me sirve para despues preguntar con v-if
              y si admin es ==1 muestro el boton, sino no *}
             <input id="esAdmin" value="{$admin}" hidden> 
+            
 
       <div>
         {include file='templates/filtroPuntaje.tpl'}
@@ -80,5 +78,5 @@
     </div>
 
         <a class="vovler" href="botines"> Volver </a>
-<script src="js/app.js">
+<script src="js/app.js"></script>
 {include file='templates/usoComun/footer.tpl'}
