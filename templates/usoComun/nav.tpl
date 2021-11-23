@@ -74,7 +74,7 @@
                     <a href = "home" class="nav-link"> Home </a>
                 </li>
                 <li class="nav-item">
-                    <a href = "botines" class="nav-link"> Botines </a>
+                    <a href = "botines/page/1" class="nav-link"> Botines </a>
                 </li>
             </ul>
         </nav>

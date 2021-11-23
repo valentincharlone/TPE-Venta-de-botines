@@ -41,10 +41,7 @@
         function allBoots($page, $npag){       
             $limit = 9;    
             $offset = ($npag - 1) * $limit; 
-
-        
             $bootsCount= $this->model->getAllBoots();
-    
             $bootsData = $this->model->getBootsPaginacion($offset, $limit);
             $maxPageNum = ($bootsCount / $limit);
             $marcas= $this->marksModel->getMarks();
