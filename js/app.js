@@ -55,67 +55,61 @@ async function getComentarios() {
                 let comentarios = await response.json();
                 app.comentarios = comentarios;
                 console.log(comentarios);
+                app.promedioPuntaje=0;
                 for (const puntaje of comentarios) {
-                   app.promedioPuntaje += parseInt(puntaje.puntaje)/comentarios.length;
+                   app.promedioPuntaje += parseInt(puntaje.puntaje);
                 }
+                app.promedioPuntaje = (app.promedioPuntaje/comentarios.length);
                 console.log(app.promedioPuntaje);
-            }
-            else {
-                console.log("Todavia no hay comentarios en este botin");
-                app.error="Todavia no hay comentarios en este botin";
-                setTimeout(error,3000);
             }
         }
         catch (e) {
             console.log(e);
         }
     }
-    function error() {
-        app.error="";
-    }
     
-
+    
     function obtenerValor() {
         estrellas= event.currentTarget.value;
     }
-
- async function insertComment() {
-     let id_botin_fk = document.getElementById("id_botin").value;
-     let usuario = document.querySelector(".nameUsuario").value;
-     let fotoPerfil = document.querySelector(".foto-perfil").value;
-     let comentario = document.getElementById("comentario").value;
-    if (comentario!="" && estrellas>0) {
-        let comentarioNuevo = {
-            "id_botin_fk":id_botin_fk,
-            "usuario":usuario,
-            "fotoPerfil":fotoPerfil,
-            "comentario":comentario,
-            "puntaje":estrellas
+    
+    async function insertComment() {
+        let id_botin_fk = document.getElementById("id_botin").value;
+        let usuario = document.querySelector(".nameUsuario").value;
+        let fotoPerfil = document.querySelector(".foto-perfil").value;
+        let comentario = document.getElementById("comentario").value;
+        if (comentario!="" && estrellas>0) {
+            let comentarioNuevo = {
+                "id_botin_fk":id_botin_fk,
+                "usuario":usuario,
+                "fotoPerfil":fotoPerfil,
+                "comentario":comentario,
+                "puntaje":estrellas
+            }
+            try {
+                let response = await fetch(API_URL+id_botin_fk,{
+                    "method": "POST",
+                    "headers": {"Content-type": "application/json"},
+                    "body": JSON.stringify(comentarioNuevo)
+                    
+                });
+                if (response.ok) {
+                    console.log("Comentario añadido con exito");
+                }
+            }
+            catch (e) {
+                console.log(e);
+            }     
+            getComentarios();
         }
-        try {
-           let response = await fetch(API_URL+id_botin_fk,{
-               "method": "POST",
-               "headers": {"Content-type": "application/json"},
-               "body": JSON.stringify(comentarioNuevo)
-   
-           });
-           if (response.ok) {
-               console.log("Comentario añadido con exito");
-           }
-        }
-        catch (e) {
-            console.log(e);
-        }     
-        getComentarios();
-       }
     }
-
+    
     async function getComentariosByOrder() {
         let id_botin = document.getElementById("id_botin").value;
         let orden= document.getElementById("order").value;
         console.log("ORDEN: "+orden);
         console.log("ID BOTIN: "+id_botin);
-
+        
         try {
             let response = await fetch(API_URL+id_botin+'/'+orden);
             
@@ -125,7 +119,7 @@ async function getComentarios() {
                 console.log(comentarios);
                 app.promedioPuntaje=0;
                 for (const puntaje of comentarios) {
-                   app.promedioPuntaje += parseInt(puntaje.puntaje)/comentarios.length;
+                    app.promedioPuntaje += parseInt(puntaje.puntaje)/comentarios.length;
                 }
                 console.log("PROMEDIO PUNAJE: "+app.promedioPuntaje);
             }
@@ -139,12 +133,18 @@ async function getComentarios() {
             console.log(e);
         }
     }
+
+    function error() {
+        app.error="";
+    }
+
+    
     async function getComentariosByStars() {
         let id_botin = document.getElementById("id_botin").value;
         let puntaje= document.getElementById("puntaje").value;
         console.log("PUNTAJE: "+puntaje);
         console.log("ID BOTIN: "+ id_botin);
-
+        
         try {
             let response = await fetch('api/coments/botin/'+id_botin+'/'+puntaje);
             if (response.ok) {
