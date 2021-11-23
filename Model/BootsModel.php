@@ -12,9 +12,15 @@
                 $marcaFiltro = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 return $marcaFiltro;
         }
-
-        function getBoots(){
+        function getAllBoots(){
             $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca");
+            $sentencia->execute();
+            $botines = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return count($botines);
+        }   
+
+        function getBootsPaginacion($offset, $limit){
+            $sentencia = $this->db->prepare( "SELECT * FROM botin JOIN marca WHERE botin.id_marca_fk = marca.id_marca LIMIT $offset,$limit");
             $sentencia->execute();
             $botines = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $botines;

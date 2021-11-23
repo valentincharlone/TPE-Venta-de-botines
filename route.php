@@ -42,7 +42,7 @@
             break;
             //BOTINES
         case 'botines': 
-            $bootsController->allBoots(); 
+            $bootsController->allBoots($params[1],$params[2]); 
             break;           
         case 'botin':
             $bootsController->viewBoot($params[1]);

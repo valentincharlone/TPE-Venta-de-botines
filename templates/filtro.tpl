@@ -29,6 +29,6 @@
                     </a>           
              {/foreach}
  </div>  
-<a class="vovler" href="botines"> Volver </a>
+<a class="vovler" href="botines/page/1"> Volver </a>
 </div>
 {include file='templates/usoComun/footer.tpl'}

@@ -67,7 +67,7 @@
              {* con el input de admin, lo obtengo con vueJS y me sirve para despues preguntar con v-if
              y si admin es ==1 muestro el boton, sino no *}
             <input id="esAdmin" value="{$admin}" hidden> 
-            
+
 
       <div>
         {include file='templates/filtroPuntaje.tpl'}
@@ -77,6 +77,6 @@
         {include file='templates/vue/comentarios.tpl'}
     </div>
 
-        <a class="vovler" href="botines"> Volver </a>
+        <a class="vovler" href="botines/page/1"> Volver </a>
 <script src="js/app.js"></script>
 {include file='templates/usoComun/footer.tpl'}

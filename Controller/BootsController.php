@@ -38,17 +38,24 @@
                 $this->view->showFilterBoots($logueado, $marcaFiltro);
         } 
     }
-        function allBoots(){            
-            $boots = $this->model->getBoots();
+        function allBoots($page, $npag){       
+            $limit = 9;    
+            $offset = ($npag - 1) * $limit; 
+
+        
+            $bootsCount= $this->model->getAllBoots();
+    
+            $bootsData = $this->model->getBootsPaginacion($offset, $limit);
+            $maxPageNum = ($bootsCount / $limit);
             $marcas= $this->marksModel->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
 
             if($logueado) {
-                      $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
+                      $this->view->showBoots($logueado, $bootsData, $marcas, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil'],$bootsData, $npag, $maxPageNum);
                 }
                 else {
-                    $this->view->showBoots($logueado, $boots, $marcas);
+                    $this->view->showBoots($logueado, $bootsData, $marcas, $limit, $admin, $offset,$bootsData, $npag, $maxPageNum);
             }
         }
 

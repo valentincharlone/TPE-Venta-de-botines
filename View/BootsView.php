@@ -35,7 +35,7 @@ class BootsView {
         $this->smarty->display('templates/form/updateBoot.tpl');
     }
 
-    function showBoots($logueado="" , $boots,$marcas, $userEmail= "", $admin="", $fotoPerfil = ""){
+    function showBoots($logueado="" , $boots,$marcas, $userEmail= "", $admin="", $fotoPerfil = "",$bootsData, $pageNumber, $maxPageNumber){
         $this->smarty->assign('titulo', 'Nuestros botines');        
         $this->smarty->assign('logueado', $logueado);
         $this->smarty->assign('boots', $boots);
@@ -43,6 +43,9 @@ class BootsView {
         $this ->smarty->assign('userEmail', $userEmail);
         $this ->smarty->assign('admin', $admin);
         $this->smarty->assign('fotoPerfil', $fotoPerfil);
+        $this ->smarty->assign('$bootsData', $bootsData);
+        $this ->smarty->assign('pageNumber', $pageNumber);
+        $this ->smarty->assign('maxPageNumber', $maxPageNumber);
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
     function showBoot($id, $logueado="" , $boot, $userEmail = "", $admin="", $fotoPerfil = ""){

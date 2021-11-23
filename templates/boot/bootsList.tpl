@@ -37,6 +37,16 @@
                     </a>           
              {/foreach}
  </div>        
+
+ <div class="paginado">
+            {if $pageNumber >1}
+            <a class="btn btn-primary btn-sm" href="botines/page/{$pageNumber - 1}">↢</a> 
+            {/if}
+            <button type="button" class="btn btn-light" disabled> {$pageNumber}</button>
+            {if $pageNumber < $maxPageNumber}
+            <a class="btn btn-primary btn-sm" type="button" href="botines/page/{$pageNumber + 1}">↣</a>
+            {/if}
+</div>
                 
     
   

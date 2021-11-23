@@ -371,6 +371,14 @@ footer div {
     width: 99%;
     margin: 1px;
 }
+.paginado {
+    margin-top: 3%;
+    margin-left: 40%;
+}
+
+.paginado a, .paginado button {
+    font-size:2rem;
+}
 
 /* BOOT DETAILS */
 
