@@ -51,12 +51,14 @@ class ApiComentController{
 
     function insertarComentario($params = null) {
         $body = $this->getBody();
-        $ultimoId = $this->model->insertarComentarios($body->id_botin_fk, $body->usuario,$body->comentario, $body->puntaje,$body->fotoPerfil);
-        if ($ultimoId) {
-            $this->view->response("Comentario realizado con exito en el botin $body->id_botin_fk, tendra el id= $ultimoId", 200);
-        }
-        else {
-            $this->view->response("El comentario en el botin $body->id_botin_fk no se pudo insertar", 500);
+        if (!empty($body->comentario) && !empty($body->puntaje)) {
+            $ultimoId = $this->model->insertarComentarios($body->id_botin_fk, $body->usuario,$body->comentario, $body->puntaje,$body->fotoPerfil);
+            if ($ultimoId) {
+                $this->view->response("Comentario realizado con exito en el botin $body->id_botin_fk, tendra el id= $ultimoId", 200);
+            }
+            else {
+                $this->view->response("El comentario en el botin $body->id_botin_fk no se pudo insertar", 500);
+            }
         }
     }
 

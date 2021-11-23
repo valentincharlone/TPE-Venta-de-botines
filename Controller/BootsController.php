@@ -43,6 +43,7 @@
             $marcas= $this->marksModel->getMarks();
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
+
             if($logueado) {
                       $this->view->showBoots($logueado, $boots,$marcas, $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
                 }
@@ -60,7 +61,7 @@
                     $this->view->showBoot($id, $logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil']);
                 } 
                 else {
-                    $this->view->showBoot($id, $logueado, $boot, $admin);
+                    $this->view->showBoot($id, $logueado, $boot);
                 }
             }
             else {
@@ -83,9 +84,14 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado && $admin) {
-                if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
-                $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_FILES['input_name']['tmp_name']);
-                $this->view->showBotinesLocation();
+                if(!empty($_FILES['input_name']['tmp_name']) && !empty($_POST['modelo']) && !empty($_POST['talle']) && !empty($_POST['precio']) && !empty($_POST['descripcion']) && !empty($_POST['categoria']) && !empty($_POST['marca'])){
+                    if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                    $this->model->insertBootFromDB($_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_FILES['input_name']['tmp_name']);
+                    $this->view->showBotinesLocation();
+                    }
+                }
+                else {
+                    $this->view->showCreateBootLocation();
                 }
             }else{
                 $this->view->showBotinesLocation();
@@ -118,12 +124,13 @@
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
             if($logueado && $admin){
-                if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
-            $this->model->updateBootsFromDB( $_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin'], $_POST['marca'], $_FILES['input_name']['tmp_name']);
-            $this->view->showBotinesLocation();
+               if(!empty($_FILES['input_name']['tmp_name']) && !empty($_POST['modelo']) && !empty($_POST['talle']) && !empty($_POST['precio']) && !empty($_POST['descripcion']) && !empty($_POST['categoria']) && !empty($_POST['marca'])){
+                 if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                    $this->model->updateBootsFromDB( $_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['marca'],$_POST['categoria'], $_FILES['input_name']['tmp_name'],$_POST['id_botin']);
+                    $this->view->showBotinesLocation();
             }
+        }
             else {
-                $this->model->updateBootsFromDB( $_POST['modelo'], $_POST['talle'], $_POST['precio'], $_POST['descripcion'], $_POST['categoria'], $_POST['marca'], $_POST['id_botin'], $_POST['marca'], null);
                 $this->view->showBotinesLocation();
             }
         }

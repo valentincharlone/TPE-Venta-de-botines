@@ -63,13 +63,17 @@ async function getComentarios() {
             else {
                 console.log("Todavia no hay comentarios en este botin");
                 app.error="Todavia no hay comentarios en este botin";
+                setTimeout(error,3000);
             }
         }
-
         catch (e) {
             console.log(e);
         }
     }
+    function error() {
+        app.error="";
+    }
+    
 
     function obtenerValor() {
         estrellas= event.currentTarget.value;
@@ -80,29 +84,30 @@ async function getComentarios() {
      let usuario = document.querySelector(".nameUsuario").value;
      let fotoPerfil = document.querySelector(".foto-perfil").value;
      let comentario = document.getElementById("comentario").value;
-
-     let comentarioNuevo = {
-         "id_botin_fk":id_botin_fk,
-         "usuario":usuario,
-         "fotoPerfil":fotoPerfil,
-         "comentario":comentario,
-         "puntaje":estrellas
-     }
-     try {
-        let response = await fetch(API_URL+id_botin_fk,{
-            "method": "POST",
-            "headers": {"Content-type": "application/json"},
-            "body": JSON.stringify(comentarioNuevo)
-
-        });
-        if (response.ok) {
-            console.log("Comentario añadido con exito");
+    if (comentario!="" && estrellas>0) {
+        let comentarioNuevo = {
+            "id_botin_fk":id_botin_fk,
+            "usuario":usuario,
+            "fotoPerfil":fotoPerfil,
+            "comentario":comentario,
+            "puntaje":estrellas
         }
-     }
-     catch (e) {
-         console.log(e);
-     }     
-     getComentarios();
+        try {
+           let response = await fetch(API_URL+id_botin_fk,{
+               "method": "POST",
+               "headers": {"Content-type": "application/json"},
+               "body": JSON.stringify(comentarioNuevo)
+   
+           });
+           if (response.ok) {
+               console.log("Comentario añadido con exito");
+           }
+        }
+        catch (e) {
+            console.log(e);
+        }     
+        getComentarios();
+       }
     }
 
     async function getComentariosByOrder() {
@@ -127,6 +132,7 @@ async function getComentarios() {
             else {
                 console.log("No hay comentarios en este botin");
                 app.error="❌No hay comentarios en este botin para ordenar❌";
+                setTimeout(error,3000);
             }
         }
         catch (e) {
@@ -149,6 +155,7 @@ async function getComentarios() {
                 else {
                     console.log("No hay comentarios con ese puntaje");
                     app.error="❌No hay comentarios con ese puntaje❌";
+                    setTimeout(error,3000);
                 }
             }
         catch (e) {
