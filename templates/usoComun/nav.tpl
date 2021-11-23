@@ -1,6 +1,6 @@
 <div class="arribaNav">
     <h1><img src="https://adl-foundation.adidas.com/flags/1-0-0/ar.svg" alt="ar flag" title="ar flag" aria-label="ar flag" class="argentina">
-    AR$ <span>|</span>  <a href = "botines" class="futbolNav"> Futbol</a>
+    AR$ <span>|</span>  <a href = "botines/page/1" class="futbolNav"> Futbol</a>
     </h1>
 {if !empty($userEmail) && ($logueado)}
     <div class="perfilYcerrar">
