@@ -75,11 +75,12 @@ function obtenerValor() {
 }
 
 async function insertComment() {
-    let id_botin_fk = document.getElementById("id_botin").value;
-    let usuario = document.querySelector(".nameUsuario").value;
-    let fotoPerfil = document.querySelector(".foto-perfil").value;
+    let form = document.getElementById("formComentario");
+    let id_botin_fk =  form.dataset.id;
+    let usuario = form.dataset.user;
+    let fotoPerfil = form.dataset.img;
+    let fecha = form.dataset.fecha;
     let comentario = document.getElementById("comentario").value;
-    let fecha = document.getElementById("fecha").value;
 
     if (comentario != "" && estrellas > 0) {
         let comentarioNuevo = {

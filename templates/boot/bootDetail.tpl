@@ -28,7 +28,8 @@
 
 {if ($logueado)}
     <div class="Contenedorcomentarios">
-        <form class="form-comentario" method="POST">
+        <form class="form-comentario" method="POST" id="formComentario" data-img={$fotoPerfil} data-user={$userEmail}
+            data-id={$id} data-fecha={$fecha}>
 
             <div class="nombreUsuarioYFoto">
                 <img class="fotoPerfilComentario" src="{$fotoPerfil}" />
@@ -48,24 +49,21 @@
                     <label for="radio5">★</label>
                 </p>
             </div>
-            <div>
-                <textarea class="text-area-comentario" rows="4" cols="100" type="text" name="comentario"
-                    id="comentario"></textarea>
-            </div>
-            <div>
-                <button type="button" id="agregarComentario" class="btn btn-outline-success btn-eliminar">comentar</button>
-            </div>
-            <div>
-                <input class="foto-perfil" data-img={$fotoPerfil} value={$fotoPerfil} hidden>
-                <input class="nameUsuario " data-user={$userEmail} value={$userEmail} hidden>
-                <input id="id_botin" data-id={$id} value={$id} hidden />
-                <input id="fecha" value={$fecha} hidden />
+                <div>
+                    <textarea class="text-area-comentario" rows="4" cols="100" type="text" name="comentario"
+                        id="comentario"></textarea>
+                </div>
+                <div>
+                    <button type="button" id="agregarComentario" class="btn btn-outline-success btn-eliminar">comentar</button>
+                </div>
+                <div>
             </div>
 
         </form>
     </div>
 {/if}
-{* Si no esta logueado, paso el id del botin asi se pueden mostrar los comentarios *}
+{* escondo el valor del id_botin. para saber los comentarios de que botin tiene que mostrar,
+no los puedo sacar del form, pq si no esta logueado el input no existiria*}
 <input id="id_botin" data-id={$id} value={$id} hidden />
 {* con el input de admin, lo obtengo con vueJS y me sirve para despues preguntar con v-if
              y si admin es ==1 muestro el boton, sino no *}
