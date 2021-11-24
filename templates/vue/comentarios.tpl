@@ -12,6 +12,7 @@
 
   <ul id="lista-comentarios" class="list-group">
         <li v-for="comentario in comentarios" class="list-group-item">
+    <h4 class="fecha">{{comentario.fecha}}</h4>
     <div class="contenedorComentarios">
             <div class="fotoUsuario">
                 <img class="fotoPerfilComentarios" :src="comentario.fotoPerfil"/> 

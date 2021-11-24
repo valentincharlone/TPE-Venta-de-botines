@@ -13,7 +13,8 @@
             $this->authHelper = new AuthHelper();
         }
     function allUsersNoAdmin() {
-        $usuarios = $this->model->getUsersNoAdmin();
+        $noAdmin = 0;
+        $usuarios = $this->model->getUsersNoAdmin($noAdmin);
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
         if($logueado && $admin == true){
@@ -25,7 +26,8 @@
     }
 
     function allUsersAdmin() {
-        $usuarios = $this->model->getUsersAdmin();
+        $admin = 1;
+        $usuarios = $this->model->getUsersAdmin($admin);
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
         if($logueado && $admin == true){

@@ -48,7 +48,7 @@ class BootsView {
         $this ->smarty->assign('maxPageNumber', $maxPageNumber);
         $this->smarty->display('templates/boot/bootsList.tpl');
     }
-    function showBoot($id, $logueado="" , $boot, $userEmail = "", $admin="", $fotoPerfil = ""){
+    function showBoot($id, $logueado="" , $boot, $userEmail = "", $admin="", $fotoPerfil = "", $fecha = ""){
         $this->smarty->assign('titulo', 'Descripcion'); 
         $this->smarty->assign('id', $id);
         $this->smarty->assign('logueado', $logueado);
@@ -56,6 +56,7 @@ class BootsView {
         $this ->smarty->assign('userEmail', $userEmail);
         $this->smarty->assign('admin', $admin);
         $this->smarty->assign('fotoPerfil', $fotoPerfil);
+        $this->smarty->assign('fecha', $fecha);
         $this->smarty->display('templates/boot/bootDetail.tpl');
      }
      function showFilterBoots($logueado="", $marcaFiltro ,$userEmail = "", $admin="", $fotoPerfil = "") {
@@ -74,7 +75,7 @@ class BootsView {
         header("Location: ".BASE_URL."createBoot");
     }
     function showBotinesLocation() {
-        header("Location: ".BASE_URL."botines");
+        header("Location: ".BASE_URL."botines/page/1");
     }
     function showMarcasLocation() {
         header("Location: ".BASE_URL."marcas");

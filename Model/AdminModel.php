@@ -5,15 +5,15 @@ private $db;
 function __construct(){
     $this->db = new PDO('mysql:host=localhost;'.'dbname=db_botines;charset=utf8', 'root', '');
 }
-function getUsersNoAdmin() {
-    $sentencia = $this->db-> prepare('SELECT * FROM usuario WHERE administrador=0');
-    $sentencia->execute();
+function getUsersNoAdmin($noAdmin) {
+    $sentencia = $this->db-> prepare('SELECT * FROM usuario WHERE administrador=?');
+    $sentencia->execute(array($noAdmin));
     $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     return $usuarios;
 }
-function getUsersAdmin() {
-    $sentencia = $this->db-> prepare('SELECT * FROM usuario WHERE administrador=1');
-    $sentencia->execute();
+function getUsersAdmin($admin) {
+    $sentencia = $this->db-> prepare('SELECT * FROM usuario WHERE administrador=?');
+    $sentencia->execute(array($admin));
     $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     return $usuarios;
 }

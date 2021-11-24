@@ -30,8 +30,7 @@
         <div class="contenedorFiltro">
                         <button type="button" class="fas fa-search btn-filtroP" name="filtrar" id="comentariosPorEstrellas" ></button>
             <select name="hora" id="hora" class="form-select form-select-lg mb-3 selectFiltroP" aria-label=".form-select-lg example">
-                            <option value="nuevo">mas nuevo a mas antiguo</option>
-                            <option value="antiguo">mas antiguo a mas nuevo</option>
+                            <option value="nuevo">mas antiguos</option>
             </select>
         </div>
     </form>

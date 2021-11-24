@@ -57,6 +57,7 @@
                         <input class="foto-perfil" data-img={$fotoPerfil} value={$fotoPerfil} hidden >
                          <input class="nameUsuario "data-user={$userEmail} value={$userEmail} hidden >
                         <input id="id_botin" data-id={$id} value={$id} hidden/>
+                        <input id="fecha" value={$fecha} hidden/>
                     </div>
                     
                 </form>

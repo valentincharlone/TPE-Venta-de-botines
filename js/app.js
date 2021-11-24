@@ -78,13 +78,16 @@ async function getComentarios() {
         let usuario = document.querySelector(".nameUsuario").value;
         let fotoPerfil = document.querySelector(".foto-perfil").value;
         let comentario = document.getElementById("comentario").value;
+        let fecha = document.getElementById("fecha").value;
+        
         if (comentario!="" && estrellas>0) {
             let comentarioNuevo = {
                 "id_botin_fk":id_botin_fk,
                 "usuario":usuario,
-                "fotoPerfil":fotoPerfil,
                 "comentario":comentario,
-                "puntaje":estrellas
+                "puntaje":estrellas,
+                "fotoPerfil":fotoPerfil,
+                "fecha":fecha
             }
             try {
                 let response = await fetch(API_URL+id_botin_fk,{

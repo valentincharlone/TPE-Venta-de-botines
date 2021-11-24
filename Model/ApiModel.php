@@ -31,9 +31,9 @@ function getComent($idComentario){
         return $comentario;
 } 
 
-function insertarComentarios($id_botin_fk, $usuario, $comentario, $puntaje, $fotoPerfil) {
-    $sentencia = $this->db->prepare( "INSERT INTO comentario (id_botin_fk, usuario, comentario, fotoPerfil, puntaje) VALUES(?,?,?,?,?)");
-    $sentencia->execute(array($id_botin_fk, $usuario, $comentario, $fotoPerfil, $puntaje));
+function insertarComentarios($id_botin_fk, $usuario, $comentario, $puntaje, $fotoPerfil, $fecha) {
+    $sentencia = $this->db->prepare( "INSERT INTO comentario (id_botin_fk, usuario, comentario, puntaje, fotoPerfil, fecha) VALUES(?,?,?,?,?,?)");
+    $sentencia->execute(array($id_botin_fk, $usuario, $comentario, $puntaje, $fotoPerfil, $fecha));
     return $this->db->lastInsertId();   
 }
 

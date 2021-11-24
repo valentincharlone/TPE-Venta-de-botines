@@ -472,6 +472,10 @@ margin-top: -10%;
 #app h1 {
     margin-left: 15%;
 }
+.fecha {
+    margin-left:65%;
+    color: grey;
+}
 .puntajeComentario{
     font-size: 1.5rem;
 }
