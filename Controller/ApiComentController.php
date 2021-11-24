@@ -82,9 +82,11 @@ class ApiComentController {
     }
 
     function eliminarComentario($params = null) {
+        $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
         $idComentario = $params[':ID'];
-        if ($admin) {
+        //iria $admin solo al igual que los otros controllers, pero sino no anda, por eso el ==1
+        if ($logueado && $admin ==1) {
             $comentario = $this->model->getComent($idComentario);
             if ($comentario) {
                 $this->model->deleteComent($idComentario);
