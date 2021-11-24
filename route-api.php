@@ -11,11 +11,11 @@ $router->addRoute('comentarios/botin/:ID', 'GET', 'ApiComentController', 'obtene
 $router->addRoute('comentarios/botin/:ID/:ORDEN', 'GET', 'ApiComentController', 'obtenerComentariosBotinOrdenados');
 $router->addRoute('coments/botin/:ID/:PUNTAJE', 'GET', 'ApiComentController', 'obtenerComentariosBotinPorEstrellas');
 $router->addRoute('comentss/botin/:ID/:ORDEN', 'GET', 'ApiComentController', 'obtenerComentariosBotinPorDia');
-$router->addRoute('comentarios/botin/:ID', 'POST', 'ApiComentController', 'insertarComentario');    
+$router->addRoute('comentarios/botin/:ID', 'POST', 'ApiComentController', 'insertarComentario');
 $router->addRoute('comentarios/:ID', 'DELETE', 'ApiComentController', 'eliminarComentario');
 
 
- 
+
 
 // rutea
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);
