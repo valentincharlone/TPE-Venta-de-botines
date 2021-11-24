@@ -60,7 +60,7 @@
             $boot = $this->model->getBoot($id);
             $logueado = $this->authHelper->checkLoggedIn();
             $admin = $this->authHelper->checkAdimn();
-            $fecha = date("Y-m-d H:i:s");
+            $fecha = date("Y-m-d H:i");
             if ($boot) {
                 if($logueado){
                     $this->view->showBoot($id, $logueado, $boot,  $_SESSION['userName'], $admin, $_SESSION['fotoPerfil'], $fecha);

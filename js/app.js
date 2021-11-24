@@ -6,6 +6,7 @@ if(document.getElementById("agregarComentario")){
 }
     document.getElementById("filtrarComentarios").addEventListener("click",getComentariosByOrder);
     document.getElementById("comentariosPorEstrellas").addEventListener("click",getComentariosByStars);
+    document.getElementById("comentariosPorFecha").addEventListener("click",getComentariosByDate);
 let estrellas =0;
 let id_botin=0;
 
@@ -158,6 +159,30 @@ async function getComentarios() {
                 else {
                     console.log("No hay comentarios con ese puntaje");
                     app.error="❌No hay comentarios con ese puntaje❌";
+                    setTimeout(error,3000);
+                }
+            }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    async function getComentariosByDate() {
+        let id_botin = document.getElementById("id_botin").value;
+        let orden= document.getElementById("hora").value;
+        console.log("ORDEN: "+orden);
+        console.log("ID BOTIN: "+ id_botin);
+        
+        try {
+            let response = await fetch('api/comentss/botin/'+id_botin+'/'+orden);
+            if (response.ok) {
+                let comentarios = await response.json();
+                    app.comentarios = comentarios;
+             
+                }
+                else {
+                    console.log("No hay comentarios con fecha");
+                    app.error="❌No hay comentarios con fecha❌";
                     setTimeout(error,3000);
                 }
             }

@@ -28,9 +28,9 @@
         <label class="labelFiiltroPuntaje">Ver comentarios por horario:</label>
         <input name="id" value={$id} hidden/>
         <div class="contenedorFiltro">
-                        <button type="button" class="fas fa-search btn-filtroP" name="filtrar" id="comentariosPorEstrellas" ></button>
+                        <button type="button" class="fas fa-search btn-filtroP" name="filtrar" id="comentariosPorFecha" ></button>
             <select name="hora" id="hora" class="form-select form-select-lg mb-3 selectFiltroP" aria-label=".form-select-lg example">
-                            <option value="nuevo">mas antiguos</option>
+                            <option value="DESC">mas nuevos a mas viejos</option>
             </select>
         </div>
     </form>

@@ -53,6 +53,19 @@ class ApiComentController{
         }
     }
 
+    function obtenerComentariosBotinPorDia($params = null){
+        $id= $params[":ID"];
+        $orden= $params[":ORDEN"];
+        
+            $comentarios = $this->model->getComentsDate($id, $orden);
+            if ($comentarios) {
+                return $this->view->response($comentarios, 200);
+            }
+            else {
+                return $this->view->response("el botin con id $id no tiene comentarios con fecha", 404);
+            }
+    }
+
     function insertarComentario($params = null) {
         $logueado = $this->authHelper->checkLoggedIn();
         if($logueado){
