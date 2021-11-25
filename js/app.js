@@ -60,8 +60,12 @@ async function getComentarios() {
             for (const puntaje of comentarios) {
                 app.promedioPuntaje += parseInt(puntaje.puntaje);
             }
-            app.promedioPuntaje = (app.promedioPuntaje / comentarios.length);
-            console.log(app.promedioPuntaje);
+            if (comentarios.length === 0) {
+                app.promedioPuntaje = 0;
+            }
+            else {
+                app.promedioPuntaje = (app.promedioPuntaje / comentarios.length);
+            }
         }
     }
     catch (e) {

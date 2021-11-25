@@ -2,6 +2,7 @@
 require_once "./Model/ApiModel.php";
 require_once "./View/ApiView.php";
 require_once "./Helpers/AuthHelper.php";
+require_once "./Model/BootsModel.php";
 
 
 
@@ -10,21 +11,26 @@ class ApiComentController {
     private $model;
     private $view;
     private $authHelper;
+    private $bootsModel;
 
     function __construct() {
         $this->model = new ApiModel();
+        $this->bootsModel = new BootsModel();
         $this->view = new ApiView();
         $this->authHelper = new AuthHelper();
     }
     
     function obtenerComentariosBotin($params = null) {
         $id = $params[":ID"];
-        $comentarios = $this->model->getComents($id);
-        if ($comentarios) {
+        $existe = $this->bootsModel->getBoot($id);
+        if($existe) {
+            $comentarios = $this->model->getComents($id);
             return $this->view->response($comentarios, 200);
-        } else {
-            return $this->view->response(null, 404);
         }
+        else {
+            return $this->view->response("no existe el botin",404);
+        }
+
     }
 
     function obtenerComentariosBotinOrdenados($params = null) {
