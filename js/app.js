@@ -8,7 +8,7 @@ document.getElementById("filtrarComentarios").addEventListener("click", getComen
 document.getElementById("comentariosPorEstrellas").addEventListener("click", getComentariosByStars);
 document.getElementById("comentariosPorFecha").addEventListener("click", getComentariosByDate);
 let estrellas = 0;
-let id_botin = 0;
+
 
 const API_URL = "api/comentarios/botin/";
 const BorrarComentario = "api/comentarios/";

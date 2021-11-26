@@ -30,4 +30,7 @@ class UserView  {
     function showLoginLocation() {
         header("Location: " . BASE_URL . "login");
     }
+    function showRegisterLocation() {
+        header("Location: " . BASE_URL . "register");
+    }
 }

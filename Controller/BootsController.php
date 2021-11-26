@@ -51,6 +51,9 @@ class BootsController {
         } else {
             $this->view->showBoots($logueado, $bootsData, $marcas, $limit, $admin, $offset, $bootsData, $npag, $maxPageNum);
         }
+        if ($npag > $maxPageNum) {
+            $this->view->showBotinesLocation();
+        }
     }
 
     function viewBoot($id)  {

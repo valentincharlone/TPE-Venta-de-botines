@@ -38,4 +38,7 @@ class AdminView  {
     function showUsersAdminLocation() {
         header("Location: " . BASE_URL . "administradores");
     }
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
+    }
 }

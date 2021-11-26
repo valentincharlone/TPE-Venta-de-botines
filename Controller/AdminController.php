@@ -19,44 +19,56 @@ class AdminController
         $usuarios = $this->model->getUsersNoAdmin($noAdmin);
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
-        if ($logueado && $admin == true) {
+        if ($logueado && $admin) {
             $this->view->showUsersNoAdmin($logueado, $_SESSION['userName'], $usuarios, $admin, $_SESSION['fotoPerfil']);
         } else {
-            $this->view->showLoginLocation();
+            $this->view->showHomeLocation();
         }
     }
-
+    
     function allUsersAdmin() {
-        $admin = 1;
-        $usuarios = $this->model->getUsersAdmin($admin);
+        $Admin = 1;
+        $usuarios = $this->model->getUsersAdmin($Admin);
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
-        if ($logueado && $admin == true) {
+        if ($logueado && $admin) {
             $this->view->showUsersAdmin($logueado, $_SESSION['userName'], $usuarios, $admin, $_SESSION['fotoPerfil']);
         } else {
-            $this->view->showLoginLocation();
+            $this->view->showHomeLocation();
         }
     }
-
+    
     function deleteUser($idUsuario) {
         $logueado = $this->authHelper->checkLoggedIn();
-        if ($logueado == true) {
+        $admin = $this->authHelper->checkAdimn();
+        if ($logueado && $admin) {
             $this->model->deleteUserFromDB($idUsuario);
             $this->view->showUsersNoAdminLocation();
         }
+        else {
+            $this->view->showHomeLocation();
+        }
     }
     function doAdmin($idUsuario) {
+        $Admin = 1;
         $logueado = $this->authHelper->checkLoggedIn();
-        if ($logueado == true) {
-            $this->model->doAdminUser($idUsuario);
+        $admin = $this->authHelper->checkAdimn();
+        if ($logueado && $admin) {
+            $this->model->doAdminUser( $Admin, $idUsuario);
             $this->view->showUsersNoAdminLocation();
+        }
+        else {
+            $this->view->showHomeLocation();
         }
     }
     function doNormalUser($idUsuario) {
         $logueado = $this->authHelper->checkLoggedIn();
-        if ($logueado == true) {
+        if ($logueado) {
             $this->model->doNormalUser($idUsuario);
             $this->view->showUsersAdminLocation();
+        }
+        else {
+            $this->view->showHomeLocation();
         }
     }
 }

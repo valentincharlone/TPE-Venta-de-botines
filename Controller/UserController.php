@@ -48,7 +48,7 @@ class UserController {
     $this->view->formRegister();
   }
   function insertRegister()  {
-    if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nombre_usuario']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+    if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nombre_usuario']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_FILES['input_name']['type'])) {
       if ($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -58,7 +58,10 @@ class UserController {
         $fotoPerfil = $_FILES['input_name']['tmp_name'];
         $this->model->insertUserFromDB($nombre, $apellido, $nombre_usuario, $userEmail, $userPassword, $fotoPerfil);
       }
+      $this->view->showLoginLocation();
     }
-    $this->view->showLoginLocation();
+    else {
+      $this->view->showRegisterLocation();
   }
+}
 }

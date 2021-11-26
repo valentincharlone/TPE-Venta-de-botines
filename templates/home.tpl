@@ -21,8 +21,6 @@
 </div>
 
 <h1 class="categorias">Categorias</h2>
-    <hr size="5" class="hrIzq" style="color: #000000;" />
-    <hr size="5" class="hrDer" style="color: #000000;" />
 
     <div class="contenedorCategorias">
         <div class="terrenoFirme">
