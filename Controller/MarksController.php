@@ -38,15 +38,20 @@ class MarksController
     function updateMark() {
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
-        $this->model->updateMarkFromDB($_POST['renameMark'], $_POST['id_marca']);
-        $this->view->showMarcasLocation();
+        if ($logueado && $admin ) {
+            $this->model->updateMarkFromDB($_POST['renameMark'], $_POST['id_marca']);
+            $this->view->showMarcasLocation();
+        }
+        else {
+            $this->view->showHomeLocation();
+        }
     }
     function deleteMark($id) {
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
         if ($logueado && $admin) {
-        $this->model->deleteMarkFromDB($id);
-        $this->view->showMarcasLocation();
+            $this->model->deleteMarkFromDB($id);
+            $this->view->showMarcasLocation();
         }
         else {
             $this->view->showHomeLocation();
@@ -56,8 +61,8 @@ class MarksController
         $logueado = $this->authHelper->checkLoggedIn();
         $admin = $this->authHelper->checkAdimn();
         if ($logueado && $admin) {
-        $this->model->insertMarkFromDB($_POST['newMark']);
-        $this->view->showMarcasLocation();
+            $this->model->insertMarkFromDB($_POST['newMark']);
+            $this->view->showMarcasLocation();
         }
         else {
             $this->view->showHomeLocation();
